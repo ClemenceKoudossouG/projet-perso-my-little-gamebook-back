@@ -15,6 +15,7 @@ const storyController = {
     },
 
     async getAllStoriesByGenre(req, res, next) {
+        // Pour récupérer les histoires par genre. 
         const { result, error } = await storyDatamapper.findByGenre();
 
         // Vérification d'erreur
@@ -27,6 +28,7 @@ const storyController = {
     },
 
     async getAllStoriesByLevel(req, res, next) {
+        // Pour récupérer les histoires par niveau de difficulté.
         const { result, error } = await storyDatamapper.findByLevel();
 
         // Vérification d'erreur
@@ -39,6 +41,7 @@ const storyController = {
     },
 
     async getOneStory(req, res, next) {
+        // Pour récupérer une histoire, par son id.
         const { result, error } = await storyDatamapper.findById(req.params.id);
 
     // Vérification d'erreur
