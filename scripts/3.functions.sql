@@ -1,5 +1,3 @@
-$$ LANGUAGE sql SECURITY DEFINER;
-
 BEGIN;
 
 ALTER DEFAULT PRIVILEGES FOR ROLE admin_gamebook IN SCHEMA public
@@ -24,7 +22,7 @@ CREATE OR REPLACE FUNCTION get_all_stories_by_level(int) RETURNS SETOF story AS 
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer une histoire en particulier :
-CREATE OR REPLACE FUNCTION find_story_by_id(int) RETURNS story AS $$
+CREATE OR REPLACE FUNCTION get_story_by_id(int) RETURNS story AS $$
 	SELECT * FROM story WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -43,7 +41,7 @@ CREATE OR REPLACE FUNCTION get_all_genres_of_a_story(int) RETURNS SETOF genre AS
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer un genre en particulier :
-CREATE OR REPLACE FUNCTION find_genre_by_id(int) RETURNS genre AS $$
+CREATE OR REPLACE FUNCTION get_genre_by_id(int) RETURNS genre AS $$
 	SELECT * FROM genre WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -57,12 +55,12 @@ CREATE OR REPLACE FUNCTION get_all_compartments() RETURNS SETOF compartment AS $
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les cases selon une classe choisie :
-CREATE OR REPLACE FUNCTION get_all_compartments_by_class(json) RETURNS SETOF compartment AS $$
+CREATE OR REPLACE FUNCTION get_all_compartments_by_class(TEXT) RETURNS SETOF compartment AS $$
 	SELECT * FROM compartment WHERE class=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer une case en particulier :
-CREATE OR REPLACE FUNCTION find_compartment_by_id(int) RETURNS compartment AS $$
+CREATE OR REPLACE FUNCTION get_compartment_by_id(int) RETURNS compartment AS $$
 	SELECT * FROM compartment WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -76,7 +74,7 @@ CREATE OR REPLACE FUNCTION get_all_worlds() RETURNS SETOF world AS $$
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer un univers en particulier :
-CREATE OR REPLACE FUNCTION find_world_by_id(int) RETURNS world AS $$
+CREATE OR REPLACE FUNCTION get_world_by_id(int) RETURNS world AS $$
 	SELECT * FROM world WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -95,7 +93,7 @@ CREATE OR REPLACE FUNCTION get_all_places_by_world(int) RETURNS SETOF place AS $
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer un lieu en particulier :
-CREATE OR REPLACE FUNCTION find_place_by_id(int) RETURNS place AS $$
+CREATE OR REPLACE FUNCTION get_place_by_id(int) RETURNS place AS $$
 	SELECT * FROM place WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -114,7 +112,7 @@ CREATE OR REPLACE FUNCTION get_all_npcs_by_world(int) RETURNS SETOF npc AS $$
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer un personnage en particulier :
-CREATE OR REPLACE FUNCTION find_npc_by_id(int) RETURNS npc AS $$
+CREATE OR REPLACE FUNCTION get_npc_by_id(int) RETURNS npc AS $$
 	SELECT * FROM npc WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -133,7 +131,7 @@ CREATE OR REPLACE FUNCTION get_all_items_by_action(int) RETURNS SETOF item AS $$
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer un objet en particulier :
-CREATE OR REPLACE FUNCTION find_item_by_id(int) RETURNS item AS $$
+CREATE OR REPLACE FUNCTION get_item_by_id(int) RETURNS item AS $$
 	SELECT * FROM item WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
@@ -157,19 +155,21 @@ CREATE OR REPLACE FUNCTION get_all_actions_by_item(int) RETURNS SETOF action AS 
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les actions selon une classe choisie :
-CREATE OR REPLACE FUNCTION get_all_actions_by_class(json) RETURNS SETOF action AS $$
+CREATE OR REPLACE FUNCTION get_all_actions_by_class(TEXT) RETURNS SETOF action AS $$
 	SELECT * FROM action WHERE class=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer une action en particulier :
-CREATE OR REPLACE FUNCTION find_action_by_id(int) RETURNS action AS $$
+CREATE OR REPLACE FUNCTION get_action_by_id(int) RETURNS action AS $$
 	SELECT * FROM action WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 
 
 -- User :
-CREATE FUNCTION add_user(u json) RETURNS "user" AS $$
+
+-- Pour créer un utilisateur :
+CREATE OR REPLACE FUNCTION add_user(u json) RETURNS "user" AS $$
 	INSERT INTO "user"
 	(email,password,lastname,firstname,alias,avatar)
 	VALUES
@@ -184,6 +184,7 @@ CREATE FUNCTION add_user(u json) RETURNS "user" AS $$
 	RETURNING *;
 $$ LANGUAGE sql SECURITY DEFINER;
 
+-- Pour vérifier via le login qu'un utilisateur existe réellement afin de le connecter :
 CREATE OR REPLACE FUNCTION verify_user(json) RETURNS json AS $$
 DECLARE
 	user_found json;
@@ -208,8 +209,27 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
-CREATE FUNCTION get_user(int) RETURNS "user" AS $$
+-- Pour récupérer un utilisateur en particulier :
+CREATE OR REPLACE FUNCTION get_user_by_id(int) RETURNS "user" AS $$
 	SELECT * FROM "user" WHERE id=$1;
+$$ LANGUAGE sql SECURITY DEFINER;
+
+-- Pour modifier un utilisateur :
+CREATE OR REPLACE FUNCTION update_user(u json) RETURNS "user" AS $$
+	UPDATE "user" SET
+		"password"=u->>'password',
+		"lastname"=u->>'lastname',
+		"firstname"=u->>'firstname',
+		"alias"=u->>'alias',
+		"avatar"=u->>'avatar'
+	WHERE "id"=(u->>'id')::int
+	RETURNING *;
+$$ LANGUAGE sql SECURITY DEFINER;
+
+-- Pour supprimer un utilisateur :
+CREATE OR REPLACE FUNCTION delete_user(int) RETURNS void AS $$
+	DELETE FROM "user"
+	WHERE "id"=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 
