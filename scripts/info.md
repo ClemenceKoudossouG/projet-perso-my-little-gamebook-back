@@ -1,1 +1,1 @@
-Hello ce sont les docs de la bdd
+Hello ce sont les docs de la bdd, version scripts
