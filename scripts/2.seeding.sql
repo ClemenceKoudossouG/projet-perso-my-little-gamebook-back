@@ -3,8 +3,10 @@ BEGIN;
 INSERT INTO "user" ("email", "password", "lastname", "firstname", "alias") VALUES
 ('john.doe@oclock.school', 'jojo123', 'Doe', 'John', 'jojo');
 
-INSERT INTO "story" ("name") VALUES
-('L''histoire des 4 créateurs');
+INSERT INTO "story" ("name", "level") VALUES
+('L''histoire des 4 créateurs', 1),
+('L''enquête de la Gaufre', 1),
+('La quête de la Gaufre', 2);
 
 INSERT INTO "genre" ("label") VALUES
 ('Aventure'),
@@ -70,7 +72,10 @@ INSERT INTO "action_has_item" ("action_id", "item_id") VALUES
 (7, 2);
 
 INSERT INTO "story_has_genre" ("story_id", "genre_id") VALUES
-(1, 1);
+(1, 1),
+(2, 2),
+(3, 1),
+(3, 2);
 
 INSERT INTO "compartment_has_action" ("compartment_id", "action_id") VALUES
 (1, 1),
