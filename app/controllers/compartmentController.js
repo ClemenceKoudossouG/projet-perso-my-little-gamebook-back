@@ -36,7 +36,7 @@ const compartmentController = {
     async getAllCompartmentsByClass(req, res, next) {
         try {
             const { compartmentClassName } = req.params;
-            const { result, error } = await compartmentDataMapper.findByLevel(compartmentClassName);
+            const { result, error } = await compartmentDataMapper.findByClass(compartmentClassName);
             // Vérification d'erreur
             if (error) {
                 next(error);

@@ -36,7 +36,7 @@ const npcController = {
     async getAllNpcsByWorld(req, res, next) {
         try {
             const { world } = req.params;
-            const { result, error } = await npcDataMapper.findByLevel(world);
+            const { result, error } = await npcDataMapper.findByWorld(world);
             // Vérification d'erreur
             if (error) {
                 next(error);
