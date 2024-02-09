@@ -7,7 +7,7 @@ import { client } from "../services/pgClient";
 const userDataMapper = {
 
     // Pour ajouter un utilisateur au moment du signup :
-    async addUser(user){
+    async createUser(user){
 
         // On utilise la fonction sql add_user
         const sqlQuery = "SELECT * FROM add_user($1);";
@@ -33,7 +33,7 @@ const userDataMapper = {
     },
 
     // Pour vérifier si un utilisateur existe au moment du signin :
-    async verifyUser(user){
+    async authenticateUser(user){
 
         // On utilise la fonction sql verify_user
         const sqlQuery = "SELECT * FROM verify_user($1);";
@@ -85,7 +85,7 @@ const userDataMapper = {
     },
 
     // Pour modifier les informations d'un utilisateur en particulier :
-    async updateUser(user){
+    async updateOneUser(user){
 
         // On utilise la fonction sql update_user
         const sqlQuery = "SELECT * FROM update_user($1);";
