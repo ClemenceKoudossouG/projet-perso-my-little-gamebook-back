@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = 3000;
 
-// Pour autoriser l'envoi de JSON
+// Pour autoriser l'envoi de JSON si nécessaire
 app.use(express.json());
 
 app.listen(PORT, ()=>{
