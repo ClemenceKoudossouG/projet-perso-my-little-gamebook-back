@@ -37,7 +37,7 @@ const genreController = {
         try {
             // Récupération de l'id de l'histoire concernée.
             const { id } = req.params;
-            const { result, error } = await storyDataMapper.findGenresOfAStory(id);
+            const { result, error } = await storyDataMapper.findAllGenresOfAStory(id);
             // Vérification d'erreur
             if (error) {
                 next(error);
