@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import "dotenv/config";
 
 import express from "express";
 
@@ -10,7 +10,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.listen(PORT, ()=>{
-    console.log("Back is listening on http://localhost:3000");
+    console.log("Back is listening at http://localhost:3000");
 });
 
 

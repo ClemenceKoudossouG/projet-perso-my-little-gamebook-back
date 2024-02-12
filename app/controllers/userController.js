@@ -1,10 +1,11 @@
-// import { userDataMapper } from "";
+import { userDataMapper } from "../dataMappers/index";
+import jwt from "../service/jwt";
 
 const userController = {
     // Pour afficher les données de l'utilisateur (lastname, avatar, etc)
     async getCurrentUser(req, res, next) {
         try {
-            // Récupérer l'id de l'utilisateur concerné (ajouter token ?)
+            // Récupérer l'id de l'utilisateur concerné.
             const { userId } = req.params;
             const { result, error } = await userDataMapper.getUser(userId);
             // Vérification d'erreur
@@ -37,6 +38,11 @@ const userController = {
     // Pour se connecter au site
     async signin(req, res, next) {
         try {
+            // Récupération du token
+            const token = req.get("Authorization");
+            // Vérification du token
+            const user = jwt.decode(token);
+            console.log(user);
             // Récupérer les informations de l'utilisateur en appelant la méthode authenticateUser
             const { result, error } = await userDataMapper.authenticateUser(req.body);
             // Vérification d'erreur
