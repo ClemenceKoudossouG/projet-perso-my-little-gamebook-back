@@ -1,4 +1,4 @@
-import { worldDataMapper } from "../dataMappers";
+import { worldDataMapper } from "../dataMappers/index.js";
 
 const worldController = {
     // Pour récupérer tous les univers existants.
@@ -34,4 +34,4 @@ const worldController = {
     }
 };
 
-export default worldController;
+export { worldController };

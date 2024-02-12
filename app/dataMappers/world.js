@@ -1,7 +1,7 @@
 // Le worldDataMapper faisant le lien entre le worldController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import { client } from "../services/pgClient";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet worldDataMapper
 const worldDataMapper = {
@@ -16,7 +16,7 @@ const worldDataMapper = {
         let error;
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery);
+            const response = await pool.query(sqlQuery);
 
             // On récupère toutes les rangées en question implémentées dans la bdd
             result = response.rows;
@@ -43,7 +43,7 @@ const worldDataMapper = {
 
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
             result = response.rows[0];
@@ -58,4 +58,4 @@ const worldDataMapper = {
 };
 
 // On exporte le worldDataMapper
-export default worldDataMapper;
+export { worldDataMapper };

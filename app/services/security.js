@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 import JWT from "../services/jwt.js";
 
 // On utilise l'affichage des APIError
-import { APIError } from './error/APIError.js';
+import APIError from './errorHandler/APIError.js';
 
 // Pour vérifier à chaque fois si l'utilisateur est un membre connecté enregistré, on vérifie son token :
 export function isMember(req, res, next) {
@@ -31,37 +31,4 @@ export async function encodePassword(password){
 // Pour vérifier le mot de passe :
 export async function passwordMatch(password,passwordHash){
     return await bcrypt.compare(password, passwordHash);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function isMember(req, res, next) {
-
-    const token = req.get("Authorization");
-
-    const { result, error } = JWT.decode(token);
-
-    if (result) {
-
-        if (result.role == 'member' || result.role == 'admin') {
-            next();
-        }
-        else {
-            next(new Error("Vous n'avez pas le droit"));
-        }
-    }
-    else {
-        next(error);
-    }
 }

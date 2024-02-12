@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT ?? 3000;
 
-import router from './app/routers';
+import router from './app/routers/index.js';
 
 
 // Pour accéder aux ressources d'un autre serveur (requêter notre API via le serveur Front) :
@@ -19,7 +19,7 @@ app.use(express.json());
 // Pour autoriser la réception de données venant de formulaires :
 app.use(express.urlencoded({ extended: true}));
 
-app.use("/",router);
+app.use(router);
 
 app.listen(PORT, ()=>{
     console.log(`Back is listening on http://localhost:${PORT}`);

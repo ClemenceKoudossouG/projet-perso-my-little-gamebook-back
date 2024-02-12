@@ -1,7 +1,7 @@
 // Le storyDataMapper faisant le lien entre le storyController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import { client } from "../services/pgClient";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet storyDataMapper
 const storyDataMapper = {
@@ -16,7 +16,7 @@ const storyDataMapper = {
         let error;
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery);
+            const response = await pool.query(sqlQuery);
 
             // On récupère toutes les rangées en question implémentées dans la bdd
             result = response.rows;
@@ -42,7 +42,7 @@ const storyDataMapper = {
         let error;
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
             result = response.rows[0];
@@ -68,7 +68,7 @@ const storyDataMapper = {
         let error;
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
             result = response.rows[0];
@@ -95,7 +95,7 @@ const storyDataMapper = {
 
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
             result = response.rows[0];
@@ -110,4 +110,4 @@ const storyDataMapper = {
 };
 
 // On exporte le storyDataMapper
-export default storyDataMapper;
+export { storyDataMapper };

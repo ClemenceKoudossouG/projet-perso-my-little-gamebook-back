@@ -1,4 +1,4 @@
-import { actionDataMapper } from "../dataMappers";
+import { actionDataMapper } from "../dataMappers/index.js";
 
 const actionController = {
     // Pour récupérer toutes les actions existantes en tant qu'utilisateur connecté.
@@ -82,4 +82,4 @@ const actionController = {
     },
 };
 
-export default actionController;
+export { actionController };

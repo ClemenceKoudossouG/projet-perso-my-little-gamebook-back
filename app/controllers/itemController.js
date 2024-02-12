@@ -1,4 +1,4 @@
-import { itemDataMapper } from "../dataMappers";
+import { itemDataMapper } from "../dataMappers/index.js";
 
 const itemController = {
     // Pour récupérer tous les objets existants en tant qu'utilisateur connecté.
@@ -50,4 +50,4 @@ const itemController = {
     },
 };
 
-export default itemController;
+export { itemController };

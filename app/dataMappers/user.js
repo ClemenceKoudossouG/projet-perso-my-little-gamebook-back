@@ -1,7 +1,7 @@
 // Le userDataMapper faisant le lien entre le userController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import { client } from "../services/pgClient";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet userDataMapper
 const userDataMapper = {
@@ -20,7 +20,7 @@ const userDataMapper = {
 
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations maintenant implémentées dans la bdd
             result = response.rows[0];
@@ -46,7 +46,7 @@ const userDataMapper = {
 
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations comparées dans la bdd
             result = response.rows[0];
@@ -72,7 +72,7 @@ const userDataMapper = {
 
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
             result = response.rows[0];
@@ -97,7 +97,7 @@ const userDataMapper = {
         let error;
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations maintenant implémentées dans la bdd
             result = response.rows[0];
@@ -123,7 +123,7 @@ const userDataMapper = {
         let error;
         try {
             // Avec la méthode async/await
-            const response = await client.query(sqlQuery,values);
+            const response = await pool.query(sqlQuery,values);
 
             // On retourne la dernière rangée ayant été affectée par une suppression :
             result = response.rowCount == 1;
@@ -139,4 +139,4 @@ const userDataMapper = {
 };
 
 // On exporte le userDataMapper
-export default userDataMapper;
+export { userDataMapper };

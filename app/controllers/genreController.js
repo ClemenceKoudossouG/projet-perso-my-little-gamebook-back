@@ -1,4 +1,4 @@
-import { genreDataMapper } from "../dataMappers";
+import { genreDataMapper } from "../dataMappers/index.js";
 
 const genreController = {
     // Pour récupérer tous les genres.
@@ -51,4 +51,4 @@ const genreController = {
     },
 };
 
-export default genreController;
+export { genreController };

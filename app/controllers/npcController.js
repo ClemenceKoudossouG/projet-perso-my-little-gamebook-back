@@ -1,4 +1,4 @@
-import { npcDataMapper } from "../dataMappers";
+import { npcDataMapper } from "../dataMappers/index.js";
 
 const npcController = {
     // Pour récupérer tous les personnages existants en tant qu'utilisateur connecté.
@@ -50,4 +50,4 @@ const npcController = {
     },
 };
 
-export default npcController;
+export { npcController };

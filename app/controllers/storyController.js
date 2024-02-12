@@ -1,4 +1,4 @@
-import { storyDataMapper } from "../dataMappers";
+import { storyDataMapper } from "../dataMappers/index.js";
 
 const storyController = {
     // Pour récupérer toutes les histoires proposées sur l'appli.
@@ -66,4 +66,4 @@ const storyController = {
     }
 };
 
-export default storyController;
+export { storyController };

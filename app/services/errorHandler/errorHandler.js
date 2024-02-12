@@ -6,7 +6,7 @@ debug("error:API");
 import logger from './logger.js';
 
 // Les erreurs d'API s'afficheront avec une erreur 500 définie dans le fichier APIError.js
-import { APIError } from "./APIError.js";
+import APIError from "./APIError.js";
 
 // https://expressjs.com/en/guide/error-handling.html pour aider à la conception du errorHandler
 const errorHandler = (error, _, response, next) => { // On a besoin dans les errorhandler de 4 paramètres : error, req (ici inutile), response et next
