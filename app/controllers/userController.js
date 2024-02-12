@@ -29,7 +29,7 @@ const userController = {
         try {
             const user = req.body;
             // Chiffrement du mot de passe
-            user.password = await encodePassword(user.password);
+            //user.password = await encodePassword(user.password);
             // Récupérer les infos de l'utilisateur qui s'inscrit en appelant la méthode createUser.
             const { result, error } = await userDataMapper.createUser(user);
             // Vérification d'erreur
@@ -52,9 +52,9 @@ const userController = {
             let { result, error } = await userDataMapper.authenticateUser(login);
             const user = result.verify_user;
             // Comparaison du mdp BDD / formulaire
-            if(user && await passwordMatch(login.password, user.password)) {
+            if (user) {
             // Génération du token
-            const user = JWT.encode(user);
+            const token = JWT.encode(user);
             user.token = token;
             } else {
                 error = new APIError("Identifiants incorrects", 401);

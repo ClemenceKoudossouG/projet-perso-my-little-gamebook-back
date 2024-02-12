@@ -85,7 +85,7 @@ const userDataMapper = {
     },
 
     // Pour modifier les informations d'un utilisateur en particulier :
-    async updateOneUser(user){
+    async updateUser(user){
 
         // On utilise la fonction sql update_user
         const sqlQuery = "SELECT * FROM update_user($1);";
