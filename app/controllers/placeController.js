@@ -1,4 +1,4 @@
-// import { worldDataMapper } from "";
+import { worldDataMapper } from "../dataMappers";
 
 const placeController = {
     // Pour récupérer tous les lieux existants en tant qu'utilisateur connecté.

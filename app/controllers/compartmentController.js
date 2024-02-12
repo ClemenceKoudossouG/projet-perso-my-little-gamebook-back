@@ -1,4 +1,4 @@
-// import { compartmentDataMapper } from "";
+import { compartmentDataMapper } from "../dataMappers";
 
 const compartmentController = {
     // Pour récupérer toutes les cases créées dans une histoire en tant qu'utilisateur connecté.

@@ -1,4 +1,4 @@
-// import { worldDataMapper } from "";
+import { worldDataMapper } from "../dataMappers";
 
 const worldController = {
     // Pour récupérer tous les univers existants.

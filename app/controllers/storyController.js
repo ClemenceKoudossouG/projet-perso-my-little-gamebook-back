@@ -1,4 +1,4 @@
-// import { storyDataMapper } from "";
+import { storyDataMapper } from "../dataMappers";
 
 const storyController = {
     // Pour récupérer toutes les histoires proposées sur l'appli.

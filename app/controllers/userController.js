@@ -1,12 +1,18 @@
-// import { userDataMapper } from "";
+import { userDataMapper } from "../dataMappers";
+
+import JWT from "../services/jwt.js";
+import { APIError } from "../services/errorHandler/APIError.js";
+import { encodePassword, passwordMatch } from "../services/security.js";
 
 const userController = {
     // Pour afficher les données de l'utilisateur (lastname, avatar, etc)
     async getCurrentUser(req, res, next) {
         try {
-            // Récupérer l'id de l'utilisateur concerné (ajouter token ?)
-            const { userId } = req.params;
-            const { result, error } = await userDataMapper.getUser(userId);
+            // Récupération du token de l'utilisateur
+            const token = req.get("Authorization");
+            // Vérification du token de l'utilisateur
+            const user = JWT.decode(token);
+            const { result, error } = await userDataMapper.getUser(user);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -21,8 +27,11 @@ const userController = {
     // Pour s'inscrire sur le site
     async signup(req, res, next) {
         try {
+            const user = req.body;
+            // Chiffrement du mot de passe
+            user.password = await encodePassword(user.password);
             // Récupérer les infos de l'utilisateur qui s'inscrit en appelant la méthode createUser.
-            const { result, error } = await userDataMapper.createUser(req.body);
+            const { result, error } = await userDataMapper.createUser(user);
             // Vérification d'erreur
             if (error) {
                 next(error);

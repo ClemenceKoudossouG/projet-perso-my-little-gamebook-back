@@ -1,4 +1,4 @@
-// import { itemDataMapper } from "";
+import { itemDataMapper } from "../dataMappers";
 
 const itemController = {
     // Pour récupérer tous les objets existants en tant qu'utilisateur connecté.

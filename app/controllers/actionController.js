@@ -1,4 +1,4 @@
-// import { actionDataMapper } from "";
+import { actionDataMapper } from "../dataMappers";
 
 const actionController = {
     // Pour récupérer toutes les actions existantes en tant qu'utilisateur connecté.

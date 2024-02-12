@@ -1,4 +1,4 @@
-// import { genreDataMapper } from "";
+import { genreDataMapper } from "../dataMappers";
 
 const genreController = {
     // Pour récupérer tous les genres.

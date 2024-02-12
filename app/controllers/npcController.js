@@ -1,4 +1,4 @@
-// import { npcDataMapper } from "";
+import { npcDataMapper } from "../dataMappers";
 
 const npcController = {
     // Pour récupérer tous les personnages existants en tant qu'utilisateur connecté.
