@@ -29,7 +29,7 @@ const userController = {
         try {
             const user = req.body;
             // Chiffrement du mot de passe
-            //user.password = await encodePassword(user.password);
+            user.password = await encodePassword(user.password);
             // Récupérer les infos de l'utilisateur qui s'inscrit en appelant la méthode createUser.
             const { result, error } = await userDataMapper.createUser(user);
             // Vérification d'erreur
@@ -52,7 +52,7 @@ const userController = {
             let { result, error } = await userDataMapper.authenticateUser(login);
             const user = result.verify_user;
             // Comparaison du mdp BDD / formulaire
-            if (user) {
+            if (user && await passwordMatch(login.password, user.password)) {
             // Génération du token
             const token = JWT.encode(user);
             user.token = token;
