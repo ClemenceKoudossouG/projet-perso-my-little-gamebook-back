@@ -1,7 +1,7 @@
-import { userDataMapper } from "../dataMappers";
+import userDataMapper from "../dataMappers/user.js";
 
 import JWT from "../services/jwt.js";
-import { APIError } from "../services/errorHandler/APIError.js";
+import APIError from "../services/errorHandler/APIError.js";
 import { encodePassword, passwordMatch } from "../services/security.js";
 
 const userController = {
@@ -49,20 +49,20 @@ const userController = {
             // Récupération du formulaire
             const login = req.body;
             // Récupérer les informations de l'utilisateur en appelant la méthode authenticateUser
-            let { result, error } = await userDataMapper.authenticateUser(req.body);
+            const { result, error } = await userDataMapper.authenticateUser(login);
             const user = result.verify_user;
-            // Comparaison du mdp BDD / formulaire
-            if(user && await passwordMatch(login.password, user.password)) {
-            // Génération du token
-            const user = JWT.encode(token);
-            user.token = token;
-            } else {
-                error = new APIError("Identifiants incorrects");
-            }
-        } catch (error) {
-            next(error);
-        }
-    },
+            if (user && await passwordMatch(login.password, user.password)) {
+                // Génération du token
+                const token = JWT.encode(user);
+                user.token = token;
+                // Obtenir une réponse
+                } else {
+                    res.json(login);
+                }
+            } catch (error) {
+                next(error);
+            }           
+    }, 
     // Pour modifier ses données en tant qu'utilisateur connecté
     async updateOneUser(req, res, next) {
         try {

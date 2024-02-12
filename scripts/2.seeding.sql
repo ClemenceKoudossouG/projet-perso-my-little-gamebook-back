@@ -1,7 +1,7 @@
 BEGIN;
 
 INSERT INTO "user" ("email", "password", "lastname", "firstname", "alias") VALUES
-('john.doe@oclock.school', 'jojo123', 'Doe', 'John', 'jojo');
+('john.doe@oclock.school', 'Jojo123!', 'Doe', 'John', 'jojo');
 
 INSERT INTO "story" ("name", "level") VALUES
 ('L''histoire des 4 créateurs', 1),

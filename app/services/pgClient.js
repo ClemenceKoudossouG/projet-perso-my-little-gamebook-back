@@ -1,7 +1,9 @@
-import { Client } from "pg";
+import pkg from 'pg';
 
-const client = new Client();
+const {Pool} = pkg;
 
-client.connect();
+const pool = new Pool();
 
-export default client;
+pool.connect();
+
+export default pool;

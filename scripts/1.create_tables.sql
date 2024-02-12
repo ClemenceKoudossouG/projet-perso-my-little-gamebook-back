@@ -2,10 +2,11 @@ BEGIN;
 
 DROP TABLE IF EXISTS "user", "story", "genre", "world", "place", "npc", "item", "action", "compartment", "user_has_story", "user_has_item", "action_has_item", "story_has_genre", "compartment_has_action", "place_has_world", "npc_has_world", "npc_has_action";
 
-CREATE DOMAIN domain_password AS TEXT
-CHECK(
-   VALUE ~ '^[a-zA-Z0-9!?*_%]{6,20}$' 
-);
+-- Le mdp est maintenant chiffré.
+-- CREATE DOMAIN domain_password AS TEXT
+-- CHECK(
+--    VALUE ~ '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!?*_%])[a-zA-Z0-9!?*_%]{8,20}$'
+-- );
 
 CREATE DOMAIN domain_mail AS TEXT
 CHECK(
@@ -15,7 +16,7 @@ CHECK(
 CREATE TABLE "user" (
   "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "email"      domain_mail NOT NULL UNIQUE,
-  "password"   domain_password NOT NULL,
+  "password"   text NOT NULL,
   "lastname"   TEXT NOT NULL,
   "firstname"  TEXT NOT NULL,
   "alias"      TEXT NOT NULL,

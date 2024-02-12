@@ -117,7 +117,6 @@ CREATE OR REPLACE FUNCTION get_npc_by_id(int) RETURNS npc AS $$
 $$ LANGUAGE sql SECURITY DEFINER;
 
 
-
 -- Item :
 
 -- Pour récupérer et afficher tous les objets :
