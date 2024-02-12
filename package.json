@@ -14,7 +14,7 @@
     "API",
     "project"
   ],
-  "author": "Clemence K-Garde",
+  "author": "Clemence K-Garde, Lucien Poncet",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

@@ -46,14 +46,18 @@ const userController = {
     // Pour se connecter au site
     async signin(req, res, next) {
         try {
+            // Récupération du formulaire
+            const login = req.body;
             // Récupérer les informations de l'utilisateur en appelant la méthode authenticateUser
-            const { result, error } = await userDataMapper.authenticateUser(req.body);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
+            let { result, error } = await userDataMapper.authenticateUser(req.body);
+            const user = result.verify_user;
+            // Comparaison du mdp BDD / formulaire
+            if(user && await passwordMatch(login.password, user.password)) {
+            // Génération du token
+            const user = JWT.encode(token);
+            user.token = token;
             } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
+                error = new APIError("Identifiants incorrects");
             }
         } catch (error) {
             next(error);
