@@ -25,3 +25,6 @@
 13-02-2024 10:46:12:4612 [31merror[39m: [31mstoryDataMapper is not defined[39m
 13-02-2024 11:48:52:4852 [31merror[39m: [31mLe mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.[39m
 13-02-2024 11:49:04:494 [31merror[39m: [31mla valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »[39m
+13-02-2024 15:53:27:5327 [31merror[39m: [31mil n'y a pas de paramètre $1[39m
+13-02-2024 15:53:42:5342 [31merror[39m: [31mil n'y a pas de paramètre $1[39m
+13-02-2024 15:53:59:5359 [31merror[39m: [31mil n'y a pas de paramètre $1[39m
