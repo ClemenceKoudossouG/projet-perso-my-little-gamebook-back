@@ -195,10 +195,11 @@ BEGIN
 		'lastname',lastname,
 		'firstname',firstname,
 		'alias',alias,
-        'avatar',avatar
+        'avatar',avatar,
+		'password',password
 	) INTO user_found
 	FROM "user"
-	WHERE email = $1->>'email' AND password = $1->>'password';
+	WHERE email = $1->>'email';
 	
 	IF user_found IS NOT NULL
 	THEN

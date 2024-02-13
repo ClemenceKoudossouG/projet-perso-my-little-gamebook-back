@@ -2,7 +2,7 @@ import { npcDataMapper } from "../dataMappers/index.js";
 
 const npcController = {
     // Pour récupérer tous les personnages existants en tant qu'utilisateur connecté.
-    async getAllnpcs(req, res, next) {
+    async getAllNpcs(req, res, next) {
         try {
             const { result, error } = await npcDataMapper.findAll();
             // Vérification d'erreur
@@ -35,8 +35,8 @@ const npcController = {
     // Pour récupérer tous les personnages existants par univers en tant qu'utilisateur connecté.
     async getAllNpcsByWorld(req, res, next) {
         try {
-            const { world } = req.params;
-            const { result, error } = await npcDataMapper.findByWorld(world);
+            const { worldId } = req.params;
+            const { result, error } = await npcDataMapper.findByWorld(worldId);
             // Vérification d'erreur
             if (error) {
                 next(error);

@@ -10,3 +10,16 @@
 12-02-2024 16:17:01:171 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
 12-02-2024 16:26:39:2639 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
 12-02-2024 16:27:06:276 [31merror[39m: [31mdata and hash arguments required[39m
+12-02-2024 16:53:00:530 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:53:59:5359 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:30:15:3015 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:45:3245 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:46:3246 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:47:3247 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:48:3248 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:49:3249 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:50:3250 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:33:29:3329 [31merror[39m: [31mIdentifiants incorrects[39m
+13-02-2024 09:34:02:342 [31merror[39m: [31mIdentifiants incorrects[39m
+13-02-2024 10:33:55:3355 [31merror[39m: [31msyntaxe en entrée invalide pour le type integer : « {"id":"1"} »[39m
+13-02-2024 10:46:12:4612 [31merror[39m: [31mstoryDataMapper is not defined[39m

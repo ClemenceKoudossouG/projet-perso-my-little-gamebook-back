@@ -45,7 +45,7 @@ const compartmentDataMapper = {
             const response = await pool.query(sqlQuery,values);
     
             // On récupère les informations données par la bdd
-            result = response.rows[0];
+            result = response.rows;
         }
         catch (err) {
             error = err;

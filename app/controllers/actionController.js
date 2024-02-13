@@ -35,8 +35,8 @@ const actionController = {
     // pour récupérer toutes les actions associées à un personnage spécifique en tant qu'utilisateur connecté.
     async getAllActionsByNpc(req, res, next) {
         try {
-            const { npc } = req.params;
-            const { result, error } = await actionDataMapper.findByNpc(npc);
+            const { npcId } = req.params;
+            const { result, error } = await actionDataMapper.findByNpc(npcId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -51,8 +51,8 @@ const actionController = {
     // Pour récupérer toutes les actions associées à un objet spécifique en tant qu'utilisateur connecté.
     async getAllActionsByItem(req, res, next) {
         try {
-            const { item } = req.params;
-            const { result, error } = await actionDataMapper.findByItem(item);
+            const { itemId } = req.params;
+            const { result, error } = await actionDataMapper.findByItem(itemId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -67,8 +67,8 @@ const actionController = {
     // Pour récupérer toutes les actions d'une certaine classe en tant qu'utilisateur connecté.
     async getAllActionsByClass(req, res, next) {
         try {
-            const { className } = req.params;
-            const { result, error } = await actionDataMapper.findByClass(className);
+            const { actionClassName } = req.params;
+            const { result, error } = await actionDataMapper.findByClass(actionClassName);
             // Vérification d'erreur
             if (error) {
                 next(error);
