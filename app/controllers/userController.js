@@ -49,20 +49,25 @@ const userController = {
             // Récupération du formulaire
             const login = req.body;
             // Récupérer les informations de l'utilisateur en appelant la méthode authenticateUser
-            const { result, error } = await userDataMapper.authenticateUser(login);
+            let { result, error } = await userDataMapper.authenticateUser(login);
             const user = result.verify_user;
             if (user && await passwordMatch(login.password, user.password)) {
                 // Génération du token
                 const token = JWT.encode(user);
                 user.token = token;
-                // Obtenir une réponse
+            } else {
+                error = new APIError("Identifiants incorrects.");
+            }
+                // Vérification d'erreur
+            if (error) {
+                next(error);
                 } else {
                     res.json(login);
                 }
             } catch (error) {
                 next(error);
             }           
-    }, 
+    },
     // Pour modifier ses données en tant qu'utilisateur connecté
     async updateOneUser(req, res, next) {
         try {

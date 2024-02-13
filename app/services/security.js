@@ -23,7 +23,7 @@ export default function isMember(req, res, next) {
     }
 }
 
-// Pour encoder le mot de passe, on va utiliser bcrypt qui va hasher le mdp, un certain nombre de fois selon le "salage" que l'on a défini :
+// Pour encoder le mot de passe, on va utiliser bcrypt qui va hacher le mdp, un certain nombre de fois selon le "salage" que l'on a défini :
 export async function encodePassword(password){
     return await bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT));
 }
