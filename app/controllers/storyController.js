@@ -1,4 +1,4 @@
-import { storyDataMapper } from "../dataMappers";
+import { storyDataMapper } from "../dataMappers/index.js";
 
 const storyController = {
     // Pour récupérer toutes les histoires proposées sur l'appli.
@@ -19,8 +19,8 @@ const storyController = {
     // Pour récupérer les histoires par genre.
     async getAllStoriesByGenre(req, res, next) {
         try {
-            const { genre } = req.params;
-            const { result, error } = await storyDataMapper.findByGenre(genre);
+            const { genreId } = req.params;
+            const { result, error } = await storyDataMapper.findByGenre(genreId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -35,8 +35,8 @@ const storyController = {
     // Pour récupérer les histoires par niveau de difficulté.
     async getAllStoriesByLevel(req, res, next) {
         try {
-            const { level } = req.params;
-            const { result, error } = await storyDataMapper.findByLevel(level);
+            const { levelId } = req.params;
+            const { result, error } = await storyDataMapper.findByLevel(levelId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -66,4 +66,4 @@ const storyController = {
     }
 };
 
-export default storyController;
+export { storyController };

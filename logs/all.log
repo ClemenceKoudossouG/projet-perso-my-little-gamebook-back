@@ -1,93 +1,27 @@
-12-02-2024 14:25:37:2537 [31merror[39m: [31muserDataMapper.authenticateUser is not a function[39m
-12-02-2024 14:25:59:2559 [31merror[39m: [31muserDataMapper.authenticateUser is not a function[39m
-12-02-2024 14:28:17:2817 [31merror[39m: [31muserDataMapper.authenticateUser is not a function[39m
-12-02-2024 14:28:46:2846 [31merror[39m: [31mCannot access 'user' before initialization[39m
-12-02-2024 14:29:10:2910 [31merror[39m: [31mCannot access 'result' before initialization[39m
-12-02-2024 14:30:22:3022 [31merror[39m: [31muserDataMapper.authenticateUser is not a function[39m
-12-02-2024 14:30:48:3048 [31merror[39m: [31mCannot access 'user' before initialization[39m
-12-02-2024 14:30:57:3057 [31merror[39m: [31muserDataMapper.authenticateUser is not a function[39m
-12-02-2024 14:33:36:3336 [31merror[39m: [31mCannot read properties of undefined (reading 'verify_user')[39m
-12-02-2024 14:39:15:3915 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 14:52:35:5235 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 14:52:40:5240 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 14:58:36:5836 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 14:58:55:5855 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 15:00:07:07 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 15:00:40:040 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 15:01:36:136 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 15:05:41:541 [31merror[39m: [31muser is not defined[39m
-12-02-2024 15:06:10:610 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 15:07:24:724 [31merror[39m: [31muser is not defined[39m
-12-02-2024 15:09:26:926 [31merror[39m: [31mdata and hash arguments required[39m
-12-02-2024 15:13:45:1345 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 15:14:06:146 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 15:21:17:2117 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 15:23:41:2341 [31merror[39m: [31mdata and salt arguments required[39m
-12-02-2024 15:27:41:2741 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:27:55:2755 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:28:04:284 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:29:16:2916 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:29:48:2948 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:29:54:2954 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:30:48:3048 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:32:30:3230 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:32:37:3237 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:32:43:3243 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:33:03:333 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:34:05:345 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:36:40:3640 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:38:32:3832 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:41:22:4122 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:48:47:4847 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:51:22:5122 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:52:31:5231 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:52:50:5250 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:53:18:5318 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:54:44:5444 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:55:10:5510 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:55:39:5539 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 15:58:05:585 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 16:05:12:512 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:05:40:540 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 16:12:59:1259 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 16:13:32:1332 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:13:34:1334 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:13:36:1336 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:51:33:5133 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:52:29:5229 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:52:43:5243 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:56:46:5646 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 16:57:01:571 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 19:17:16:1716 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:19:35:1935 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:20:14:2014 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:25:05:255 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:25:11:2511 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:25:15:2515 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:32:11:3211 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:32:18:3218 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:33:52:3352 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:33:56:3356 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:38:14:3814 [31merror[39m: [31mCannot read properties of undefined (reading 'verify_user')[39m
-12-02-2024 22:38:25:3825 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:38:46:3846 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:43:02:432 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:43:06:436 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:43:10:4310 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:43:49:4349 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:43:52:4352 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
-12-02-2024 22:51:19:5119 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:52:12:5212 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:53:28:5328 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:53:58:5358 [31merror[39m: [31mUtilisateur introuvable ou mot de passe non défini[39m
-12-02-2024 22:59:49:5949 [31merror[39m: [31mAssignment to constant variable.[39m
-12-02-2024 23:05:29:529 [31merror[39m: [31mAssignment to constant variable.[39m
-12-02-2024 23:05:45:545 [31merror[39m: [31mAssignment to constant variable.[39m
-13-02-2024 10:02:17:217 [31merror[39m: [31mAssignment to constant variable.[39m
-13-02-2024 10:03:35:335 [31merror[39m: [31mIdentifiants incorrects.[39m
-13-02-2024 11:11:28:1128 [31merror[39m: [31mpassword is not defined[39m
-13-02-2024 11:12:10:1210 [31merror[39m: [31mCannot access 'error' before initialization[39m
-13-02-2024 11:13:01:131 [31merror[39m: [31mCannot access 'error' before initialization[39m
-13-02-2024 11:14:44:1444 [31merror[39m: [31mCannot access 'error' before initialization[39m
-13-02-2024 11:16:21:1621 [31merror[39m: [31mCannot access 'error' before initialization[39m
-13-02-2024 11:18:32:1832 [31merror[39m: [31mLe mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.[39m
+12-02-2024 15:56:20:5620 [31merror[39m: [31mdata and hash arguments required[39m
+12-02-2024 16:10:05:105 [31merror[39m: [31mCannot access 'user' before initialization[39m
+12-02-2024 16:13:56:1356 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:14:11:1411 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:15:35:1535 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:15:41:1541 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:16:17:1617 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:16:44:1644 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:16:57:1657 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:17:01:171 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:26:39:2639 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:27:06:276 [31merror[39m: [31mdata and hash arguments required[39m
+12-02-2024 16:53:00:530 [31merror[39m: [31mla valeur pour le domaine domain_password viole la contrainte de vérification « domain_password_check »[39m
+12-02-2024 16:53:59:5359 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:30:15:3015 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:45:3245 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:46:3246 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:47:3247 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:48:3248 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:49:3249 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:32:50:3250 [31merror[39m: [31mdata and hash arguments required[39m
+13-02-2024 09:33:29:3329 [31merror[39m: [31mIdentifiants incorrects[39m
+13-02-2024 09:34:02:342 [31merror[39m: [31mIdentifiants incorrects[39m
+13-02-2024 10:33:55:3355 [31merror[39m: [31msyntaxe en entrée invalide pour le type integer : « {"id":"1"} »[39m
+13-02-2024 10:46:12:4612 [31merror[39m: [31mstoryDataMapper is not defined[39m
+13-02-2024 11:48:52:4852 [31merror[39m: [31mLe mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.[39m
+13-02-2024 11:49:04:494 [31merror[39m: [31mla valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »[39m

@@ -1,7 +1,7 @@
 // Le placeDataMapper faisant le lien entre le placeController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import pool from "../services/pgClient.js";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet placeDataMapper
 const placeDataMapper = {
@@ -45,7 +45,7 @@ const placeDataMapper = {
             const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
-            result = response.rows[0];
+            result = response.rows;
         }
         catch (err) {
             error = err;
@@ -84,4 +84,4 @@ const placeDataMapper = {
 };
 
 // On exporte le placeDataMapper
-export default placeDataMapper;
+export { placeDataMapper };

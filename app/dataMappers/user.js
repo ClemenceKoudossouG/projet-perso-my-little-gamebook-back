@@ -1,7 +1,7 @@
 // Le userDataMapper faisant le lien entre le userController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import pool from "../services/pgClient.js";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet userDataMapper
 const userDataMapper = {
@@ -85,7 +85,7 @@ const userDataMapper = {
     },
 
     // Pour modifier les informations d'un utilisateur en particulier :
-    async updateOneUser(user){
+    async updateUser(user){
 
         // On utilise la fonction sql update_user
         const sqlQuery = "SELECT * FROM update_user($1);";
@@ -139,4 +139,4 @@ const userDataMapper = {
 };
 
 // On exporte le userDataMapper
-export default userDataMapper;
+export { userDataMapper };

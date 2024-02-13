@@ -8,7 +8,7 @@ import JWT from "../services/jwt.js";
 import APIError from './errorHandler/APIError.js';
 
 // Pour vérifier à chaque fois si l'utilisateur est un membre connecté enregistré, on vérifie son token :
-export default function isMember(req, res, next) {
+export function isMember(req, res, next) {
     // Récupération du token
     const token = req.get("Authorization");
     // Vérification du token

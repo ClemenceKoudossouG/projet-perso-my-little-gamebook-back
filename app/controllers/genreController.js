@@ -1,4 +1,4 @@
-import { genreDataMapper } from "../dataMappers";
+import { genreDataMapper } from "../dataMappers/index.js";
 
 const genreController = {
     // Pour récupérer tous les genres.
@@ -36,8 +36,8 @@ const genreController = {
     async getAllGenresOfAStory(req, res, next) {
         try {
             // Récupération de l'id de l'histoire concernée.
-            const { id } = req.params;
-            const { result, error } = await storyDataMapper.findAllGenresOfAStory(id);
+            const { storyId } = req.params;
+            const { result, error } = await genreDataMapper.findAllGenresOfAStory(storyId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -51,4 +51,4 @@ const genreController = {
     },
 };
 
-export default genreController;
+export { genreController };

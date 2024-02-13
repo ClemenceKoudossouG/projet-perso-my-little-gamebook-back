@@ -1,4 +1,4 @@
-import { itemDataMapper } from "../dataMappers";
+import { itemDataMapper } from "../dataMappers/index.js";
 
 const itemController = {
     // Pour récupérer tous les objets existants en tant qu'utilisateur connecté.
@@ -35,8 +35,8 @@ const itemController = {
     // Pour récupérer les objets associés à une action spécifique en tant qu'utilisateur connecté.
     async getAllItemsByAction(req, res, next) {
         try {
-            const { action } = req.params;
-            const { result, error } = await itemDataMapper.findByAction(action);
+            const { actionId } = req.params;
+            const { result, error } = await itemDataMapper.findByAction(actionId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -50,4 +50,4 @@ const itemController = {
     },
 };
 
-export default itemController;
+export { itemController };

@@ -19,7 +19,7 @@ app.use(express.json());
 // Pour autoriser la réception de données venant de formulaires :
 app.use(express.urlencoded({ extended: true}));
 
-app.use("/", router);
+app.use(router);
 
 app.listen(PORT, ()=>{
     console.log(`Back is listening at http://localhost:${PORT}`);

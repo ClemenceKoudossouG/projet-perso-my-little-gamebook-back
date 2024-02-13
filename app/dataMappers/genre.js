@@ -1,7 +1,7 @@
 // Le genreDataMapper faisant le lien entre le genreController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import pool from "../services/pgClient.js";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet genreDataMapper
 const genreDataMapper = {
@@ -45,7 +45,7 @@ const genreDataMapper = {
             const response = await pool.query(sqlQuery,values);
 
             // On récupère les informations données par la bdd
-            result = response.rows[0];
+            result = response.rows;
         }
         catch (err) {
             error = err;
@@ -84,4 +84,4 @@ const genreDataMapper = {
 };
 
 // On exporte le genreDataMapper
-export default genreDataMapper;
+export { genreDataMapper };

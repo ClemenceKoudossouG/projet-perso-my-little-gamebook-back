@@ -1,4 +1,4 @@
-import userDataMapper from "../dataMappers/user.js";
+import { userDataMapper } from "../dataMappers/index.js";
 
 import JWT from "../services/jwt.js";
 import APIError from "../services/errorHandler/APIError.js";
@@ -13,12 +13,12 @@ const userController = {
             const token = req.get("Authorization");
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
-            const { result, error } = await userDataMapper.getUser(user);
+            const { result, error } = await userDataMapper.getUser(user.id);
             // Vérification d'erreur
             if (error) {
                 next(error);
             } else {
-            // Renvoi test en JSON si nécessaire
+            // Renvoie test en JSON si nécessaire
             res.json(result);
             }
         } catch (error) {
@@ -42,7 +42,7 @@ const userController = {
             if (error) {
                 next(error);
             } else {
-            // Renvoi test en JSON si nécessaire
+            // Renvoie test en JSON si nécessaire
             res.json(result);
             }
         } catch (error) {
@@ -57,22 +57,26 @@ const userController = {
             // Récupérer les informations de l'utilisateur en appelant la méthode authenticateUser
             let { result, error } = await userDataMapper.authenticateUser(login);
             const user = result.verify_user;
+            // Comparaison du mdp BDD / formulaire
             if (user && await passwordMatch(login.password, user.password)) {
                 // Génération du token
                 const token = JWT.encode(user);
                 user.token = token;
             } else {
-                error = new APIError("Identifiants incorrects.");
+                error = new APIError("Identifiants incorrects.", 401);
             }
-                // Vérification d'erreur
+
+            // Vérification d'erreur
             if (error) {
                 next(error);
-                } else {
-                    res.json(login);
-                }
-            } catch (error) {
-                next(error);
-            }           
+            } else {
+                // Renvoie test en JSON si nécessaire
+                res.json(result);
+            }
+            
+        } catch (error) {
+            next(error);
+        }           
     },
     // Pour modifier ses données en tant qu'utilisateur connecté
     async updateOneUser(req, res, next) {
@@ -87,7 +91,7 @@ const userController = {
             if (error) {
                 next(error);
             } else {
-            // Renvoi test en JSON si nécessaire
+            // Renvoie test en JSON si nécessaire
             res.json(result);
             }
         } catch (error) {
@@ -105,7 +109,7 @@ const userController = {
             if (error) {
                 next(error);
             } else {
-            // Renvoi test en JSON si nécessaire
+            // Renvoie test en JSON si nécessaire
             res.json(result);
             }
         } catch (error) {
@@ -114,4 +118,4 @@ const userController = {
     },
 };
 
-export default userController;
+export { userController };

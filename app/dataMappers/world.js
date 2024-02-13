@@ -1,7 +1,7 @@
 // Le worldDataMapper faisant le lien entre le worldController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import pool from "../services/pgClient.js";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet worldDataMapper
 const worldDataMapper = {
@@ -58,4 +58,4 @@ const worldDataMapper = {
 };
 
 // On exporte le worldDataMapper
-export default worldDataMapper;
+export { worldDataMapper };

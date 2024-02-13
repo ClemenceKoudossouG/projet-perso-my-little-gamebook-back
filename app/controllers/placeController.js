@@ -1,4 +1,4 @@
-import { worldDataMapper } from "../dataMappers";
+import { placeDataMapper } from "../dataMappers/index.js";
 
 const placeController = {
     // Pour récupérer tous les lieux existants en tant qu'utilisateur connecté.
@@ -35,8 +35,8 @@ const placeController = {
     // Pour récupérer tous les lieux existants par univers, en tant qu'utilisateur connecté.
     async getAllPlacesByWorld(req, res, next) {
         try {
-            const { world } = req.params;
-            const { result, error } = await placeDataMapper.findByWorld(world);
+            const { worldId } = req.params;
+            const { result, error } = await placeDataMapper.findByWorld(worldId);
             // Vérification d'erreur
             if (error) {
                 next(error);
@@ -50,4 +50,4 @@ const placeController = {
     },
 };
 
-export default placeController;
+export { placeController };

@@ -195,7 +195,7 @@ BEGIN
 		'firstname',firstname,
 		'alias',alias,
         'avatar',avatar,
-		'password', password
+		'password',password
 	) INTO user_found
 	FROM "user"
 	WHERE email = $1->>'email';

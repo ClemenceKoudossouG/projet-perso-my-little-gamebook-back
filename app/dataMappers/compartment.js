@@ -1,7 +1,7 @@
 // Le compartmentDataMapper faisant le lien entre le compartmentController et les fonctions sql
 
-// On importe pgclient pour pouvoir effectuer les requêtes sql
-import pool from "../services/pgClient.js";
+// On importe pgpool pour pouvoir effectuer les requêtes sql
+import pool from "../services/pgPool.js";
 
 // Tout sera contenu dans l'objet compartmentDataMapper
 const compartmentDataMapper = {
@@ -45,7 +45,7 @@ const compartmentDataMapper = {
             const response = await pool.query(sqlQuery,values);
     
             // On récupère les informations données par la bdd
-            result = response.rows[0];
+            result = response.rows;
         }
         catch (err) {
             error = err;
@@ -84,4 +84,4 @@ const compartmentDataMapper = {
 };
 
 // On exporte le compartmentDataMapper
-export default compartmentDataMapper;
+export { compartmentDataMapper };

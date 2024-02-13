@@ -1,8 +1,5 @@
 BEGIN;
 
-INSERT INTO "user" ("email", "password", "lastname", "firstname", "alias") VALUES
-('john.doe@oclock.school', 'Jojo123!', 'Doe', 'John', 'jojo');
-
 INSERT INTO "story" ("name", "level") VALUES
 ('L''histoire des 4 créateurs', 1),
 ('L''enquête de la Gaufre', 1),
@@ -63,9 +60,6 @@ INSERT INTO "compartment" ("position", "class", "children", "story_id", "place_i
 (4, 'bonus_ending', '', 1, 5, null),
 (4, 'bonus_ending', '', 1, 7, null),
 (4, 'ending', '', 1, 8, null);
-
-INSERT INTO "user_has_story" ("user_id", "story_id") VALUES
-(1, 1);
 
 INSERT INTO "action_has_item" ("action_id", "item_id") VALUES
 (11, 1),

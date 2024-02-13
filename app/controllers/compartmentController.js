@@ -1,4 +1,4 @@
-import { compartmentDataMapper } from "../dataMappers";
+import { compartmentDataMapper } from "../dataMappers/index.js";
 
 const compartmentController = {
     // Pour récupérer toutes les cases créées dans une histoire en tant qu'utilisateur connecté.
@@ -50,5 +50,5 @@ const compartmentController = {
     },
 };
 
-export default compartmentController;
+export { compartmentController };
 

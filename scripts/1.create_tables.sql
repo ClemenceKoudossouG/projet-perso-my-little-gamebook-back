@@ -16,7 +16,7 @@ CHECK(
 CREATE TABLE "user" (
   "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "email"      domain_mail NOT NULL UNIQUE,
-  "password"   text NOT NULL,
+  "password"   TEXT NOT NULL,
   "lastname"   TEXT NOT NULL,
   "firstname"  TEXT NOT NULL,
   "alias"      TEXT NOT NULL,
