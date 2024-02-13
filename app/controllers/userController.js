@@ -3,6 +3,7 @@ import userDataMapper from "../dataMappers/user.js";
 import JWT from "../services/jwt.js";
 import APIError from "../services/errorHandler/APIError.js";
 import { encodePassword, passwordMatch } from "../services/security.js";
+import schema from "../services/passwordPolicy.js";
 
 const userController = {
     // Pour afficher les données de l'utilisateur (lastname, avatar, etc)
@@ -28,6 +29,11 @@ const userController = {
     async signup(req, res, next) {
         try {
             const user = req.body;
+            // Vérification du format de mdb
+            if(!schema.validate(user.password)) {
+                const error = new APIError('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.', 400);
+                return next(error);
+            } 
             // Chiffrement du mot de passe
             user.password = await encodePassword(user.password);
             // Récupérer les infos de l'utilisateur qui s'inscrit en appelant la méthode createUser.

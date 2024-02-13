@@ -85,3 +85,9 @@
 12-02-2024 23:05:45:545 [31merror[39m: [31mAssignment to constant variable.[39m
 13-02-2024 10:02:17:217 [31merror[39m: [31mAssignment to constant variable.[39m
 13-02-2024 10:03:35:335 [31merror[39m: [31mIdentifiants incorrects.[39m
+13-02-2024 11:11:28:1128 [31merror[39m: [31mpassword is not defined[39m
+13-02-2024 11:12:10:1210 [31merror[39m: [31mCannot access 'error' before initialization[39m
+13-02-2024 11:13:01:131 [31merror[39m: [31mCannot access 'error' before initialization[39m
+13-02-2024 11:14:44:1444 [31merror[39m: [31mCannot access 'error' before initialization[39m
+13-02-2024 11:16:21:1621 [31merror[39m: [31mCannot access 'error' before initialization[39m
+13-02-2024 11:18:32:1832 [31merror[39m: [31mLe mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.[39m
