@@ -1,17 +1,13 @@
 import { compartmentDataMapper } from "../dataMappers/index.js";
+import { manageResponse } from "../helper/controllerHelper.js";
 
 const compartmentController = {
     // Pour récupérer toutes les cases créées dans une histoire en tant qu'utilisateur connecté.
     async getAllCompartments(req, res, next) {
         try {
             const { result, error } = await compartmentDataMapper.findAll();
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -21,13 +17,8 @@ const compartmentController = {
         try {
             const { id } = req.params;
             const { result, error } = await compartmentDataMapper.findById(id);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -37,13 +28,8 @@ const compartmentController = {
         try {
             const { compartmentClassName } = req.params;
             const { result, error } = await compartmentDataMapper.findByClass(compartmentClassName);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }

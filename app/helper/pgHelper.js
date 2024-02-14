@@ -47,3 +47,26 @@ export async function executeRequestWithSingleResult(sqlQuery, values){
     // On retourne soit le résultat, soit l'erreur
     return {result,error};
 };
+
+/**
+ * Fonction générique qui retourne une rangée
+ * @param {*} sqlQuery 
+ * @returns 
+ */
+
+export async function executeDeleteRequest(sqlQuery, values){
+    let result;
+    let error;
+
+    try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On retourne la dernière rangée ayant été affectée par une suppression :
+        result = response.rowCount == 1;
+        }
+        catch (err) {
+            error = err;
+        }
+    // On retourne soit le résultat, soit l'erreur
+    return {result,error};
+};

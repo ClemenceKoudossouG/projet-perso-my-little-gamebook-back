@@ -1,17 +1,13 @@
 import { npcDataMapper } from "../dataMappers/index.js";
+import { manageResponse } from "../helper/controllerHelper.js";
 
 const npcController = {
     // Pour récupérer tous les personnages existants en tant qu'utilisateur connecté.
     async getAllNpcs(req, res, next) {
         try {
             const { result, error } = await npcDataMapper.findAll();
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -21,13 +17,8 @@ const npcController = {
         try {
             const { id } = req.params;
             const { result, error } = await npcDataMapper.findById(id);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -37,13 +28,8 @@ const npcController = {
         try {
             const { worldId } = req.params;
             const { result, error } = await npcDataMapper.findByWorld(worldId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }

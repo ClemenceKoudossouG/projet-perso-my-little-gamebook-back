@@ -1,4 +1,5 @@
 import { userDataMapper } from "../dataMappers/index.js";
+import { manageResponse } from "../helper/controllerHelper.js";
 
 import JWT from "../services/jwt.js";
 import APIError from "../services/errorHandler/APIError.js";
@@ -14,13 +15,8 @@ const userController = {
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
             const { result, error } = await userDataMapper.getUser(user.id);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoie test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -38,13 +34,8 @@ const userController = {
             user.password = await encodePassword(user.password);
             // Récupérer les infos de l'utilisateur qui s'inscrit en appelant la méthode createUser.
             const { result, error } = await userDataMapper.createUser(user);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoie test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -66,13 +57,8 @@ const userController = {
                 error = new APIError("Identifiants incorrects.", 401);
             }
 
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoie test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
             
         } catch (error) {
             next(error);
@@ -87,13 +73,8 @@ const userController = {
             const { updatedUserInfo } = req.body;
             // Appeler la méthode update
             const { result, error } = await userDataMapper.updateUser({ userId, updatedUserInfo });
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoie test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -105,13 +86,8 @@ const userController = {
             const { userId }  = req.params;
             // Appeler la méthode delete
             const { result, error } = await userDataMapper.deleteUser(userId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoie test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }

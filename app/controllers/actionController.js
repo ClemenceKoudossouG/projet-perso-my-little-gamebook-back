@@ -1,17 +1,13 @@
 import { actionDataMapper } from "../dataMappers/index.js";
+import { manageResponse } from "../helper/controllerHelper.js";
 
 const actionController = {
     // Pour récupérer toutes les actions existantes en tant qu'utilisateur connecté.
     async getAllActions(req, res, next) {
         try {
             const { result, error } = await actionDataMapper.findAll();
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -21,13 +17,8 @@ const actionController = {
         try {
             const { id } = req.params;
             const { result, error } = await actionDataMapper.findById(id);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -37,13 +28,8 @@ const actionController = {
         try {
             const { npcId } = req.params;
             const { result, error } = await actionDataMapper.findByNpc(npcId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -53,13 +39,8 @@ const actionController = {
         try {
             const { itemId } = req.params;
             const { result, error } = await actionDataMapper.findByItem(itemId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -69,13 +50,8 @@ const actionController = {
         try {
             const { actionClassName } = req.params;
             const { result, error } = await actionDataMapper.findByClass(actionClassName);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
