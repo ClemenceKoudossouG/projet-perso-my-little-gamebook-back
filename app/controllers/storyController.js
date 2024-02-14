@@ -1,17 +1,13 @@
 import { storyDataMapper } from "../dataMappers/index.js";
+import { manageResponse } from "../helper/controllerHelper.js";
 
 const storyController = {
     // Pour récupérer toutes les histoires proposées sur l'appli.
     async getAllStories(req, res, next) {
         try {
             const { result, error } = await storyDataMapper.findAll();
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -21,13 +17,8 @@ const storyController = {
         try {
             const { genreId } = req.params;
             const { result, error } = await storyDataMapper.findByGenre(genreId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -37,13 +28,8 @@ const storyController = {
         try {
             const { levelId } = req.params;
             const { result, error } = await storyDataMapper.findByLevel(levelId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -53,13 +39,8 @@ const storyController = {
         try {
             const { id } = req.params;
             const { result, error } = await storyDataMapper.findById(id);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }

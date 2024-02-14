@@ -1,17 +1,13 @@
 import { placeDataMapper } from "../dataMappers/index.js";
+import { manageResponse } from "../helper/controllerHelper.js";
 
 const placeController = {
     // Pour récupérer tous les lieux existants en tant qu'utilisateur connecté.
     async getAllPlaces(req, res, next) {
         try {
             const { result, error } = await placeDataMapper.findAll();
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -21,13 +17,8 @@ const placeController = {
         try {
             const { id } = req.params;
             const { result, error } = await placeDataMapper.findById(id);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-                // Renvoi test en JSON si nécessaire
-                res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }
@@ -37,13 +28,8 @@ const placeController = {
         try {
             const { worldId } = req.params;
             const { result, error } = await placeDataMapper.findByWorld(worldId);
-            // Vérification d'erreur
-            if (error) {
-                next(error);
-            } else {
-            // Renvoi test en JSON si nécessaire
-            res.json(result);
-            }
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
         } catch (error) {
             next(error);
         }

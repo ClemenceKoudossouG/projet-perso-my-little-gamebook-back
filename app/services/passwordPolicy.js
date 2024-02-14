@@ -14,10 +14,4 @@ schema
 .has().not().spaces()                           // Should not have spaces
 .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
 
-// Check validation
-console.log(schema.validate('validPASS123&'));
-// => true
-console.log(schema.validate('invalidPASS'));
-// => false
-
 export default schema;
