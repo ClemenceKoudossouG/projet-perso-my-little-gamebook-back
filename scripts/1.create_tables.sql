@@ -34,30 +34,35 @@ CREATE TABLE "story" (
 CREATE TABLE "genre" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "world" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "place" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "npc" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "item" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
@@ -66,6 +71,7 @@ CREATE TABLE "action" (
   "label"       TEXT NOT NULL,
   "class"       TEXT NOT NULL,
   "consequence" TEXT,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 

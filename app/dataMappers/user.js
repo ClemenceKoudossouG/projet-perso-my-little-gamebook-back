@@ -3,6 +3,29 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
+/**
+ * @typedef {object} User
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} lastname - Lastname of the user
+ * @property {string} firstname - Firstname of the user
+ * @property {string} alias - Alias of the user
+ * @property {string} email - Mail of the user
+ * @property {string} password - Password of the user
+ * @property {string} avatar - Avatar's text of the user
+ */
+
+/**
+ * @typedef {object} InputUser
+ * @property {string} route - Route (for SEO)
+ * @property {string} lastname - Lastname of the user
+ * @property {string} firstname - Firstname of the user
+ * @property {string} alias - Alias of the user
+ * @property {string} email - Mail of the user
+ * @property {string} password - Password of the user
+ * @property {string} avatar - Avatar's text of the user
+ */
+
 // Tout sera contenu dans l'objet userDataMapper
 const userDataMapper = {
 

@@ -3,7 +3,13 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet worldDataMapper
+/**
+ * @typedef {object} World
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} label - Name of the world
+ * @property {string} img - Image's text of the world
+ */
 const worldDataMapper = {
 
     // Pour récupérer tous les univers existants dans la bdd :

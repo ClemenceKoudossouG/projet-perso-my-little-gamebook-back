@@ -3,7 +3,15 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet actionDataMapper
+/**
+ * @typedef {object} Action
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} label - Name of the action
+ * @property {string} consequence - Consequence of the action
+ * @property {string} class - Class of the action
+ * @property {string} img - Image's text of the action
+ */
 const actionDataMapper = {
 
     // Pour récupérer toutes les actions existantes dans la bdd :

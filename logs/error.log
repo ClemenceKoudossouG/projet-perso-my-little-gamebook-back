@@ -25,3 +25,17 @@
 13-02-2024 10:46:12:4612 [31merror[39m: [31mstoryDataMapper is not defined[39m
 13-02-2024 11:48:52:4852 [31merror[39m: [31mLe mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.[39m
 13-02-2024 11:49:04:494 [31merror[39m: [31mla valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »[39m
+13-02-2024 14:05:27:527 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 14:10:00:100 [31merror[39m: [31mLe mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.[39m
+13-02-2024 14:11:21:1121 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 14:16:03:163 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:34:14:3414 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:36:33:3633 error: Identifiants incorrects.
+13-02-2024 19:36:55:3655 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:37:38:3738 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:42:55:4255 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:44:11:4411 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:45:25:4525 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:47:37:4737 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+13-02-2024 19:48:06:486 error: Identifiants incorrects.
+13-02-2024 19:52:37:5237 error: Identifiants incorrects.

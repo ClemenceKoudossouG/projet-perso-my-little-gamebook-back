@@ -3,7 +3,17 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet compartmentDataMapper
+/**
+ * @typedef {object} Compartment
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {number} position - Position of the compartment
+ * @property {string} class - Class of the compartment
+ * @property {string} children - Next children compartments' PK of the current compartment
+ * @property {number} story_id - Primary key of the compartment's story
+ * @property {number} place_id - Primary key of the compartment's place
+ * @property {number} npc_id - Primary key of the compartment's npc
+ */
 const compartmentDataMapper = {
 
     // Pour récupérer toutes les cases existantes dans la bdd :

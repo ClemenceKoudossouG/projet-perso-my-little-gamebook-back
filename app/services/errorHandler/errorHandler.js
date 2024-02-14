@@ -9,10 +9,18 @@ import logger from './logger.js';
 import APIError from "./APIError.js";
 
 // https://expressjs.com/en/guide/error-handling.html pour aider à la conception du errorHandler
-const errorHandler = (error, _, response, next) => { // On a besoin dans les errorhandler de 4 paramètres : error, req (ici inutile), response et next
+/**
+    * Récupère les erreurs
+    * @param {*} error - Informations (message)
+    * @param {*} req - express
+    * @param {*} response - express
+    * @param {*} next - express
+    */
+const errorHandler = (error, req, response, next) => { // On a besoin dans les errorhandler de 4 paramètres : error, req (ici inutile), response et next
     debug('errorHandler', error);
     console.log(error);
     logger.log('error', error.message);
+    
     if (error instanceof APIError) {
         // On définit le NODE.ENV en fonction de l'avancée du projet
         if (process.env.NODE_ENV === 'development') {
@@ -24,6 +32,7 @@ const errorHandler = (error, _, response, next) => { // On a besoin dans les err
         return response.status(500).json({ status: 'error', message: error.message, stack: error.stack });
     }
     return response.status(500).json({ status: 'error', message: 'Internal server error' });
+
 };
 
 export default errorHandler;

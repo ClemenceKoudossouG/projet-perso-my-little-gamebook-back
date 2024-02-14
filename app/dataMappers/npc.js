@@ -3,7 +3,13 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet npcDataMapper
+/**
+ * @typedef {object} Npc
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} label - Name of the npc
+ * @property {string} img - Image's text of the npc
+ */
 const npcDataMapper = {
 
     // Pour récupérer tous les personnages existants dans la bdd :

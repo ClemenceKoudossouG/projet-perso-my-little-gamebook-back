@@ -10,6 +10,10 @@ const PORT = process.env.PORT ?? 3000;
 
 import router from "./app/routers/index.js";
 
+import expressJSDocSwagger  from 'express-jsdoc-swagger';
+import options from './app/services/apiDocs.js'
+
+expressJSDocSwagger(app)(options)
 
 // Pour accéder aux ressources d'un autre serveur (requêter notre API via le serveur Front) :
 app.use(cors());

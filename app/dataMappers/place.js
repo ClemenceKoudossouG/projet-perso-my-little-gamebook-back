@@ -3,7 +3,13 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet placeDataMapper
+/**
+ * @typedef {object} Place
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} label - Name of the place
+ * @property {string} img - Image's text of the place
+ */
 const placeDataMapper = {
 
     // Pour récupérer tous les lieux existants dans la bdd :

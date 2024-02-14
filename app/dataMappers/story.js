@@ -3,7 +3,13 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet storyDataMapper
+/**
+ * @typedef {object} Story
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} name - Name of the story
+ * @property {number} level - Level of the story
+ */
 const storyDataMapper = {
 
     // Pour récupérer toutes les histoires existantes dans la bdd :

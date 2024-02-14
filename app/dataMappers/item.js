@@ -3,7 +3,13 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet itemDataMapper
+/**
+ * @typedef {object} Item
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} label - Name of the item
+ * @property {string} img - Image's text of the item
+ */
 const itemDataMapper = {
 
     // Pour récupérer tous les objets existants dans la bdd :

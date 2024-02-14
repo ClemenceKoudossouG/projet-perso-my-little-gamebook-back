@@ -1,4 +1,4 @@
-import { addColors, format as _format, transports as _transports, createLogger } from 'winston';
+import { format as _format, transports as _transports, createLogger } from 'winston';
 // Pour aider à la conception de ce fichier : https://github.com/winstonjs/winston
 
 const levels = {
@@ -14,19 +14,8 @@ const level = () => {
   return isDevelopment ? 'debug' : 'http';
 };
 
-const colors = {
-  error: 'red',
-  warn: 'yellow',
-  info: 'green',
-  http: 'blue',
-  debug: 'white',
-};
-
-addColors(colors);
-
 const format = _format.combine(
   _format.timestamp({ format: 'DD-MM-YYYY HH:mm:ss:ms' }),
-  _format.colorize({ all: true }),
   _format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`),
 );
 

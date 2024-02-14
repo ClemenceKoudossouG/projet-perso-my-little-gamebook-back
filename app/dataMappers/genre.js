@@ -3,7 +3,13 @@
 // On importe pgpool pour pouvoir effectuer les requêtes sql
 import pool from "../services/pgPool.js";
 
-// Tout sera contenu dans l'objet genreDataMapper
+/**
+ * @typedef {object} Genre
+ * @property {number} id - Primary key
+ * @property {string} route - Route (for SEO)
+ * @property {string} label - Name of the genre
+ * @property {string} img - Image's text of the genre
+ */
 const genreDataMapper = {
 
     // Pour récupérer tous les genres existants dans la bdd :
