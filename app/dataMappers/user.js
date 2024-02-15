@@ -2,7 +2,7 @@
 
 // Import des fonctions du pgHelper pour refactoriser les fonctions
 import { executeRequestWithSingleResult } from "../helper/pgHelper.js";
-import { executeDeleteRequest } from "../helper/pgHelper.js";
+import pool from "../services/pgPool.js";
 
 /**
  * @typedef {object} User
@@ -71,15 +71,25 @@ const userDataMapper = {
     },
     
     // Pour supprimer un utilisateur en particulier :
-    async deleteUser(id){
-        // On utilise la fonction sql update_user
-        const sqlQuery = "SELECT * FROM delete_user($1);";
-        // à laquelle on transfère l'id de l'utilisateur donné par le front
-        const values = [id];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeDeleteRequest(sqlQuery, values); 
-    },
+    async deleteUser(req, res){
+        let error;
 
+        // Récupérer l'id de l'user concerné
+        const { id } = req.params;
+
+        try {
+        // On utilise la fonction sql update_user
+        const result = await pool.query("SELECT * FROM delete_user($1)", [id]);
+        // Si pas de rangée affectée, l'utilisateur n'existe pas.
+            if (result.rowCount === 0) {
+                return { result: { message: "Utilisateur introuvable."}, error: null };
+            }
+        // Sinon succès
+        return { result: { message: "Utilisateur supprimé avec succès"}, error: null };
+        }  catch (err) {
+            error = err;
+        }
+    },
 };
 
 // On exporte le userDataMapper

@@ -85,7 +85,7 @@ const userController = {
             // Récupérer l'id de l'utilisateur concerné
             const { userId }  = req.params;
             // Appeler la méthode delete
-            const { result, error } = await userDataMapper.deleteUser(userId);
+            const { result, error } = await userDataMapper.deleteUser(req, userId);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
         } catch (error) {

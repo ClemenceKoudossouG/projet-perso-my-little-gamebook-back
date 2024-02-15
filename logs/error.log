@@ -39,3 +39,13 @@
 13-02-2024 19:47:37:4737 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
 13-02-2024 19:48:06:486 error: Identifiants incorrects.
 13-02-2024 19:52:37:5237 error: Identifiants incorrects.
+15-02-2024 10:08:41:841 error: res is not defined
+15-02-2024 10:08:53:853 error: res is not defined
+15-02-2024 10:09:14:914 error: response.json is not a function
+15-02-2024 10:09:47:947 error: A query must have either text or a name. Supplying neither is unsupported.
+15-02-2024 10:10:06:106 error: A query must have either text or a name. Supplying neither is unsupported.
+15-02-2024 10:10:26:1026 error: A query must have either text or a name. Supplying neither is unsupported.
+15-02-2024 10:30:26:3026 error: Cannot read properties of undefined (reading 'params')
+15-02-2024 10:34:50:3450 error: Cannot read properties of undefined (reading 'status')
+15-02-2024 10:40:26:4026 error: Cannot destructure property 'result' of '(intermediate value)' as it is undefined.
+15-02-2024 10:46:11:4611 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
