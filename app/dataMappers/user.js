@@ -53,7 +53,7 @@ const userDataMapper = {
     // Pour récupérer un utilisateur en particulier :
     async getUser(id){
         // On utilise la fonction sql get_user
-        const sqlQuery = "SELECT * FROM get_user($1);";
+        const sqlQuery = "SELECT * FROM get_user_by_id($1);";
         // à laquelle on transfère l'id de l'utilisateur donné par le front
         const values = [id];
         // Appel de la fonction du pgHelper pour exécuter la requête. 
@@ -78,7 +78,7 @@ const userDataMapper = {
         const { id } = req.params;
 
         try {
-        // On utilise la fonction sql update_user
+        // On utilise la fonction sql delete_user
         const result = await pool.query("SELECT * FROM delete_user($1)", [id]);
         // Si pas de rangée affectée, l'utilisateur n'existe pas.
             if (result.rowCount === 0) {

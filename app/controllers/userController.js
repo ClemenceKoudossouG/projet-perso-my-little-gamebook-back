@@ -67,14 +67,23 @@ const userController = {
     // Pour modifier ses données en tant qu'utilisateur connecté
     async updateOneUser(req, res, next) {
         try {
-            // Récupérer l'id de l'utilisateur concerné
-            const { userId }  = req.params;
-            // Récupérer les infos modifiées
-            const { updatedUserInfo } = req.body;
-            // Appeler la méthode update
-            const { result, error } = await userDataMapper.updateUser({ userId, updatedUserInfo });
-            // Appel de la fonction de controllerHelper pour gérer la réponse. 
-            manageResponse(res, result, error, next);
+            // Récupérer l'utilisateur concerné
+            let { result, error } = await userDataMapper.getUser(req.params.id);
+            // Utilisateur trouvé ?
+            if(error){
+                next(error);
+            } else {
+                //  Màj des valeurs dans l'objet
+                let updatedUser = { ...result, ...req.body };
+                //  Màj en BDD
+                let { result: updatedResult, error: updateError } = await userDataMapper.updateUser(updatedUser);
+                // Vérification d'erreur
+                if (updateError) {
+                    return next(updateError);
+                } else {
+                    res.json(updatedResult);
+                }
+            }
         } catch (error) {
             next(error);
         }
@@ -88,7 +97,7 @@ const userController = {
             const { result, error } = await userDataMapper.deleteUser(req, userId);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
-        } catch (error) {
+            } catch (error) {
             next(error);
         }
     },
