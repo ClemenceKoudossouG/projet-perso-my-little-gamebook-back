@@ -45,6 +45,17 @@ router.get('/item/:itemId(\\d+)', actionController.getAllActionsByItem); // pour
 router.get('/class/:actionClassName', actionController.getAllActionsByClass); // pour récupérer toutes les actions d'une certaine classe
 
 /**
+     * GET /actions/compartment/{id}
+     * @summary Get actions by compartment
+     * @tags Action
+     * @param {number} id.path.required - compartment identifier
+     * @return {[Action]} 200 - Success response - application/json
+     * @return {ApiError} 400 - Error: Bad request - application/json
+     * @return {ApiError} 404 - Error: Actions not found - application/json
+*/
+router.get('/compartment/:compartmentId(\\d+)', actionController.getAllActionsByCompartment); // pour récupérer toutes les actions associées à une case spécifique
+
+/**
      * GET /actions/{id}
      * @summary Get one action
      * @tags Action

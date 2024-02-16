@@ -15,12 +15,46 @@ router.get('/', compartmentController.getAllCompartments); // pour récupérer t
      * GET /compartments/class/{class}
      * @summary Get compartments by class
      * @tags Compartment
-     * @param {string} class.path.required - compartment identifier
+     * @param {string} class.path.required - compartment className
      * @return {[Compartment]} 200 - Success response - application/json
      * @return {ApiError} 400 - Error: Bad Request - application/json
      * @return {ApiError} 404 - Error: Compartments not found - application/json
 */
 router.get('/class/:compartmentClassName', compartmentController.getAllCompartmentsByClass); // pour récupérer toutes les cases d'une certaine classe
+
+/**
+     * GET /compartments/story/{id}
+     * @summary Get compartments by story
+     * @tags Compartment
+     * @param {number} id.path.required - story identifier
+     * @return {[Compartment]} 200 - Success response - application/json
+     * @return {ApiError} 400 - Error: Bad request - application/json
+     * @return {ApiError} 404 - Error: Compartments not found - application/json
+*/
+router.get('/story/:storyId(\\d+)', compartmentController.getAllCompartmentsByStory); // pour récupérer toutes les cases d'une certaine histoire
+
+/**
+     * GET /compartments/story/{id}/class/{class}
+     * @summary Get compartments by story and by class
+     * @tags Compartment
+     * @param {number} id.path.required - story identifier
+     * @param {string} class.path.required - compartment className
+     * @return {[Compartment]} 200 - Success response - application/json
+     * @return {ApiError} 400 - Error: Bad Request - application/json
+     * @return {ApiError} 404 - Error: Compartments not found - application/json
+*/
+router.get('/story/:storyId(\\d+)/class/:compartmentClassName', compartmentController.getAllCompartmentsByStoryAndByClass); // pour récupérer toutes les cases d'une certaine histoire et d'une classe
+
+/**
+     * GET /compartments/story/{id}/beginning
+     * @summary Get one compartment with class 'beginning'
+     * @tags Compartment
+     * @param {number} id.path.required - story identifier
+     * @return {Compartment} 200 - Success response - application/json
+     * @return {ApiError} 400 - Error: Bad request - application/json
+     * @return {ApiError} 404 - Error: Compartment not found - application/json
+*/
+router.get('/story/:storyId(\\d+)/beginning', compartmentController.getCompartmentByStoryAndByClassBeginning); // pour récupérer une case en particulier
 
 /**
      * GET /compartments/{id}

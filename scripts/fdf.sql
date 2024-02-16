@@ -1,0 +1,31 @@
+SELECT json_build_object(
+    'id',compartment.id,
+    'position',compartment.position,
+    'class',compartment.class,
+    'children',compartment.class,
+    'place_id',compartment.place_id,
+    'npc_id',compartment.npc_id,
+    'place_label',(SELECT label FROM place WHERE place.id = compartment.place_id),
+    'place_img',(SELECT img FROM place WHERE place.id = compartment.place_id),
+    'npc_label',(SELECT label FROM npc WHERE npc.id = compartment.npc_id),
+    'npc_img',(SELECT img FROM npc WHERE npc.id = compartment.npc_id),
+    'action1_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action2_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
+    ) "compartment" FROM compartment WHERE story_id=1;
+
+
+
+
+SELECT json_build_object('id',compartment.id,'position',compartment.position,'class',compartment.class,'children',compartment.class,'place_id',compartment.place_id,'npc_id',compartment.npc_id,'place_label',(SELECT label FROM place WHERE place.id = compartment.place_id),'place_img',(SELECT img FROM place WHERE place.id = compartment.place_id),'npc_label',(SELECT label FROM npc WHERE npc.id = compartment.npc_id),'npc_img',(SELECT img FROM npc WHERE npc.id = compartment.npc_id),'action1_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action1_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action1_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action1_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action1_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action1_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action1_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),'action2_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),'action2_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),'action2_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),'action2_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)) "compartment" FROM compartment WHERE story_id=1;

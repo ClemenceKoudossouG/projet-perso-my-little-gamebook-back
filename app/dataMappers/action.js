@@ -30,7 +30,7 @@ const actionDataMapper = {
         // à laquelle on transfère l'id du personnage donné par le front
         const values = [npcId];
         // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequestWithSingleResult(sqlQuery, values);
+        return executeRequest(sqlQuery, values);
     },
 
     // Pour récupérer toutes les actions associées à un objet existantes dans la bdd :
@@ -40,7 +40,7 @@ const actionDataMapper = {
         // à laquelle on transfère l'id de l'objet donné par le front
         const values = [itemId];
         // Appel de la fonction du pgHelper pour exécuter la requête.
-        return executeRequestWithSingleResult(sqlQuery, values);
+        return executeRequest(sqlQuery, values);
     },
 
     // Pour récupérer toutes les actions existantes dans la bdd selon une classe d'actions choisie :
@@ -49,7 +49,7 @@ const actionDataMapper = {
         const sqlQuery = "SELECT * FROM get_all_actions_by_class($1);";
         const values = [actionClassName];
         // Appel de la fonction du pgHelper pour exécuter la requête
-        return executeRequestWithSingleResult(sqlQuery, values);
+        return executeRequest(sqlQuery, values);
     },
         
     // Pour récupérer une action en particulier :
@@ -60,7 +60,17 @@ const actionDataMapper = {
         const values = [id];
         // Appel de la fonction du pgHelper pour exécuter la requête
         return executeRequestWithSingleResult(sqlQuery, values);
-    }
+    },
+
+    // Pour récupérer toutes les actions associées à une case existantes dans la bdd :
+    async findByCompartment(compartmentId) {
+        // On utilise la fonction sql get_all_actions_by_compartment
+        const sqlQuery = "SELECT * FROM get_all_actions_by_compartment($1);";
+        // à laquelle on transfère l'id de la case donné par le front
+        const values = [compartmentId];
+        // Appel de la fonction du pgHelper pour exécuter la requête.
+        return executeRequest(sqlQuery, values);
+    },
 };
 
 // On exporte le actionDataMapper
