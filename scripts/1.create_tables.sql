@@ -117,6 +117,8 @@ CREATE TABLE "story_has_genre"(
 CREATE TABLE "compartment_has_action"(
   "compartment_id" INTEGER NOT NULL REFERENCES "compartment"("id") ON DELETE CASCADE,
   "action_id" INTEGER NOT NULL REFERENCES "action"("id") ON DELETE CASCADE,
+  "child" INTEGER,
+  "item" INTEGER,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY ("compartment_id", "action_id")
 );

@@ -39,3 +39,17 @@
 13-02-2024 19:47:37:4737 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
 13-02-2024 19:48:06:486 error: Identifiants incorrects.
 13-02-2024 19:52:37:5237 error: Identifiants incorrects.
+15-02-2024 12:52:58:5258 error: Cannot access 'storyId' before initialization
+15-02-2024 14:29:04:294 error: la fonction update_user(unknown) n'existe pas
+15-02-2024 14:34:05:345 error: Vous n'avez pas le droit.
+15-02-2024 19:08:17:817 error: executeRequestComplete is not defined
+15-02-2024 19:11:57:1157 error: resultCompartments is not defined
+15-02-2024 19:12:22:1222 error: resultCompartments is not defined
+15-02-2024 19:12:36:1236 error: resultCompartments is not defined
+15-02-2024 19:13:01:131 error: resultCompartments is not defined
+16-02-2024 10:27:39:2739 error: le message bind fournit 1 paramètres, mais l'instruction préparée «  » en requiert 0
+16-02-2024 10:28:09:289 error: erreur de syntaxe sur ou près de « 'compartment' »
+16-02-2024 10:28:23:2823 error: le message bind fournit 1 paramètres, mais l'instruction préparée «  » en requiert 0
+16-02-2024 10:28:51:2851 error: la colonne « compartment » n'existe pas
+16-02-2024 10:29:43:2943 error: la fonction compartment(unknown) n'existe pas
+16-02-2024 12:02:21:221 error: erreur de syntaxe sur ou près de « . »

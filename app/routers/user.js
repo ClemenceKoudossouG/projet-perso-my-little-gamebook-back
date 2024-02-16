@@ -37,16 +37,15 @@ router.post('/signup', userController.signup); // pour s'inscrire sur le site
 router.post('/signin', userController.signin) // pour se connecter au site
 
 /**
-     * PATCH /user/{id}
+     * PATCH /user
      * @summary Update one user
      * @tags User
-     * @param {number} id.path.required - user identifier
      * @param {InputUser} request.body.required - user info
      * @return {User} 200 - Success response - application/json
      * @return {ApiError} 400 - Error: Bad Request - application/json
      * @return {ApiError} 404 - Error: User not found - application/json
 */
-router.patch('/:id(\\d+)', userController.updateOneUser); // pour modifier ses données en tant qu'utilisateur connecté
+router.patch('/', isMember, userController.updateOneUser); // pour modifier ses données en tant qu'utilisateur connecté
 
 /**
      * DELETE /user/{id}
@@ -57,6 +56,6 @@ router.patch('/:id(\\d+)', userController.updateOneUser); // pour modifier ses d
      * @return {ApiError} 400 - Error: Bad Request - application/json
      * @return {ApiError} 404 - User not found - application/json
 */
-router.delete('/:id(\\d+)', userController.deleteOneUser) // pour supprimer son compte utilisateur
+router.delete('/:id(\\d+)', isMember, userController.deleteOneUser) // pour supprimer son compte utilisateur
 
 export default router;

@@ -56,6 +56,17 @@ const actionController = {
             next(error);
         }
     },
+    // pour récupérer toutes les actions associées à une case spécifique en tant qu'utilisateur connecté.
+    async getAllActionsByCompartment(req, res, next) {
+        try {
+            const { compartmentId } = req.params;
+            const { result, error } = await actionDataMapper.findByCompartment(compartmentId);
+            // Appel de la fonction de controllerHelper pour gérer la réponse. 
+            manageResponse(res, result, error, next);
+        } catch (error) {
+            next(error);
+        }
+    },
 };
 
 export { actionController };

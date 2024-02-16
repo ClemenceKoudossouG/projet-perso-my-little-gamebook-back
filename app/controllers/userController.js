@@ -67,12 +67,10 @@ const userController = {
     // Pour modifier ses données en tant qu'utilisateur connecté
     async updateOneUser(req, res, next) {
         try {
-            // Récupérer l'id de l'utilisateur concerné
-            const { userId }  = req.params;
             // Récupérer les infos modifiées
             const { updatedUserInfo } = req.body;
             // Appeler la méthode update
-            const { result, error } = await userDataMapper.updateUser({ userId, updatedUserInfo });
+            const { result, error } = await userDataMapper.updateUser({ updatedUserInfo });
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
         } catch (error) {
