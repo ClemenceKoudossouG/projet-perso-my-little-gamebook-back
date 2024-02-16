@@ -102,3 +102,37 @@
 15-02-2024 14:15:37:1537 error: undefined
 15-02-2024 14:15:41:1541 error: undefined
 15-02-2024 14:40:16:4016 error: la fonction get_user(unknown) n'existe pas
+16-02-2024 15:14:19:1419 error: Cannot read properties of undefined (reading '0')
+16-02-2024 15:15:57:1557 error: result is not defined
+16-02-2024 15:22:16:2216 error: Cannot read properties of undefined (reading 'nodeName')
+16-02-2024 15:28:32:2832 error: erreur de syntaxe sur ou près de « . »
+16-02-2024 15:28:54:2854 error: erreur de syntaxe sur ou près de « . »
+16-02-2024 15:41:46:4146 error: Cannot convert undefined or null to object
+16-02-2024 15:44:32:4432 error: Cannot convert undefined or null to object
+16-02-2024 16:07:53:753 error: la colonne « compartment » n'existe pas
+16-02-2024 16:25:23:2523 error: Cannot read properties of undefined (reading '0')
+16-02-2024 16:26:18:2618 error: Object.values.firstChild is not a function or its return value is not iterable
+16-02-2024 16:26:27:2627 error: Object.values.firstChild is not iterable
+16-02-2024 16:34:27:3427 error: la fonction compartment_bis(unknown) n'existe pas
+16-02-2024 16:35:56:3556 error: la requête n'a pas de destination pour les données résultantes
+16-02-2024 16:56:35:5635 error: la colonne « json_build_object » n'existe pas
+16-02-2024 16:58:48:5848 error: completeCompartment is not defined
+16-02-2024 16:59:04:594 error: completeCompartment is not defined
+16-02-2024 16:59:05:595 error: completeCompartment is not defined
+16-02-2024 16:59:06:596 error: completeCompartment is not defined
+16-02-2024 16:59:07:597 error: completeCompartment is not defined
+16-02-2024 16:59:23:5923 error: completeCompartment is not defined
+16-02-2024 16:59:24:5924 error: completeCompartment is not defined
+16-02-2024 16:59:35:5935 error: completeCompartment is not defined
+16-02-2024 16:59:37:5937 error: completeCompartment is not defined
+16-02-2024 17:00:02:02 error: le schéma « object » n'existe pas
+16-02-2024 17:00:29:029 error: le schéma « get_all_compartments_by_story » n'existe pas
+16-02-2024 17:00:58:058 error: la colonne get_all_compartments_by_story.values n'existe pas
+16-02-2024 17:18:23:1823 error: resu is not defined
+16-02-2024 17:21:34:2134 error: re.remove is not a function
+16-02-2024 17:21:51:2151 error: re.append is not a function
+16-02-2024 17:23:54:2354 error: Cannot access 'resu' before initialization
+16-02-2024 17:24:15:2415 error: Cannot access 'resu' before initialization
+16-02-2024 18:39:13:3913 error: results.map is not a function
+16-02-2024 18:39:44:3944 error: results.map is not a function
+16-02-2024 18:41:01:411 error: results.map is not a function

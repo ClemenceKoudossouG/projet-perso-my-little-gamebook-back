@@ -50,17 +50,67 @@ $$ LANGUAGE sql SECURITY DEFINER;
 -- Compartment :
 
 -- Pour récupérer et afficher toutes les cases :
-CREATE OR REPLACE FUNCTION get_all_compartments() RETURNS SETOF compartment AS $$
-	SELECT * FROM compartment;
+CREATE OR REPLACE FUNCTION get_all_compartments() RETURNS SETOF json AS $$
+	SELECT json_build_object(
+    'id',compartment.id,
+    'position',compartment.position,
+    'class',compartment.class,
+    'children',compartment.class,
+    'place_id',compartment.place_id,
+    'npc_id',compartment.npc_id,
+    'place_label',(SELECT label FROM place WHERE place.id = compartment.place_id),
+    'place_img',(SELECT img FROM place WHERE place.id = compartment.place_id),
+    'npc_label',(SELECT label FROM npc WHERE npc.id = compartment.npc_id),
+    'npc_img',(SELECT img FROM npc WHERE npc.id = compartment.npc_id),
+    'action1_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action2_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
+    ) FROM compartment;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les cases selon une classe choisie :
-CREATE OR REPLACE FUNCTION get_all_compartments_by_class(TEXT) RETURNS SETOF compartment AS $$
-	SELECT * FROM compartment WHERE class=$1;
+CREATE OR REPLACE FUNCTION get_all_compartments_by_class(TEXT) RETURNS SETOF json AS $$
+SELECT json_build_object(
+    'id',compartment.id,
+    'position',compartment.position,
+    'class',compartment.class,
+    'children',compartment.class,
+    'place_id',compartment.place_id,
+    'npc_id',compartment.npc_id,
+    'place_label',(SELECT label FROM place WHERE place.id = compartment.place_id),
+    'place_img',(SELECT img FROM place WHERE place.id = compartment.place_id),
+    'npc_label',(SELECT label FROM npc WHERE npc.id = compartment.npc_id),
+    'npc_img',(SELECT img FROM npc WHERE npc.id = compartment.npc_id),
+    'action1_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action2_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
+    ) FROM compartment WHERE class=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les cases d'une seule histoire de manière complète en un array rempli d'objets json :
-CREATE OR REPLACE FUNCTION compartment(int) RETURNS SETOF json AS $$
+CREATE OR REPLACE FUNCTION get_all_compartments_by_story(int) RETURNS SETOF json AS $$
 	SELECT json_build_object(
     'id',compartment.id,
     'position',compartment.position,
@@ -86,21 +136,71 @@ CREATE OR REPLACE FUNCTION compartment(int) RETURNS SETOF json AS $$
     'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
     'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
     'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
-    ) "compartment" FROM compartment WHERE story_id=$1;
+    ) FROM compartment WHERE story_id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les cases selon une classe choisie d'une seule histoire :
-CREATE OR REPLACE FUNCTION get_all_compartments_by_story_and_by_class(int, TEXT) RETURNS SETOF compartment AS $$
-	SELECT * FROM compartment WHERE class=$2 AND story_id=$1;
+CREATE OR REPLACE FUNCTION get_all_compartments_by_story_and_by_class(int, TEXT) RETURNS SETOF json AS $$
+SELECT json_build_object(
+    'id',compartment.id,
+    'position',compartment.position,
+    'class',compartment.class,
+    'children',compartment.class,
+    'place_id',compartment.place_id,
+    'npc_id',compartment.npc_id,
+    'place_label',(SELECT label FROM place WHERE place.id = compartment.place_id),
+    'place_img',(SELECT img FROM place WHERE place.id = compartment.place_id),
+    'npc_label',(SELECT label FROM npc WHERE npc.id = compartment.npc_id),
+    'npc_img',(SELECT img FROM npc WHERE npc.id = compartment.npc_id),
+    'action1_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action2_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
+    ) FROM compartment WHERE class=$2 AND story_id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher la case de la classe 'beginning' d'une seule histoire :
-CREATE OR REPLACE FUNCTION get_compartment_by_story_and_by_class_beginning(int) RETURNS SETOF compartment AS $$
-	SELECT * FROM compartment WHERE class='beginning' AND story_id=$1;
+CREATE OR REPLACE FUNCTION get_compartment_by_story_and_by_class_beginning(int) RETURNS SETOF json AS $$
+SELECT json_build_object(
+    'id',compartment.id,
+    'position',compartment.position,
+    'class',compartment.class,
+    'children',compartment.class,
+    'place_id',compartment.place_id,
+    'npc_id',compartment.npc_id,
+    'place_label',(SELECT label FROM place WHERE place.id = compartment.place_id),
+    'place_img',(SELECT img FROM place WHERE place.id = compartment.place_id),
+    'npc_label',(SELECT label FROM npc WHERE npc.id = compartment.npc_id),
+    'npc_img',(SELECT img FROM npc WHERE npc.id = compartment.npc_id),
+    'action1_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action1_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id LIMIT 1),
+    'action2_id',(SELECT action_id FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_label',(SELECT action.label FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_class',(SELECT action.class FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_consequence',(SELECT action.consequence FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
+    'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
+    ) FROM compartment WHERE class='beginning' AND story_id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer une case en particulier :
-CREATE OR REPLACE FUNCTION compartment_by_id(int) RETURNS json AS $$
+CREATE OR REPLACE FUNCTION get_compartment_by_id(int) RETURNS json AS $$
 	SELECT json_build_object(
     'id',compartment.id,
     'position',compartment.position,
@@ -126,7 +226,7 @@ CREATE OR REPLACE FUNCTION compartment_by_id(int) RETURNS json AS $$
     'action2_img',(SELECT action.img FROM compartment_has_action JOIN action ON action.id = compartment_has_action.action_id WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
     'action2_child',(SELECT child FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1),
     'action2_item',(SELECT item FROM compartment_has_action WHERE compartment.id = compartment_has_action.compartment_id ORDER BY action_id DESC LIMIT 1)
-    ) "compartment" FROM compartment WHERE id=$1;
+    ) FROM compartment WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 

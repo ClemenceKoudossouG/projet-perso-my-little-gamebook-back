@@ -1,8 +1,6 @@
 // Le compartmentDataMapper faisant le lien entre le compartmentController et les fonctions sql
 
-// Import des fonctions du pgHelper pour refactoriser les fonctions
-import { executeRequest } from "../helper/pgHelper.js";
-import { executeRequestWithSingleResult } from "../helper/pgHelper.js";
+import pool from "../services/pgPool.js";
 
 /**
  * @typedef {object} Compartment
@@ -21,8 +19,22 @@ const compartmentDataMapper = {
     async findAll() {
         // On utilise la fonction sql get_all_compartments
         const sqlQuery = "SELECT * FROM get_all_compartments();";
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequest(sqlQuery);
+
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery);
+        // On récupère les informations données par la bdd
+        results = response.rows;
+        result = results.map(a => a.get_all_compartments);
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour récupérer toutes les cases existantes dans la bdd selon une classe de cases choisie :
@@ -31,28 +43,69 @@ const compartmentDataMapper = {
         const sqlQuery = "SELECT * FROM get_all_compartments_by_class($1);";
         // à laquelle on transfère le nom de la classe ('text') donné par le front
         const values = [compartmentClassName];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequest(sqlQuery, values);
+
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows;
+        result = results.map(a => a.get_all_compartments_by_class);
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour récupérer une case en particulier :
     async findById(id){
-        // On utilise la fonction sql compartment_by_id
-        const sqlQuery = "SELECT * FROM compartment_by_id($1);";
+        // On utilise la fonction sql get_compartment_by_id
+        const sqlQuery = "SELECT * FROM get_compartment_by_id($1);";
         // à laquelle on transfère l'id de la case donné par le front
         const values = [id];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequestWithSingleResult(sqlQuery, values);
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows[0];
+        result = results.get_compartment_by_id;
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour récupérer toutes les cases existantes dans la bdd selon une histoire choisie :
     async findByStory(storyId){
-        // On utilise la fonction sql compartment
-        const sqlQuery = "SELECT * FROM compartment($1);";
+        // On utilise la fonction sql get_all_compartments_by_story
+        const sqlQuery = "SELECT * FROM get_all_compartments_by_story($1);";
         // à laquelle on transfère l'id de l'histoire donné par le front
         const values = [storyId];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequest(sqlQuery, values);
+        
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows;
+        result = results.map(a => a.get_all_compartments_by_story);
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour récupérer toutes les cases existantes dans la bdd selon une histoire et une certaine classe de cases choisies :
@@ -61,8 +114,22 @@ const compartmentDataMapper = {
         const sqlQuery = "SELECT * FROM get_all_compartments_by_story_and_by_class($1, $2);";
         // à laquelle on transfère l'id de l'histoire et le nom de la classe ('text') donné par le front
         const values = [storyId, compartmentClassName];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequest(sqlQuery, values);
+        
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows;
+        result = results.map(a => a.get_all_compartments_by_story_and_by_class);
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour récupérer la case dans la bdd selon une histoire et la classe 'beginning' :
@@ -71,8 +138,22 @@ const compartmentDataMapper = {
         const sqlQuery = "SELECT * FROM get_compartment_by_story_and_by_class_beginning($1);";
         // à laquelle on transfère l'id de l'histoire et le nom de la classe ('text') donné par le front
         const values = [storyId];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequestWithSingleResult(sqlQuery, values);
+        
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows[0];
+        result = results.get_compartment_by_story_and_by_class_beginning;
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 };
 
