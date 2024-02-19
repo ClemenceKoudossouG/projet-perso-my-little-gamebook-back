@@ -1,4 +1,4 @@
-import { userDataMapper } from "../dataMappers/index.js";
+import { storyDataMapper, userDataMapper } from "../dataMappers/index.js";
 import { manageResponse } from "../helper/controllerHelper.js";
 
 import JWT from "../services/jwt.js";
@@ -53,10 +53,11 @@ const userController = {
                 // Génération du token
                 const token = JWT.encode(user);
                 user.token = token;
+                // Stockage de l'user dans la session
+                req.session.user = user;
             } else {
                 error = new APIError("Identifiants incorrects.", 401);
             }
-
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
             

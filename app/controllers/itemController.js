@@ -34,6 +34,19 @@ const itemController = {
             next(error);
         }
     },
+     // Pour ajouter des items à la session utilisateur au cours d'un jeu
+    async addItemToInventory(req, res, next) {
+        try {
+            // On extrait l'id de l'item depuis le body
+            const { itemId } = req.body;
+            // On appelle la méthode pour stocker l'item dans le dataMapper story
+            const storedItem = await itemDataMapper.storeItem(itemId, req.session);
+            // On retourne l'item stocké
+            res.json({ success: true, message: "Objet ajouté avec succès.", itemId: storedItem });
+        } catch (error) {
+            next(error);
+        }
+    }
 };
 
 export { itemController };

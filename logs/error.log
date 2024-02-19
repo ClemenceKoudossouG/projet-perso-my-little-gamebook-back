@@ -136,3 +136,23 @@
 16-02-2024 18:39:13:3913 error: results.map is not a function
 16-02-2024 18:39:44:3944 error: results.map is not a function
 16-02-2024 18:41:01:411 error: results.map is not a function
+16-02-2024 20:05:35:535 error: function get_compartment_by_id(unknown) does not exist
+16-02-2024 23:10:52:1052 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+16-02-2024 23:11:06:116 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+16-02-2024 23:11:20:1120 error: Identifiants incorrects.
+16-02-2024 23:11:26:1126 error: Identifiants incorrects.
+19-02-2024 14:33:09:339 error: storyDataMapper is not defined
+19-02-2024 14:33:36:3336 error: Cannot read properties of undefined (reading 'user')
+19-02-2024 14:43:08:438 error: Vous n'avez pas le droit.
+19-02-2024 14:47:51:4751 error: Cannot read properties of undefined (reading 'user')
+19-02-2024 15:06:30:630 error: Cannot read properties of undefined (reading 'user')
+19-02-2024 15:08:05:85 error: Cannot set headers after they are sent to the client
+19-02-2024 15:08:31:831 error: Cannot read properties of undefined (reading 'user')
+19-02-2024 15:10:26:1026 error: Cannot set headers after they are sent to the client
+19-02-2024 15:10:32:1032 error: Cannot set headers after they are sent to the client
+19-02-2024 15:10:49:1049 error: Cannot set headers after they are sent to the client
+19-02-2024 15:13:13:1313 error: Cannot read properties of undefined (reading 'user')
+19-02-2024 15:16:26:1626 error: Session utilisateur introuvable
+19-02-2024 15:20:40:2040 error: Session utilisateur introuvable
+19-02-2024 15:21:07:217 error: Session utilisateur introuvable
+19-02-2024 15:27:54:2754 error: Session utilisateur introuvable
