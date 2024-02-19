@@ -83,9 +83,7 @@ INSERT INTO "compartment_has_action" ("compartment_id", "action_id", "child", "i
 (6, 3, 10, null),
 (6, 10, 9, null),
 (7, 6, null, null),
-(8, 12, null, null),
 (8, 7, null, null),
-(9, 12, null, null),
 (9, 11, null, null),
 (10, 12, null, null);
 
