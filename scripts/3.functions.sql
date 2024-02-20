@@ -51,7 +51,7 @@ $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les cases :
 CREATE OR REPLACE FUNCTION get_all_compartments() RETURNS SETOF json AS $$
-	SELECT json_build_object(
+SELECT json_build_object(
     'id',compartment.id,
     'position',compartment.position,
     'class',compartment.class,
