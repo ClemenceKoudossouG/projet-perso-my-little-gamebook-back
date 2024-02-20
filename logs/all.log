@@ -156,3 +156,28 @@
 19-02-2024 15:20:40:2040 error: Session utilisateur introuvable
 19-02-2024 15:21:07:217 error: Session utilisateur introuvable
 19-02-2024 15:27:54:2754 error: Session utilisateur introuvable
+20-02-2024 10:00:18:018 error: Identifiants incorrects.
+20-02-2024 10:03:39:339 error: Vous n'avez pas le droit.
+20-02-2024 10:04:18:418 error: Vous n'avez pas le droit.
+20-02-2024 10:04:55:455 error: Vous n'avez pas le droit.
+20-02-2024 10:17:09:179 error: Vous n'avez pas le droit.
+20-02-2024 10:17:19:1719 error: Identifiants incorrects.
+20-02-2024 10:17:32:1732 error: Identifiants incorrects.
+20-02-2024 10:19:30:1930 error: Vous n'avez pas le droit.
+20-02-2024 10:20:47:2047 error: Vous n'avez pas le droit.
+20-02-2024 10:21:29:2129 error: Vous n'avez pas le droit.
+20-02-2024 10:34:11:3411 error: Vous n'avez pas le droit.
+20-02-2024 10:34:34:3434 error: Vous n'avez pas le droit.
+20-02-2024 10:34:49:3449 error: Vous n'avez pas le droit.
+20-02-2024 10:34:50:3450 error: Vous n'avez pas le droit.
+20-02-2024 10:35:01:351 error: Vous n'avez pas le droit.
+20-02-2024 10:35:06:356 error: Vous n'avez pas le droit.
+20-02-2024 10:35:14:3514 error: Vous n'avez pas le droit.
+20-02-2024 10:36:17:3617 error: Vous n'avez pas le droit.
+20-02-2024 10:36:36:3636 error: Vous n'avez pas le droit.
+20-02-2024 10:37:13:3713 error: Vous n'avez pas le droit.
+20-02-2024 09:35:48:3548 error: Vous n'avez pas le droit.
+20-02-2024 10:45:58:4558 error: Vous n'avez pas le droit.
+20-02-2024 10:52:29:5229 error: Vous n'avez pas le droit.
+20-02-2024 10:53:28:5328 error: Vous n'avez pas le droit.
+20-02-2024 11:02:12:212 error: Cannot read properties of undefined (reading 'role')

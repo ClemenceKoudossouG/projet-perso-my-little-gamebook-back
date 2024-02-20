@@ -11,15 +11,22 @@ import APIError from './errorHandler/APIError.js';
 export function isMember(req, res, next) {
     // Récupération du token
     const token = req.get("Authorization");
-    // Vérification du token
-    const { result, error } = JWT.decode(token);
-
-    if (result) {
-        // l'utilisateur est-il existant ?
-        next();
+    // Vérification si le token existe
+    if (!token) {
+        return next(new APIError("L'authentification a échoué : token inexistant.", 401));
     }
-    else {
-        next(new APIError("Vous n'avez pas le droit.",401));
+
+    try {
+        // Vérification du token
+        const decodedToken = JWT.decode(token);
+        // On vérifie si le token décodé existe
+        if (!decodedToken) {
+            return next(new APIError("L'authentification a échoué: token invalide.", 401));
+        }
+        // Si tout va bien, on passe à la suite
+        next();
+    } catch(error){
+        return next(new APIError("Vous n'avez pas les droits nécessaires pour effectuer cette action.", 401));
     }
 }
 
