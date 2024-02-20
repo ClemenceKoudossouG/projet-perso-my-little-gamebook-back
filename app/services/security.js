@@ -11,15 +11,20 @@ import APIError from './errorHandler/APIError.js';
 export function isMember(req, res, next) {
     // Récupération du token
     const token = req.get("Authorization");
-    // Vérification du token
+
     const { result, error } = JWT.decode(token);
 
     if (result) {
-        // l'utilisateur est-il existant ?
-        next();
+
+        if (result) {
+            next();
+        }
+        else {
+            next(new APIError("Vous n'avez pas le droit"));
+        }
     }
     else {
-        next(new APIError("Vous n'avez pas le droit.",401));
+        next(error);
     }
 }
 

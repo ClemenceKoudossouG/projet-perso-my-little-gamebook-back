@@ -71,24 +71,22 @@ const userDataMapper = {
     },
     
     // Pour supprimer un utilisateur en particulier :
-    async deleteUser(req, res){
+    async deleteUser(userId){
+        const sqlQuery = "SELECT * FROM delete_user($1);";
+        const values = [userId];
+
+        let result;
         let error;
-
-        // Récupérer l'id de l'user concerné
-        const { id } = req.params;
-
         try {
-        // On utilise la fonction sql delete_user
-        const result = await pool.query("SELECT * FROM delete_user($1)", [id]);
-        // Si pas de rangée affectée, l'utilisateur n'existe pas.
-            if (result.rowCount === 0) {
-                return { result: { message: "Utilisateur introuvable."}, error: null };
-            }
-        // Sinon succès
-        return { result: { message: "Utilisateur supprimé avec succès"}, error: null };
-        }  catch (err) {
+            const response = await pool.query(sqlQuery,values);
+
+            result = response.rowCount == 1;
+        }
+        catch (err) {
             error = err;
         }
+
+        return {result,error};
     },
 };
 

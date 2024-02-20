@@ -138,3 +138,27 @@
 16-02-2024 18:41:01:411 error: results.map is not a function
 19-02-2024 20:57:13:5713 error: plus d'une ligne renvoyée par une sous-requête utilisée comme une expression
 19-02-2024 20:59:05:595 error: plus d'une ligne renvoyée par une sous-requête utilisée comme une expression
+20-02-2024 11:29:09:299 error: Vous n'avez pas le droit.
+20-02-2024 11:29:11:2911 error: Vous n'avez pas le droit.
+20-02-2024 11:29:37:2937 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+20-02-2024 11:41:31:4131 error: Vous n'avez pas le droit.
+20-02-2024 14:46:33:4633 error: Identifiants incorrects.
+20-02-2024 14:47:57:4757 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+20-02-2024 15:06:36:636 error: Vous n'avez pas le droit.
+20-02-2024 15:06:41:641 error: Vous n'avez pas le droit.
+20-02-2024 15:06:45:645 error: Vous n'avez pas le droit.
+20-02-2024 15:08:42:842 error: Vous n'avez pas le droit.
+20-02-2024 15:09:47:947 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 15:10:33:1033 error: Vous n'avez pas le droit.
+20-02-2024 15:10:36:1036 error: Vous n'avez pas le droit.
+20-02-2024 15:16:49:1649 error: Vous n'avez pas le droit.
+20-02-2024 15:20:18:2018 error: Cannot read properties of undefined (reading 'id')
+20-02-2024 15:20:49:2049 error: Vous n'avez pas le droit.
+20-02-2024 15:36:08:368 error: Cannot read properties of undefined (reading 'id')
+20-02-2024 15:37:10:3710 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 15:39:26:3926 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 15:41:37:4137 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 17:10:04:104 error: Identifiants incorrects.
+20-02-2024 17:11:32:1132 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+20-02-2024 17:57:30:5730 error: Identifiants incorrects.
+20-02-2024 18:10:48:1048 error: Identifiants incorrects.
