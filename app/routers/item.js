@@ -33,13 +33,5 @@ router.get('/action/:actionId(\\d+)', itemController.getAllItemsByAction); // po
 */
 router.get('/:id(\\d+)', itemController.getOneItem); // pour récupérer un objet en particulier
 
-/**
-    * POST /items/pickup/{id}
-    * @summary Pickup item
-    * @tags Item
-    * @param {number} id.path.required - item identifier
-    * @return {[Item]} 200 - Success response - application/json
-*/
-router.get('/pickup/:id(\\d+)', itemController.addItemToInventory); // pour stocker un objet dans la session utilisateur au cours d'un jeu = inventaire. 
 
 export default router;

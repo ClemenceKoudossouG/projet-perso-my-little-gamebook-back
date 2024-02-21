@@ -53,8 +53,6 @@ const userController = {
                 // Génération du token
                 const token = JWT.encode(user);
                 user.token = token;
-                // Stockage de l'user dans la session
-                req.session.user = user;
             } else {
                 error = new APIError("Identifiants incorrects.", 401);
             }

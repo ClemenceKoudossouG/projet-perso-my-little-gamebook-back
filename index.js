@@ -4,8 +4,6 @@ import cors from "cors";
 
 import express from "express";
 
-import session from "express-session";
-
 const app = express();
 
 const PORT = process.env.PORT ?? 3000;
@@ -20,17 +18,6 @@ expressJSDocSwagger(app)
 
 // Pour accéder aux ressources d'un autre serveur (requêter notre API via le serveur Front) :
 app.use(cors());
-
-// Pour utiliser le système de sessions (infos profil, stockage items, favoris)
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    // Si https, cookie secure: true. False: pour tester localement. 
-    cookie: { 
-        maxAge: 3600000, // Temps avant expiration de la session = 1h
-        secure: false }
-}));
 
 // Pour autoriser l'envoi de JSON si nécessaire :
 app.use(express.json());
