@@ -12,13 +12,26 @@ const itemController = {
             next(error);
         }
     },
-    // Pour récupérer un item, par son id, en tant qu'utilisateur connecté.
+    // Pour récupérer un item, par son id, en tant qu'utilisateur connecté. // changer en addItemToInventory car redondant sinon?
     async getOneItem(req, res, next) {
         try {
             const { id } = req.params;
             const { result, error } = await itemDataMapper.findById(id);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
+        } catch (error) {
+            next(error);
+        }
+    },
+     // Pour ajouter des items à la session utilisateur au cours d'un jeu
+    async addItemToInventory(req, res, next) {
+        try {
+            //On extrait l'id de l'item depuis le body
+            const { itemId } = req.params;
+            // On appelle la méthode pour stocker l'item dans le dataMapper story
+            const storedItem = await itemDataMapper.storeItem(itemId, req.session);
+            // On retourne l'item stocké
+            res.json({ success: true, message: "Objet ajouté avec succès.", itemId: storedItem });
         } catch (error) {
             next(error);
         }
@@ -34,19 +47,7 @@ const itemController = {
             next(error);
         }
     },
-     // Pour ajouter des items à la session utilisateur au cours d'un jeu
-    async addItemToInventory(req, res, next) {
-        try {
-            // On extrait l'id de l'item depuis le body
-            const { itemId } = req.body;
-            // On appelle la méthode pour stocker l'item dans le dataMapper story
-            const storedItem = await itemDataMapper.storeItem(itemId, req.session);
-            // On retourne l'item stocké
-            res.json({ success: true, message: "Objet ajouté avec succès.", itemId: storedItem });
-        } catch (error) {
-            next(error);
-        }
-    }
+    
 };
 
 export { itemController };

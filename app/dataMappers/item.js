@@ -44,11 +44,11 @@ const itemDataMapper = {
     // Pour stocker des items au cours d'un jeu
     async storeItem(itemId, session) {
         try {
-            // On vérifie si la session utilisateur existe
-            if(! session || !session.user) {
+            //On vérifie si la session utilisateur existe
+            if(!session || !session.user) {
                 throw new Error("Session utilisateur introuvable");
             }
-            // On récupère l'item depuis la BDD. this = contexte de l'objet itemDataMapper. 
+            //On récupère l'item depuis la BDD. this = contexte de l'objet itemDataMapper. 
             const item = await this.findById(itemId);
             // On vérifie l'existence de l'item
             if (!item) {
@@ -61,7 +61,7 @@ const itemDataMapper = {
             // On stocke l'item dans l'inventaire de l'user sur sa session
             session.user.inventory.push(itemId);
             // On retourne l'item stocké
-            return itemId;
+            return item;
         } catch(error) {
             throw error;
         }

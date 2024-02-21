@@ -40,6 +40,6 @@ router.get('/:id(\\d+)', itemController.getOneItem); // pour récupérer un obje
     * @param {number} id.path.required - item identifier
     * @return {[Item]} 200 - Success response - application/json
 */
-router.post('/pickup/:id(\\d+)', itemController.addItemToInventory); // pour stocker un objet dans la session  utilisateur au cours d'un jeu. 
+router.get('/pickup/:id(\\d+)', itemController.addItemToInventory); // pour stocker un objet dans la session utilisateur au cours d'un jeu = inventaire. 
 
 export default router;
