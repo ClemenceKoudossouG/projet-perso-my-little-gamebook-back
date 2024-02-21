@@ -9,6 +9,7 @@ import APIError from './errorHandler/APIError.js';
 
 // Pour vérifier à chaque fois si l'utilisateur est un membre connecté enregistré, on vérifie son token :
 export function isMember(req, res, next) {
+    
     // Récupération du token
     const token = req.get("Authorization");
     // Vérification si le token existe
