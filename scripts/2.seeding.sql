@@ -47,7 +47,7 @@ INSERT INTO "item" ("label", "img") VALUES
 INSERT INTO "action" ("label", "class", "consequence", "img") VALUES
 ('aller tout droit', 'no_npc', null, 'tout_droit'),
 ('aller à droite', 'no_npc', null, 'a_droite'),
-('parler', 'npc', 'Suis-moi', 'parler'),
+('parler', 'npc', '"Suis-moi"', 'parler'),
 ('explorer', 'no_npc', null, 'explorer'),
 ('faire une blague', 'npc', 'Elle est bien bonne ! Tu reprends ta route.', 'blague'),
 ('trouver le trésor', 'ending', 'Bravo, tu as trouvé le trésor ! Quelle aventure !', 'tresor'),
