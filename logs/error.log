@@ -195,3 +195,24 @@
 21-02-2024 11:05:43:543 error: Session utilisateur introuvable
 21-02-2024 11:05:52:552 error: Objet introuvable.
 21-02-2024 11:06:08:68 error: Objet introuvable.
+21-02-2024 17:12:01:121 error: Identifiants incorrects.
+21-02-2024 17:12:06:126 error: duplicate key value violates unique constraint "user_email_key"
+21-02-2024 17:16:13:1613 error: Vous n'avez pas le droit.
+21-02-2024 17:19:00:190 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:19:20:1920 error: Identifiants incorrects.
+21-02-2024 17:19:55:1955 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:26:55:2655 error: Identifiants incorrects.
+21-02-2024 17:27:26:2726 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:27:36:2736 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:27:41:2741 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:27:54:2754 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:29:09:299 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:32:28:3228 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:32:49:3249 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:33:39:3339 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:37:20:3720 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:37:28:3728 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:37:44:3744 error: Identifiants incorrects.
+21-02-2024 17:39:22:3922 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:40:36:4036 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:45:25:4525 error: Cannot read properties of undefined (reading 'id')

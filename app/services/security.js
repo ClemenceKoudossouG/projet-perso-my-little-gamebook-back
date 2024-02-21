@@ -13,7 +13,7 @@ export function isMember(req, res, next) {
     const token = req.get("Authorization");
     // Vérification si le token existe
     if (!token) {
-        return next(new APIError("L'authentification a échoué : token inexistant.", 401));
+        next(new APIError("L'authentification a échoué : token inexistant.", 401));
     }
 
     try {
@@ -21,12 +21,12 @@ export function isMember(req, res, next) {
         const decodedToken = JWT.decode(token);
         // On vérifie si le token décodé existe
         if (!decodedToken) {
-            return next(new APIError("L'authentification a échoué: token invalide.", 401));
+            next(new APIError("L'authentification a échoué: token invalide.", 401));
         }
         // Si tout va bien, on passe à la suite
         next();
     } catch(error){
-        return next(new APIError("Vous n'avez pas les droits nécessaires pour effectuer cette action.", 401));
+        next(new APIError("Vous n'avez pas les droits nécessaires pour effectuer cette action.", 401));
     }
 }
 

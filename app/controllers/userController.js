@@ -66,6 +66,10 @@ const userController = {
     // Pour modifier ses données en tant qu'utilisateur connecté
     async updateOneUser(req, res, next) {
         try {
+            // Récupération du token de l'utilisateur
+            const token = req.get("Authorization");
+            // Vérification du token de l'utilisateur
+            const user = JWT.decode(token);
             // Récupérer l'utilisateur concerné
             let { result, error } = await userDataMapper.getUser(req.params.id);
             // Utilisateur trouvé ?
@@ -74,6 +78,13 @@ const userController = {
             } else {
                 //  Màj des valeurs dans l'objet
                 let updatedUser = { ...result, ...req.body };
+                // Vérification du format de mdb
+            if(!schema.validate(updatedUser.password)) {
+                const error = new APIError('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.', 400);
+                return next(error);
+            } 
+            // Chiffrement du mot de passe
+            updatedUser.password = await encodePassword(updatedUser.password);
                 //  Màj en BDD
                 let { result: updatedResult, error: updateError } = await userDataMapper.updateUser(updatedUser);
                 // Vérification d'erreur
