@@ -38,11 +38,11 @@ INSERT INTO "npc" ("label", "img") VALUES
 ('requin', 'requin');
 
 INSERT INTO "item" ("label", "img") VALUES
-('laser', 'laser'),
-('poisson', 'poisson'),
-('baguette magique', 'baguette'),
-('pomme', 'pomme'),
-('épée', 'epee');
+('Laser', 'laser'),
+('Poisson', 'poisson'),
+('Baguette Magique', 'baguette'),
+('Pomme', 'pomme'),
+('Epée', 'epee');
 
 INSERT INTO "action" ("label", "class", "consequence", "img") VALUES
 ('aller tout droit', 'no_npc', null, 'tout_droit'),
