@@ -426,6 +426,4 @@ CREATE OR REPLACE FUNCTION delete_user(int) RETURNS void AS $$
 	WHERE "id"=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
-
-
 COMMIT;

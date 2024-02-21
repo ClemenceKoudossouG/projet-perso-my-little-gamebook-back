@@ -39,7 +39,7 @@ const itemDataMapper = {
         const values = [id];
         // Appel de la fonction du pgHelper pour exécuter la requête. 
         return executeRequestWithSingleResult(sqlQuery, values);
-    }
+    },
 };
 
 // On exporte le itemDataMapper

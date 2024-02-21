@@ -52,5 +52,6 @@ const storyDataMapper = {
     },
 };
 
+
 // On exporte le storyDataMapper
 export { storyDataMapper };

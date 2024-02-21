@@ -12,7 +12,7 @@ const itemController = {
             next(error);
         }
     },
-    // Pour récupérer un item, par son id, en tant qu'utilisateur connecté.
+    // Pour récupérer un item, par son id, en tant qu'utilisateur connecté. // changer en addItemToInventory car redondant sinon?
     async getOneItem(req, res, next) {
         try {
             const { id } = req.params;
@@ -34,6 +34,7 @@ const itemController = {
             next(error);
         }
     },
+    
 };
 
 export { itemController };

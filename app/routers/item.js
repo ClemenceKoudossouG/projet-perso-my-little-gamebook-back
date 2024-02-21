@@ -33,4 +33,5 @@ router.get('/action/:actionId(\\d+)', itemController.getAllItemsByAction); // po
 */
 router.get('/:id(\\d+)', itemController.getOneItem); // pour récupérer un objet en particulier
 
+
 export default router;

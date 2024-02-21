@@ -79,7 +79,8 @@ const userDataMapper = {
 
         try {
         // On utilise la fonction sql delete_user
-        const result = await pool.query("SELECT * FROM delete_user($1)", [id]);
+        //const result = await pool.query("SELECT * FROM delete_user($1)", [id]);
+        const result = await pool.query("DELETE FROM \"user\" WHERE \"id\" = $1", [id]);
         // Si pas de rangée affectée, l'utilisateur n'existe pas.
             if (result.rowCount === 0) {
                 return { result: { message: "Utilisateur introuvable."}, error: null };

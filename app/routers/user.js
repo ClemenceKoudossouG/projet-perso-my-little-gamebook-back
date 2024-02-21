@@ -45,7 +45,7 @@ router.post('/signin', userController.signin) // pour se connecter au site
      * @return {ApiError} 400 - Error: Bad Request - application/json
      * @return {ApiError} 404 - Error: User not found - application/json
 */
-router.patch('/', isMember, userController.updateOneUser); // pour modifier ses données en tant qu'utilisateur connecté
+router.patch('/:id(\\d+)', isMember, userController.updateOneUser); // pour modifier ses données en tant qu'utilisateur connecté
 
 /**
      * DELETE /user/{id}
