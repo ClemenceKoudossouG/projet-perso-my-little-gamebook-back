@@ -15,17 +15,17 @@ INSERT INTO "world" ("label", "img") VALUES
 ('Fantastique', 'fantastique');
 
 INSERT INTO "place" ("label", "img") VALUES
-('île', 'ile'),
-('bateau', 'bateau'),
-('cabine du capitaine', 'cabine'),
-('village', 'village'),
-('forêt', 'foret'),
-('espace', 'espace'),
-('planète rouge', 'planete_rouge'),
-('planète bleue', 'planete_bleue'),
-('château', 'chateau'),
-('mer', 'mer'),
-('fonds marins', 'fonds_marins');
+('L''Ile', 'ile'),
+('Le Bateau', 'bateau'),
+('La Cabine du Capitaine', 'cabine'),
+('Le Village', 'village'),
+('La Forêt', 'foret'),
+('L''Espace', 'espace'),
+('La Planète Rouge', 'planete_rouge'),
+('La Planète Bleue', 'planete_bleue'),
+('Le Château', 'chateau'),
+('La Mer', 'mer'),
+('Les Fonds Marins', 'fonds_marins');
 
 INSERT INTO "npc" ("label", "img") VALUES
 ('pirate', 'pirate'),
