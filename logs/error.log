@@ -168,3 +168,19 @@
 21-02-2024 17:49:29:4929 error: Cannot read properties of undefined (reading 'id')
 21-02-2024 17:50:11:5011 error: Cannot read properties of undefined (reading 'id')
 21-02-2024 17:51:08:518 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 18:53:32:5332 error: la valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »
+21-02-2024 18:53:54:5354 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:11:5511 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:29:5529 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:33:5533 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:38:5538 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:09:569 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:19:5619 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:27:5627 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:54:5654 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:58:55:5855 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:59:07:597 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:59:25:5925 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:59:52:5952 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:00:11:011 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:01:12:112 error: Hop hop hop, qu'est ce que tu fais là ?
