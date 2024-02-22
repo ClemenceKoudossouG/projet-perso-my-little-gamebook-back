@@ -14,7 +14,7 @@ const userController = {
             const token = req.get("Authorization");
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
-            const { result, error } = await userDataMapper.getUser(user.id);
+            const { result, error } = await userDataMapper.getUser(user.result.id);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
         } catch (error) {
@@ -57,7 +57,7 @@ const userController = {
                 error = new APIError("Identifiants incorrects.", 401);
             }
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
-            manageResponse(res, result, error, next);
+            manageResponse(res, user, error, next);
             
         } catch (error) {
             next(error);
@@ -71,7 +71,7 @@ const userController = {
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
             // Récupérer l'utilisateur concerné
-            let { result, error } = await userDataMapper.getUser(req.params.id);
+            let { result, error } = await userDataMapper.getUser(user.result.id);
             // Utilisateur trouvé ?
             if(error){
                 next(error);
@@ -101,10 +101,8 @@ const userController = {
     // Pour supprimer son compte utilisateur
     async deleteOneUser(req, res, next) {
         try {
-            // Récupérer l'id de l'utilisateur concerné
-            const { userId }  = req.params;
             // Appeler la méthode delete
-            const { result, error } = await userDataMapper.deleteUser(req, userId);
+            const { result, error } = await userDataMapper.deleteUser(req.params.id);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
             } catch (error) {
