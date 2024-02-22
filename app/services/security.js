@@ -17,6 +17,7 @@ export function isMember(req, res, next) {
     if (result) {
 
         if (result) {
+            
             next();
         }
         else {
