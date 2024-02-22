@@ -7,8 +7,14 @@ GRANT EXECUTE ON FUNCTIONS TO gamebook;
 -- Story :
 
 -- Pour récupérer et afficher toutes les histoires :
-CREATE OR REPLACE FUNCTION get_all_stories() RETURNS SETOF story AS $$
-	SELECT * FROM story;
+CREATE OR REPLACE FUNCTION get_all_stories() RETURNS SETOF json AS $$
+	SELECT json_build_object(
+    'id',story.id,
+    'name',story.name,
+    'level',story.level,
+    'description',story.description,
+    'img',(SELECT compartment.place_id FROM compartment WHERE story.id = compartment.story_id AND compartment.class = 'beginning')
+    ) FROM story;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer et afficher toutes les histoires selon un genre choisi :

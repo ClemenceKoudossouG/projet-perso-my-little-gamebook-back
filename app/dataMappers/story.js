@@ -4,12 +4,16 @@
 import { executeRequest } from "../helper/pgHelper.js";
 import { executeRequestWithSingleResult } from "../helper/pgHelper.js";
 
+import pool from "../services/pgPool.js";
+
 /**
  * @typedef {object} Story
  * @property {number} id - Primary key
  * @property {string} route - Route (for SEO)
  * @property {string} name - Name of the story
  * @property {number} level - Level of the story
+ * @property {string} description - Description of the story
+ * @property {number} img - Image of the story
  */
 const storyDataMapper = {
 
@@ -17,8 +21,22 @@ const storyDataMapper = {
     async findAll() {
         // On utilise la fonction sql get_all_stories
         const sqlQuery = "SELECT * FROM get_all_stories();";
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequest(sqlQuery);  
+
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery);
+        // On récupère les informations données par la bdd
+        results = response.rows;
+        result = results.map(a => a.get_all_stories);
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour récupérer toutes les histoires associées à un genre existantes dans la bdd :

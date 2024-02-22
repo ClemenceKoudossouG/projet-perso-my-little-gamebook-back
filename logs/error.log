@@ -190,3 +190,32 @@
 22-02-2024 10:02:17:217 error: la valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »
 22-02-2024 10:06:54:654 error: la valeur pour le domaine domain_mail viole la contrainte de vérification « domain_mail_check »
 22-02-2024 10:21:41:2141 error: Identifiants incorrects.
+22-02-2024 13:01:59:159 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 13:02:44:244 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 13:30:29:3029 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 13:31:23:3123 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 13:33:26:3326 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 13:33:54:3354 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 13:38:27:3827 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 13:39:50:3950 error: Identifiants incorrects.
+22-02-2024 13:40:43:4043 error: Identifiants incorrects.
+22-02-2024 15:19:12:1912 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 15:19:34:1934 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 15:19:36:1936 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 15:21:38:2138 error: Identifiants incorrects.
+22-02-2024 15:23:25:2325 error: Identifiants incorrects.
+22-02-2024 15:24:56:2456 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:22:5222 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:27:5227 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:28:5228 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:34:5234 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:35:5235 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:36:5236 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:52:37:5237 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 15:55:29:5529 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+22-02-2024 16:04:23:423 error: Identifiants incorrects.
+22-02-2024 16:19:48:1948 error: Identifiants incorrects.
+22-02-2024 16:20:10:2010 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 16:21:48:2148 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 16:22:23:2223 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 17:38:03:383 error: pool is not defined
