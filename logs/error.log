@@ -136,87 +136,57 @@
 16-02-2024 18:39:13:3913 error: results.map is not a function
 16-02-2024 18:39:44:3944 error: results.map is not a function
 16-02-2024 18:41:01:411 error: results.map is not a function
-16-02-2024 20:05:35:535 error: function get_compartment_by_id(unknown) does not exist
-16-02-2024 23:10:52:1052 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
-16-02-2024 23:11:06:116 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
-16-02-2024 23:11:20:1120 error: Identifiants incorrects.
-16-02-2024 23:11:26:1126 error: Identifiants incorrects.
-19-02-2024 14:33:09:339 error: storyDataMapper is not defined
-19-02-2024 14:33:36:3336 error: Cannot read properties of undefined (reading 'user')
-19-02-2024 14:43:08:438 error: Vous n'avez pas le droit.
-19-02-2024 14:47:51:4751 error: Cannot read properties of undefined (reading 'user')
-19-02-2024 15:06:30:630 error: Cannot read properties of undefined (reading 'user')
-19-02-2024 15:08:05:85 error: Cannot set headers after they are sent to the client
-19-02-2024 15:08:31:831 error: Cannot read properties of undefined (reading 'user')
-19-02-2024 15:10:26:1026 error: Cannot set headers after they are sent to the client
-19-02-2024 15:10:32:1032 error: Cannot set headers after they are sent to the client
-19-02-2024 15:10:49:1049 error: Cannot set headers after they are sent to the client
-19-02-2024 15:13:13:1313 error: Cannot read properties of undefined (reading 'user')
-19-02-2024 15:16:26:1626 error: Session utilisateur introuvable
-19-02-2024 15:20:40:2040 error: Session utilisateur introuvable
-19-02-2024 15:21:07:217 error: Session utilisateur introuvable
-19-02-2024 15:27:54:2754 error: Session utilisateur introuvable
-20-02-2024 10:00:18:018 error: Identifiants incorrects.
-20-02-2024 10:03:39:339 error: Vous n'avez pas le droit.
-20-02-2024 10:04:18:418 error: Vous n'avez pas le droit.
-20-02-2024 10:04:55:455 error: Vous n'avez pas le droit.
-20-02-2024 10:17:09:179 error: Vous n'avez pas le droit.
-20-02-2024 10:17:19:1719 error: Identifiants incorrects.
-20-02-2024 10:17:32:1732 error: Identifiants incorrects.
-20-02-2024 10:19:30:1930 error: Vous n'avez pas le droit.
-20-02-2024 10:20:47:2047 error: Vous n'avez pas le droit.
-20-02-2024 10:21:29:2129 error: Vous n'avez pas le droit.
-20-02-2024 10:34:11:3411 error: Vous n'avez pas le droit.
-20-02-2024 10:34:34:3434 error: Vous n'avez pas le droit.
-20-02-2024 10:34:49:3449 error: Vous n'avez pas le droit.
-20-02-2024 10:34:50:3450 error: Vous n'avez pas le droit.
-20-02-2024 10:35:01:351 error: Vous n'avez pas le droit.
-20-02-2024 10:35:06:356 error: Vous n'avez pas le droit.
-20-02-2024 10:35:14:3514 error: Vous n'avez pas le droit.
-20-02-2024 10:36:17:3617 error: Vous n'avez pas le droit.
-20-02-2024 10:36:36:3636 error: Vous n'avez pas le droit.
-20-02-2024 10:37:13:3713 error: Vous n'avez pas le droit.
-20-02-2024 09:35:48:3548 error: Vous n'avez pas le droit.
-20-02-2024 10:45:58:4558 error: Vous n'avez pas le droit.
-20-02-2024 10:52:29:5229 error: Vous n'avez pas le droit.
-20-02-2024 10:53:28:5328 error: Vous n'avez pas le droit.
-20-02-2024 11:02:12:212 error: Cannot read properties of undefined (reading 'role')
-20-02-2024 14:11:19:1119 error: Identifiants incorrects.
-20-02-2024 14:11:43:1143 error: Identifiants incorrects.
-20-02-2024 14:11:47:1147 error: Identifiants incorrects.
-20-02-2024 14:11:48:1148 error: Identifiants incorrects.
-21-02-2024 10:37:23:3723 error: Session utilisateur introuvable
-21-02-2024 10:37:33:3733 error: Identifiants incorrects.
-21-02-2024 10:42:40:4240 error: Session utilisateur introuvable
-21-02-2024 10:42:49:4249 error: Cannot read properties of undefined (reading 'label')
-21-02-2024 10:46:01:461 error: Cannot read properties of undefined (reading 'label')
-21-02-2024 11:05:18:518 error: Session utilisateur introuvable
-21-02-2024 11:05:27:527 error: Objet introuvable.
-21-02-2024 11:05:43:543 error: Session utilisateur introuvable
-21-02-2024 11:05:52:552 error: Objet introuvable.
-21-02-2024 11:06:08:68 error: Objet introuvable.
-21-02-2024 17:12:01:121 error: Identifiants incorrects.
-21-02-2024 17:12:06:126 error: duplicate key value violates unique constraint "user_email_key"
-21-02-2024 17:16:13:1613 error: Vous n'avez pas le droit.
-21-02-2024 17:19:00:190 error: Hop hop hop, qu'est ce que tu fais là ?
-21-02-2024 17:19:20:1920 error: Identifiants incorrects.
-21-02-2024 17:19:55:1955 error: Hop hop hop, qu'est ce que tu fais là ?
-21-02-2024 17:26:55:2655 error: Identifiants incorrects.
-21-02-2024 17:27:26:2726 error: Hop hop hop, qu'est ce que tu fais là ?
-21-02-2024 17:27:36:2736 error: Hop hop hop, qu'est ce que tu fais là ?
-21-02-2024 17:27:41:2741 error: Hop hop hop, qu'est ce que tu fais là ?
-21-02-2024 17:27:54:2754 error: Hop hop hop, qu'est ce que tu fais là ?
-21-02-2024 17:29:09:299 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:32:28:3228 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:32:49:3249 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:33:39:3339 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:37:20:3720 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:37:28:3728 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:37:44:3744 error: Identifiants incorrects.
-21-02-2024 17:39:22:3922 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:40:36:4036 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 17:45:25:4525 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 18:24:21:2421 error: Cannot read properties of undefined (reading 'id')
-21-02-2024 18:43:18:4318 error: L'authentification a échoué : token inexistant.
-21-02-2024 18:43:38:4338 error: L'authentification a échoué : token inexistant.
-21-02-2024 18:44:52:4452 error: L'authentification a échoué : token inexistant.
+19-02-2024 20:57:13:5713 error: plus d'une ligne renvoyée par une sous-requête utilisée comme une expression
+19-02-2024 20:59:05:595 error: plus d'une ligne renvoyée par une sous-requête utilisée comme une expression
+20-02-2024 11:29:09:299 error: Vous n'avez pas le droit.
+20-02-2024 11:29:11:2911 error: Vous n'avez pas le droit.
+20-02-2024 11:29:37:2937 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+20-02-2024 11:41:31:4131 error: Vous n'avez pas le droit.
+20-02-2024 14:46:33:4633 error: Identifiants incorrects.
+20-02-2024 14:47:57:4757 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+20-02-2024 15:06:36:636 error: Vous n'avez pas le droit.
+20-02-2024 15:06:41:641 error: Vous n'avez pas le droit.
+20-02-2024 15:06:45:645 error: Vous n'avez pas le droit.
+20-02-2024 15:08:42:842 error: Vous n'avez pas le droit.
+20-02-2024 15:09:47:947 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 15:10:33:1033 error: Vous n'avez pas le droit.
+20-02-2024 15:10:36:1036 error: Vous n'avez pas le droit.
+20-02-2024 15:16:49:1649 error: Vous n'avez pas le droit.
+20-02-2024 15:20:18:2018 error: Cannot read properties of undefined (reading 'id')
+20-02-2024 15:20:49:2049 error: Vous n'avez pas le droit.
+20-02-2024 15:36:08:368 error: Cannot read properties of undefined (reading 'id')
+20-02-2024 15:37:10:3710 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 15:39:26:3926 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 15:41:37:4137 error: Hop hop hop, qu'est ce que tu fais là ?
+20-02-2024 17:10:04:104 error: Identifiants incorrects.
+20-02-2024 17:11:32:1132 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+20-02-2024 17:57:30:5730 error: Identifiants incorrects.
+20-02-2024 18:10:48:1048 error: Identifiants incorrects.
+21-02-2024 14:04:37:437 error: Identifiants incorrects.
+21-02-2024 17:48:24:4824 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:49:13:4913 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 17:49:29:4929 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:50:11:5011 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 17:51:08:518 error: Cannot read properties of undefined (reading 'id')
+21-02-2024 18:53:32:5332 error: la valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »
+21-02-2024 18:53:54:5354 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:11:5511 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:29:5529 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:33:5533 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:55:38:5538 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:09:569 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:19:5619 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:27:5627 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:56:54:5654 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:58:55:5855 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:59:07:597 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:59:25:5925 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 18:59:52:5952 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:00:11:011 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:01:12:112 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:04:00:40 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:04:03:43 error: Hop hop hop, qu'est ce que tu fais là ?
+21-02-2024 19:04:14:414 error: Hop hop hop, qu'est ce que tu fais là ?
+22-02-2024 10:02:17:217 error: la valeur d'une clé dupliquée rompt la contrainte unique « user_email_key »
+22-02-2024 10:06:54:654 error: la valeur pour le domaine domain_mail viole la contrainte de vérification « domain_mail_check »
+22-02-2024 10:21:41:2141 error: Identifiants incorrects.

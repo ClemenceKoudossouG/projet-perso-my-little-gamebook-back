@@ -15,17 +15,17 @@ INSERT INTO "world" ("label", "img") VALUES
 ('Fantastique', 'fantastique');
 
 INSERT INTO "place" ("label", "img") VALUES
-('île', 'ile'),
-('bateau', 'bateau'),
-('cabine du capitaine', 'cabine'),
-('village', 'village'),
-('forêt', 'foret'),
-('espace', 'espace'),
-('planète rouge', 'planete_rouge'),
-('planète bleue', 'planete_bleue'),
-('château', 'chateau'),
-('mer', 'mer'),
-('fonds marins', 'fonds_marins');
+('L''Ile', 'ile'),
+('Le Bateau', 'bateau'),
+('La Cabine du Capitaine', 'cabine'),
+('Le Village', 'village'),
+('La Forêt', 'foret'),
+('L''Espace', 'espace'),
+('La Planète Rouge', 'planete_rouge'),
+('La Planète Bleue', 'planete_bleue'),
+('Le Château', 'chateau'),
+('La Mer', 'mer'),
+('Les Fonds Marins', 'fonds_marins');
 
 INSERT INTO "npc" ("label", "img") VALUES
 ('pirate', 'pirate'),
@@ -38,16 +38,16 @@ INSERT INTO "npc" ("label", "img") VALUES
 ('requin', 'requin');
 
 INSERT INTO "item" ("label", "img") VALUES
-('laser', 'laser'),
-('poisson', 'poisson'),
-('baguette magique', 'baguette'),
-('pomme', 'pomme'),
-('épée', 'epee');
+('Laser', 'laser'),
+('Poisson', 'poisson'),
+('Baguette Magique', 'baguette'),
+('Pomme', 'pomme'),
+('Epée', 'epee');
 
 INSERT INTO "action" ("label", "class", "consequence", "img") VALUES
 ('aller tout droit', 'no_npc', null, 'tout_droit'),
 ('aller à droite', 'no_npc', null, 'a_droite'),
-('parler', 'npc', 'Suis-moi', 'parler'),
+('parler', 'npc', '"Suis-moi"', 'parler'),
 ('explorer', 'no_npc', null, 'explorer'),
 ('faire une blague', 'npc', 'Elle est bien bonne ! Tu reprends ta route.', 'blague'),
 ('trouver le trésor', 'ending', 'Bravo, tu as trouvé le trésor ! Quelle aventure !', 'tresor'),
