@@ -13,7 +13,7 @@ CREATE OR REPLACE FUNCTION get_all_stories() RETURNS SETOF json AS $$
     'name',story.name,
     'level',story.level,
     'description',story.description,
-    'img',(SELECT compartment.place_id FROM compartment WHERE story.id = compartment.story_id AND compartment.class = 'beginning')
+    'img',(SELECT place.img FROM place JOIN compartment ON place.id = compartment.place_id WHERE story.id = compartment.story_id AND compartment.class = 'beginning')
     ) FROM story;
 $$ LANGUAGE sql SECURITY DEFINER;
 
