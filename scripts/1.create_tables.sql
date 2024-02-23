@@ -28,6 +28,7 @@ CREATE TABLE "story" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name"        TEXT NOT NULL,
   "level"       INTEGER NOT NULL DEFAULT 1,
+  "description" TEXT,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 

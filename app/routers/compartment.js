@@ -3,6 +3,8 @@ import { compartmentController } from "../controllers/index.js";
 import { Router } from "express";
 const router = Router();
 
+import { isMember } from "../services/security.js";
+
 /**
     * GET /compartments
     * @summary Get all compartments

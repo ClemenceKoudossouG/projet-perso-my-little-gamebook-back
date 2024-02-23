@@ -1,9 +1,9 @@
 BEGIN;
 
-INSERT INTO "story" ("name", "level") VALUES
-('L''histoire des 4 créateurs', 1),
-('L''enquête de la Gaufre', 1),
-('La quête de la Gaufre', 2);
+INSERT INTO "story" ("name", "level", "description") VALUES
+('L''histoire des 4 créateurs', 1, 'Dans cette histoire, tu vas explorer des îles mystérieuses, aller jusqu''au bout de l''univers, rencontrer robots, sirènes et pirates, et peut être même repousser une invasion extraterrestre !'),
+('L''enquête de la Gaufre', 1, 'Une enquête pour les jeunes détectives en herbe ! Tu vas pouvoir découvrir de nouveaux lieux et plein de personnages hauts en couleur !'),
+('La quête de la Gaufre', 2, 'Aventurier, aventurière, cette quête est pour toi ! De forêt en village, du bateau pirate aux fonds marins, à travers des rencontres toutes plus loufoques les unes que les autres, c''est certain, tu ne vas pas t''ennuyer !');
 
 INSERT INTO "genre" ("label", "img") VALUES
 ('Aventure', 'aventure'),
@@ -15,27 +15,27 @@ INSERT INTO "world" ("label", "img") VALUES
 ('Fantastique', 'fantastique');
 
 INSERT INTO "place" ("label", "img") VALUES
-('L''Ile', 'ile'),
-('Le Bateau', 'bateau'),
-('La Cabine du Capitaine', 'cabine'),
-('Le Village', 'village'),
-('La Forêt', 'foret'),
-('L''Espace', 'espace'),
-('La Planète Rouge', 'planete_rouge'),
-('La Planète Bleue', 'planete_bleue'),
-('Le Château', 'chateau'),
-('La Mer', 'mer'),
-('Les Fonds Marins', 'fonds_marins');
+('sur une île', 'ile'),
+('sur un bateau', 'bateau'),
+('dans la cabine du capitaine', 'cabine'),
+('dans un village', 'village'),
+('dans une forêt', 'foret'),
+('dans l''espace', 'espace'),
+('sur une planète rouge', 'planete_rouge'),
+('sur une planète bleue', 'planete_bleue'),
+('au château', 'chateau'),
+('en mer', 'mer'),
+('sous l''océan', 'fonds_marins');
 
 INSERT INTO "npc" ("label", "img") VALUES
-('pirate', 'pirate'),
-('poulpe', 'poulpe'),
-('sirène', 'sirene'),
-('robot', 'robot'),
-('sorcière', 'sorciere'),
-('chevalier', 'chevalier'),
-('princesse', 'princesse'),
-('requin', 'requin');
+('Captain Frimousse le pirate', 'pirate'),
+('Maître-Poulpe', 'poulpe'),
+('Irène la sirène', 'sirene'),
+('Toto le robot', 'robot'),
+('Bérengère la sorcière', 'sorciere'),
+('José le chevalier', 'chevalier'),
+('Inès la princesse', 'princesse'),
+('Jean-Requin', 'requin');
 
 INSERT INTO "item" ("label", "img") VALUES
 ('Laser', 'laser'),
