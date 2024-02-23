@@ -3,7 +3,7 @@ BEGIN;
 INSERT INTO "story" ("name", "level", "description") VALUES
 ('L''histoire des 4 créateurs', 1, 'Dans cette histoire, tu vas explorer des îles mystérieuses, aller jusqu''au bout de l''univers, rencontrer robots, sirènes et pirates, et peut être même repousser une invasion extraterrestre !'),
 ('L''enquête de la pomme ensorcelée', 1, 'Une enquête pour les jeunes détectives en herbe ! Tu vas pouvoir découvrir de nouveaux châteaux et plein de personnages hauts en couleur !'),
-('La quête de la liberté', 2, 'Aventurier, aventurière, cette quête est pour toi ! De forêt en village, du bateau pirate aux fonds marins, à travers des rencontres toutes plus loufoques les unes que les autres, c''est certain, tu ne vas pas t''ennuyer !');
+('La quête de la liberté', 2, 'Aventurier, aventurière, cette quête est pour toi ! De forêt en village, de cabine de bateau aux fonds marins, à travers des rencontres toutes plus loufoques les unes que les autres, c''est certain, tu ne vas pas t''ennuyer !');
 
 INSERT INTO "genre" ("label", "img") VALUES
 ('Aventure', 'aventure'),
@@ -29,7 +29,7 @@ INSERT INTO "place" ("label", "img") VALUES
 ('au château de glace', 'chateau_hiver'),
 ('au château de la princesse', 'chateau_manoir'),
 ('dans une forêt calme et verdoyante', 'foret_verte'),
-('dans une forêt sombre et mystérieuse', 'foret_verte'),
+('dans une forêt sombre et mystérieuse', 'foret_sombre'),
 ('dans un vaisseau spatial', 'vaisseau_exterieur'),
 ('dans la cabine d''un vaisseau', 'vaisseau_interieur'),
 ('sur un bateau pirate', 'bateau_pirate');
@@ -180,7 +180,14 @@ INSERT INTO "place_has_world" ("place_id", "world_id") VALUES
 (8, 2),
 (9, 3),
 (10, 1),
-(11, 1);
+(11, 1),
+(12, 3),
+(13, 3),
+(14, 3),
+(15, 3),
+(16, 2),
+(17, 2),
+(18, 1);
 
 INSERT INTO "npc_has_world" ("npc_id", "world_id") VALUES
 (1, 1),
@@ -191,7 +198,11 @@ INSERT INTO "npc_has_world" ("npc_id", "world_id") VALUES
 (5, 3),
 (6, 3),
 (7, 3),
-(8, 1);
+(8, 1),
+(9, 2),
+(10, 2),
+(11, 2),
+(12, 2);
 
 INSERT INTO "npc_has_action" ("npc_id", "action_id") VALUES
 (4, 10);
