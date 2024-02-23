@@ -1,4 +1,4 @@
-import { storyDataMapper, userDataMapper } from "../dataMappers/index.js";
+import { userDataMapper } from "../dataMappers/index.js";
 import { manageResponse } from "../helper/controllerHelper.js";
 
 import JWT from "../services/jwt.js";
