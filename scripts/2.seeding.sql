@@ -3,11 +3,13 @@ BEGIN;
 INSERT INTO "story" ("name", "level", "description") VALUES
 ('L''histoire des 4 créateurs', 1, 'Dans cette histoire, tu vas explorer des îles mystérieuses, aller jusqu''au bout de l''univers, rencontrer robots, sirènes et pirates, et peut être même repousser une invasion extraterrestre !'),
 ('L''enquête de la pomme ensorcelée', 1, 'Une enquête pour les jeunes détectives en herbe ! Tu vas pouvoir découvrir de nouveaux châteaux et plein de personnages hauts en couleur !'),
-('La quête de la liberté', 2, 'Aventurier, aventurière, cette quête est pour toi ! De forêt en village, du bateau pirate aux fonds marins, à travers des rencontres toutes plus loufoques les unes que les autres, c''est certain, tu ne vas pas t''ennuyer !');
+('La quête de la liberté', 2, 'Aventurier, aventurière, cette quête est pour toi ! De forêt en village, du bateau pirate aux fonds marins, à travers des rencontres toutes plus loufoques les unes que les autres, c''est certain, tu ne vas pas t''ennuyer !'),
+('Découvertes spatiales', 2, 'Salut à toi, jeune astronaute ! Embarque dans ton vaisseau et pars à la découverte de nouvelles planètes ! Tu pourrais bien faire quelques rencontres et découvertes inattendues...');
 
 INSERT INTO "genre" ("label", "img") VALUES
 ('Aventure', 'aventure'),
-('Enquête', 'enquete');
+('Enquête', 'enquete'),
+('Science-fiction', 'science_fiction');
 
 INSERT INTO "world" ("label", "img") VALUES
 ('Pirate', 'pirate'),
@@ -77,7 +79,17 @@ INSERT INTO "action" ("label", "class", "consequence", "img") VALUES
 ('rendre Excalibur à la Dame du Lac', 'bonus_ending', 'Bravo, tu as décidé de rendre l''épée du roi Arthur à la Dame du Lac, et elle t''en remercie. Après tout, c''était d''abord son épée, à elle. Quelle aventure !', 'rendre_epee'),
 ('réaliser une chanson qui deviendra un tube médiéval', 'bonus_ending', 'Bravo, tu viens d''enregistrer ton premier single, et il cartonne dans toutes les auberges ! Quelle aventure !', 'tube_medieval'),
 ('rentrer chez soi, planter une pomme, et attendre que ce futur pommier donne des fruits', 'bonus_ending', 'Bravo, tu as décidé d''arrêter tes aventures pour retourner à ton jardin. On espère que la pomme que tu as planté deviendra un beau pommier... Quelle aventure !', 'jardiner'),
-('demander gentiment son chemin', 'npc', null, 'demander_chemin');
+('demander gentiment son chemin', 'npc', null, 'demander_chemin'),
+('se reposer', 'no_npc', null, 'se_reposer'),
+('exercer ses talents de mécanicien', 'bonus_ending', 'Bravo, tu deviens le chef mécanicien du peuple robot !', 'mecanicien'),
+('aller à la rencontre du peuple robot', 'bonus_ending', 'Bravo ! Tu enseignes l''art de la blague au peuple robot !', 'rencontre_robot'),
+('aller à la rencontre des extraterrestres', 'bonus_ending', 'Bravo, tu cohabites en paix avec les extraterrestres ! Quelle aventure !', 'rencontre_extraterrestres'),
+('se lier d''amitié avec un robot', 'bonus_ending', 'Bravo ! Tu as trouvé un compagnon robot pour de nouvelles explorations spatiales ! Quelle aventure !', 'amitie_robot'),
+('faire l''inventaire de tes équipements', 'bonus_ending', 'Bravo ! Tu as des pièces pour entretenir ton vaisseau et continuer ton périple ! Quelle aventure !', 'inventaire_equipements'),
+('fonder une civilisation sous-marine', 'bonus_ending', 'Bravo, tu découvres l''océan local et fonde une civilisation sous-marine ! Quelle aventure !', 'civilisation_marine'),
+('construire un bateau', 'bonus_ending', 'Bravo, tu décides d''explorer les mers et les océans locaux ! Qui sait quelles découvertes t''attendent ?', 'construire_bateau'),
+('regagner ton vaisseau', 'no_npc', null, 'regagner_vaisseau'),
+('mettre le cap vers la Terre', 'bonus_ending', 'Bravo, tu as décidé de rentrer sur Terre pour partager tes grandes découvertes !', 'rentrer_terre');
 
 INSERT INTO "compartment" ("position", "class", "children", "story_id", "place_id", "npc_id") VALUES
 (1, 'beginning', '2,3', 1, 1, null),
@@ -108,7 +120,21 @@ INSERT INTO "compartment" ("position", "class", "children", "story_id", "place_i
 (5, 'ending', null, 3, 2, null),
 (5, 'ending', null, 3, 1, null),
 (5, 'bonus_ending', null, 3, 3, null),
-(5, 'ending', null, 3, 10, null);
+(5, 'ending', null, 3, 10, null),
+(1, 'beginning', '31,32', 4, 17, null),
+(2, 'middle', '33,34', 4, 16, null),
+(2, 'middle', '35,36', 4, 6, null),
+(3, 'middle', '37,38', 4, 7, 11),
+(3, 'bonus_ending', null, 4, 7, null)
+(3, 'middle', '39,40', 4, 6, 10),
+(3, 'middle', '41, 42', 4, 8, null),
+(4, 'bonus_ending', null, 4, 7, 9),
+(4, 'bonus_ending', null, 4, 7, 4),
+(4, 'bonus_ending', null, 4, 17, 10),
+(4, 'bonus_ending', null, 4, 17, null),
+(4, 'bonus_ending', null, 4, 11, null),
+(4, 'middle', '43', 4, 10, null),
+(5, 'bonus_ending', null, 4, 17, null);
 
 INSERT INTO "action_has_item" ("action_id", "item_id") VALUES
 (11, 1),
@@ -121,7 +147,8 @@ INSERT INTO "story_has_genre" ("story_id", "genre_id") VALUES
 (1, 1),
 (2, 2),
 (3, 1),
-(3, 2);
+(3, 2),
+(4, 3);
 
 INSERT INTO "compartment_has_action" ("compartment_id", "action_id", "child", "item") VALUES
 (1, 1, 2, null),
@@ -167,7 +194,29 @@ INSERT INTO "compartment_has_action" ("compartment_id", "action_id", "child", "i
 (26, 17, null, null),
 (27, 12, null, null),
 (28, 20, null, null),
-(29, 17, null, null);
+(29, 17, null, null),
+(30, 1, 31, null),
+(30, 2, 32, null),
+(31, 22, 33, null),
+(31, 4, 34, null),
+(32, 22, 35, null),
+(32, 4, 36, null),
+(33, 10, 37, null),
+(33, 5, 38, null),
+(34, 11, null, null),
+(34, 25, null, null),
+(35, 3, 39, null),
+(35, 8, 40, null),
+(36, 1, 41, null),
+(36, 2, 42, null),
+(37, 23, null, null),
+(38, 24, null, null),
+(39, 26, null, null),
+(40, 27, null, null),
+(41, 28, null, null),
+(42, 29, null, null),
+(42, 30, 43, null),
+(43, 31, null, null);
 
 INSERT INTO "place_has_world" ("place_id", "world_id") VALUES
 (1, 1),
