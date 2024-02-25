@@ -125,7 +125,7 @@ INSERT INTO "compartment" ("position", "class", "children", "story_id", "place_i
 (2, 'middle', '33,34', 4, 16, null),
 (2, 'middle', '35,36', 4, 6, null),
 (3, 'middle', '37,38', 4, 7, 11),
-(3, 'bonus_ending', null, 4, 7, null)
+(3, 'bonus_ending', null, 4, 7, null),
 (3, 'middle', '39,40', 4, 6, 10),
 (3, 'middle', '41, 42', 4, 8, null),
 (4, 'bonus_ending', null, 4, 7, 9),
