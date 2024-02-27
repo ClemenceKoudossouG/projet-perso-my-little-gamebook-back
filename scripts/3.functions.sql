@@ -406,7 +406,6 @@ $$ LANGUAGE sql SECURITY DEFINER;
 -- Pour modifier un utilisateur :
 CREATE OR REPLACE FUNCTION update_user(u json) RETURNS "user" AS $$
 	UPDATE "user" SET
-		"password"=u->>'password',
 		"lastname"=u->>'lastname',
 		"firstname"=u->>'firstname',
 		"alias"=u->>'alias',
