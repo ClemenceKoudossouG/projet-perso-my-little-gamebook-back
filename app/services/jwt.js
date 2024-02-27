@@ -7,7 +7,9 @@ const JWT = {
      * @returns token
      */
     encode(user){
-        return jwt.sign(user, process.env.JWT_SECRET);
+        // Durée de vie du token
+        const expiresIn = '1h';
+        return jwt.sign(user, process.env.JWT_SECRET, { expiresIn });
     },
     
     /**

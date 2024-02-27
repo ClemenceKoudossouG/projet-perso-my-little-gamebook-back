@@ -17,8 +17,9 @@ export function isMember(req, res, next) {
 
     if (result) {
 
-        if (result) {
-            
+        // Vérification de la validité du token
+        if (new Date(result.exp * 1000) > new Date()) {
+            // Si le token est encore valide, next.
             next();
         }
         else {
