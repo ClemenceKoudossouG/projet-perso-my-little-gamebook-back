@@ -28,6 +28,7 @@ const compartmentDataMapper = {
         const response = await pool.query(sqlQuery);
         // On récupère les informations données par la bdd
         results = response.rows;
+        // On ne récupère que le premier objet get_all_compartments de chaque objet :
         result = results.map(a => a.get_all_compartments);
         }
         catch (err) {
@@ -52,6 +53,7 @@ const compartmentDataMapper = {
         const response = await pool.query(sqlQuery,values);
         // On récupère les informations données par la bdd
         results = response.rows;
+        // On ne récupère que le premier objet get_all_compartments_by_class de chaque objet :
         result = results.map(a => a.get_all_compartments_by_class);
         }
         catch (err) {
@@ -75,6 +77,7 @@ const compartmentDataMapper = {
         const response = await pool.query(sqlQuery,values);
         // On récupère les informations données par la bdd
         results = response.rows[0];
+        // On ne récupère que le premier objet get_compartment_by_id du résultat :
         result = results.get_compartment_by_id;
         }
         catch (err) {
@@ -99,6 +102,7 @@ const compartmentDataMapper = {
         const response = await pool.query(sqlQuery,values);
         // On récupère les informations données par la bdd
         results = response.rows;
+        // On ne récupère que le premier objet get_all_compartments_by_story de chaque objet :
         result = results.map(a => a.get_all_compartments_by_story);
         }
         catch (err) {
@@ -123,6 +127,7 @@ const compartmentDataMapper = {
         const response = await pool.query(sqlQuery,values);
         // On récupère les informations données par la bdd
         results = response.rows;
+        // On ne récupère que le premier objet get_all_compartments_by_story_and_by_class de chaque objet :
         result = results.map(a => a.get_all_compartments_by_story_and_by_class);
         }
         catch (err) {
@@ -147,6 +152,7 @@ const compartmentDataMapper = {
         const response = await pool.query(sqlQuery,values);
         // On récupère les informations données par la bdd
         results = response.rows[0];
+        // On ne récupère que le premier objet get_compartment_by_story_and_by_class_beginning du résultat :
         result = results.get_compartment_by_story_and_by_class_beginning;
         }
         catch (err) {

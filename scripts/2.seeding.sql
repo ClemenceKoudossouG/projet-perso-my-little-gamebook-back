@@ -10,8 +10,6 @@ INSERT INTO "genre" ("label", "img") VALUES
 ('Aventure', 'aventure'),
 ('Enquête', 'enquete'),
 ('Science-fiction', 'science_fiction');
-('Enquête', 'enquete'),
-('Science-fiction', 'science_fiction');
 
 INSERT INTO "world" ("label", "img") VALUES
 ('Pirate', 'pirate'),
@@ -89,7 +87,7 @@ INSERT INTO "action" ("label", "class", "consequence", "img") VALUES
 ('se lier d''amitié avec un robot', 'bonus_ending', 'Bravo ! Tu as trouvé un compagnon robot pour de nouvelles explorations spatiales ! Quelle aventure !', 'amitie_robot'),
 ('faire l''inventaire de tes équipements', 'bonus_ending', 'Bravo ! Tu as des pièces pour entretenir ton vaisseau et continuer ton périple ! Quelle aventure !', 'inventaire_equipements'),
 ('fonder une civilisation sous-marine', 'bonus_ending', 'Bravo, tu découvres l''océan local et fonde une civilisation sous-marine ! Quelle aventure !', 'civilisation_marine'),
-('explorer les mers', 'bonus_ending', 'Bravo, tu décides d''explorer les mers et les océans locaux ! Qui sait quelles découvertes t''attendent ?', 'construire_bateau'),
+('explorer les mers', 'bonus_ending', 'Bravo, tu décides d''explorer les mers et les océans locaux ! Qui sait quelles découvertes t''attendent ?', 'explorer_mers'),
 ('regagner ton vaisseau', 'no_npc', null, 'regagner_vaisseau'),
 ('mettre le cap vers la Terre', 'bonus_ending', 'Bravo, tu as décidé de rentrer sur Terre pour partager tes grandes découvertes !', 'rentrer_terre'),
 ('construire un bateau', 'no_npc', null, 'construire_bateau'),
@@ -158,22 +156,8 @@ INSERT INTO "compartment" ("position", "class", "children", "story_id", "place_i
 (5, 'bonus_ending', null, 2, 4, 5),
 (6, 'ending', null, 2, 12, null),
 (6, 'ending', null, 2, 15, null),
-(6, 'ending', null, 2, 9, 5);
-(5, 'ending', null, 3, 10, null),
-(1, 'beginning', '31,32', 4, 17, null),
-(2, 'middle', '33,34', 4, 16, null),
-(2, 'middle', '35,36', 4, 6, null),
-(3, 'middle', '37,38', 4, 7, 11),
-(3, 'bonus_ending', null, 4, 7, null),
-(3, 'middle', '39,40', 4, 6, 10),
-(3, 'middle', '41, 42', 4, 8, null),
-(4, 'bonus_ending', null, 4, 7, 9),
-(4, 'bonus_ending', null, 4, 7, 4),
-(4, 'bonus_ending', null, 4, 17, 10),
-(4, 'bonus_ending', null, 4, 17, null),
-(4, 'bonus_ending', null, 4, 11, null),
-(4, 'middle', '43', 4, 10, null),
-(5, 'bonus_ending', null, 4, 17, null);
+(6, 'ending', null, 2, 9, 5),
+(5, 'ending', null, 3, 10, null);
 
 INSERT INTO "action_has_item" ("action_id", "item_id") VALUES
 (11, 1),
@@ -283,29 +267,6 @@ INSERT INTO "compartment_has_action" ("compartment_id", "action_id", "child", "i
 (61, 17, null, null),
 (62, 6, null, null),
 (63, 12, null, null);
-(29, 17, null, null),
-(30, 1, 31, null),
-(30, 2, 32, null),
-(31, 22, 33, null),
-(31, 4, 34, null),
-(32, 22, 35, null),
-(32, 4, 36, null),
-(33, 10, 37, null),
-(33, 5, 38, null),
-(34, 11, null, null),
-(34, 25, null, null),
-(35, 3, 39, null),
-(35, 8, 40, null),
-(36, 1, 41, null),
-(36, 2, 42, null),
-(37, 23, null, null),
-(38, 24, null, null),
-(39, 26, null, null),
-(40, 27, null, null),
-(41, 28, null, null),
-(42, 29, null, null),
-(42, 30, 43, null),
-(43, 31, null, null);
 
 INSERT INTO "place_has_world" ("place_id", "world_id") VALUES
 (1, 1),

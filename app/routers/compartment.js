@@ -11,7 +11,7 @@ import { isMember } from "../services/security.js";
     * @tags Compartment
     * @return {[Compartment]} 200 - Success response - application/json
 */
-router.get('/', compartmentController.getAllCompartments); // pour récupérer toutes les cases créées dans une histoire
+router.get('/', isMember, compartmentController.getAllCompartments); // pour récupérer toutes les cases créées dans une histoire
 
 /**
      * GET /compartments/class/{class}
@@ -22,7 +22,7 @@ router.get('/', compartmentController.getAllCompartments); // pour récupérer t
      * @return {ApiError} 400 - Error: Bad Request - application/json
      * @return {ApiError} 404 - Error: Compartments not found - application/json
 */
-router.get('/class/:compartmentClassName', compartmentController.getAllCompartmentsByClass); // pour récupérer toutes les cases d'une certaine classe
+router.get('/class/:compartmentClassName', isMember, compartmentController.getAllCompartmentsByClass); // pour récupérer toutes les cases d'une certaine classe
 
 /**
      * GET /compartments/story/{id}
@@ -33,7 +33,7 @@ router.get('/class/:compartmentClassName', compartmentController.getAllCompartme
      * @return {ApiError} 400 - Error: Bad request - application/json
      * @return {ApiError} 404 - Error: Compartments not found - application/json
 */
-router.get('/story/:storyId(\\d+)', compartmentController.getAllCompartmentsByStory); // pour récupérer toutes les cases d'une certaine histoire
+router.get('/story/:storyId(\\d+)', isMember, compartmentController.getAllCompartmentsByStory); // pour récupérer toutes les cases d'une certaine histoire
 
 /**
      * GET /compartments/story/{id}/class/{class}
@@ -45,7 +45,7 @@ router.get('/story/:storyId(\\d+)', compartmentController.getAllCompartmentsBySt
      * @return {ApiError} 400 - Error: Bad Request - application/json
      * @return {ApiError} 404 - Error: Compartments not found - application/json
 */
-router.get('/story/:storyId(\\d+)/class/:compartmentClassName', compartmentController.getAllCompartmentsByStoryAndByClass); // pour récupérer toutes les cases d'une certaine histoire et d'une classe
+router.get('/story/:storyId(\\d+)/class/:compartmentClassName', isMember, compartmentController.getAllCompartmentsByStoryAndByClass); // pour récupérer toutes les cases d'une certaine histoire et d'une classe
 
 /**
      * GET /compartments/story/{id}/beginning
@@ -56,7 +56,7 @@ router.get('/story/:storyId(\\d+)/class/:compartmentClassName', compartmentContr
      * @return {ApiError} 400 - Error: Bad request - application/json
      * @return {ApiError} 404 - Error: Compartment not found - application/json
 */
-router.get('/story/:storyId(\\d+)/beginning', compartmentController.getCompartmentByStoryAndByClassBeginning); // pour récupérer une case en particulier
+router.get('/story/:storyId(\\d+)/beginning', isMember, compartmentController.getCompartmentByStoryAndByClassBeginning); // pour récupérer une case en particulier
 
 /**
      * GET /compartments/{id}
@@ -67,6 +67,6 @@ router.get('/story/:storyId(\\d+)/beginning', compartmentController.getCompartme
      * @return {ApiError} 400 - Error: Bad request - application/json
      * @return {ApiError} 404 - Error: Compartment not found - application/json
 */
-router.get('/:id(\\d+)', compartmentController.getOneCompartment); // pour récupérer une case en particulier
+router.get('/:id(\\d+)', isMember, compartmentController.getOneCompartment); // pour récupérer une case en particulier
 
 export default router;

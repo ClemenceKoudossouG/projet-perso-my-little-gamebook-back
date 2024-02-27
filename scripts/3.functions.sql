@@ -392,8 +392,15 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Pour récupérer un utilisateur en particulier :
-CREATE OR REPLACE FUNCTION get_user_by_id(int) RETURNS "user" AS $$
-	SELECT * FROM "user" WHERE id=$1;
+CREATE OR REPLACE FUNCTION get_user_by_id(int) RETURNS SETOF json AS $$
+SELECT json_build_object(
+    'id',"user".id,
+    'email',"user".email,
+    'lastname',"user".lastname,
+    'firstname',"user".firstname,
+    'alias',"user".alias,
+    'avatar',"user".avatar
+    ) FROM "user" WHERE id=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour modifier un utilisateur :

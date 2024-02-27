@@ -3,8 +3,6 @@ import { storyController } from "../controllers/index.js";
 import { Router } from "express";
 const router = Router();
 
-import { isMember } from "../services/security.js";
-
 /**
     * GET /stories
     * @summary Get all stories

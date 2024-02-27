@@ -28,6 +28,7 @@ const storyDataMapper = {
         const response = await pool.query(sqlQuery);
         // On récupère les informations données par la bdd
         results = response.rows;
+        // On ne récupère que le premier objet get_all_stories de chaque objet :
         result = results.map(a => a.get_all_stories);
         }
         catch (err) {

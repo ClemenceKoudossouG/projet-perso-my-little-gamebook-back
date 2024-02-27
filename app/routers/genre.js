@@ -3,8 +3,6 @@ import { genreController } from "../controllers/index.js";
 import { Router } from "express";
 const router = Router();
 
-import { isMember } from "../services/security.js";
-
 /**
     * GET /genres
     * @summary Get all genres
@@ -22,7 +20,7 @@ router.get('/', genreController.getAllGenres); // pour récupérer tous les genr
      * @return {ApiError} 400 - Error: Bad request - application/json
      * @return {ApiError} 404 - Error: Genres not found - application/json
 */
-router.get('/story/:storyId(\\d+)', isMember, genreController.getAllGenresOfAStory); // pour récupérer tous les genres associés à une histoire
+router.get('/story/:storyId(\\d+)', genreController.getAllGenresOfAStory); // pour récupérer tous les genres associés à une histoire
 
 /**
      * GET /genres/{id}

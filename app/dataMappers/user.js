@@ -52,12 +52,27 @@ const userDataMapper = {
 
     // Pour récupérer un utilisateur en particulier :
     async getUser(id){
-        // On utilise la fonction sql get_user
+        // On utilise la fonction sql get_user_by_id
         const sqlQuery = "SELECT * FROM get_user_by_id($1);";
         // à laquelle on transfère l'id de l'utilisateur donné par le front
         const values = [id];
-        // Appel de la fonction du pgHelper pour exécuter la requête. 
-        return executeRequestWithSingleResult(sqlQuery, values); 
+
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows[0];
+        // On ne récupère que le premier objet get_user_by_id du résultat :
+        result = results.get_user_by_id;
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
     },
 
     // Pour modifier les informations d'un utilisateur en particulier :
@@ -79,13 +94,13 @@ const userDataMapper = {
         let error;
         try {
             const response = await pool.query(sqlQuery,values);
-
+            // Pour ne récupérer seulement qu'une ligne
             result = response.rowCount == 1;
         }
         catch (err) {
             error = err;
         }
-
+        // on retourne soit le résultat, soit l'erreur :
         return {result,error};
     },
 };

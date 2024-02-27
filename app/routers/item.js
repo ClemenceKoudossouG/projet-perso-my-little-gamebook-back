@@ -3,8 +3,6 @@ import { itemController } from "../controllers/index.js";
 import { Router } from "express";
 const router = Router();
 
-import { isMember } from "../services/security.js";
-
 /**
     * GET /items
     * @summary Get all items
@@ -33,7 +31,7 @@ router.get('/action/:actionId(\\d+)', itemController.getAllItemsByAction); // po
      * @return {ApiError} 400 - Error: Bad request - application/json
      * @return {ApiError} 404 - Error: Item not found - application/json
 */
-router.get('/:id(\\d+)', isMember, itemController.getOneItem); // pour récupérer un objet en particulier
+router.get('/:id(\\d+)', itemController.getOneItem); // pour récupérer un objet en particulier
 
 
 export default router;
