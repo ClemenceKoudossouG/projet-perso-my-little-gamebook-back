@@ -23,7 +23,7 @@ export function isMember(req, res, next) {
             next();
         }
         else {
-            next(new APIError("Vous n'avez pas le droit"));
+            next(new APIError("Vous n'avez pas les droit nécessaires."));
         }
     }
     else {
