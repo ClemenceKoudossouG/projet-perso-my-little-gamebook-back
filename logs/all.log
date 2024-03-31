@@ -251,3 +251,22 @@
 29-03-2024 15:12:15:1215 error: Identifiants incorrects.
 29-03-2024 15:12:29:1229 error: Identifiants incorrects.
 29-03-2024 15:12:36:1236 error: Identifiants incorrects.
+29-03-2024 17:10:11:1011 error: Identifiants incorrects.
+29-03-2024 17:10:30:1030 error: duplicate key value violates unique constraint "user_email_key"
+29-03-2024 17:10:39:1039 error: error is not defined
+29-03-2024 17:10:43:1043 error: error is not defined
+29-03-2024 17:10:44:1044 error: error is not defined
+29-03-2024 17:12:16:1216 error: error is not defined
+29-03-2024 17:12:20:1220 error: error is not defined
+29-03-2024 17:12:22:1222 error: error is not defined
+29-03-2024 17:14:33:1433 error: error is not defined
+29-03-2024 17:14:40:1440 error: error is not defined
+29-03-2024 17:15:40:1540 error: error is not defined
+29-03-2024 17:16:04:164 error: Cannot read properties of undefined (reading 'id')
+29-03-2024 17:18:25:1825 error: Cannot read properties of undefined (reading 'id')
+29-03-2024 17:21:17:2117 error: Cannot read properties of undefined (reading 'id')
+29-03-2024 17:21:19:2119 error: Cannot read properties of undefined (reading 'id')
+29-03-2024 17:22:03:223 error: Cannot read properties of undefined (reading 'id')
+31-03-2024 15:59:42:5942 error: Unauthorized
+31-03-2024 16:05:30:530 error: Cannot access 'error' before initialization
+31-03-2024 16:06:01:61 error: Identifiants incorrects.

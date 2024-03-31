@@ -25,7 +25,7 @@ const userController = {
     async signup(req, res, next) {
         try {
             const user = req.body;
-            // Vérification du format de mdb
+            // Vérification du format de mdp
             if(!schema.validate(user.password)) {
                 const error = new APIError('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.', 400);
                 return next(error);
@@ -71,18 +71,18 @@ const userController = {
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
             // Récupérer l'utilisateur concerné
-            let { result, error } = await userDataMapper.getUser(user.result.id);
+            let { result, error} = await userDataMapper.getUser(user.result.id);
             // Utilisateur trouvé ?
             if(error){
                 next(error);
             } else {
                 //  Màj des valeurs dans l'objet
-                let updatedUser = { ...result, ...req.body };            
+                const updatedUser = { ...result, ...req.body };            
                 //  Màj en BDD
-                let { result: updatedResult, error: updateError } = await userDataMapper.updateUser(updatedUser);
+                const { result: updatedResult, error: updateError } = await userDataMapper.updateUser(updatedUser);
                 // Vérification d'erreur
                 if (updateError) {
-                    return next(updateError);
+                    next(updateError);
                 } else {
                     res.json(updatedResult);
                 }
@@ -94,6 +94,29 @@ const userController = {
     // Pour supprimer son compte utilisateur
     async deleteOneUser(req, res, next) {
         try {
+            // Récupération du token de l'utilisateur
+        const token = req.get("Authorization");
+        // Vérification du token de l'utilisateur
+        const user = JWT.decode(token);
+        // Vérifier si l'utilisateur est autorisé à supprimer le compte
+        if (!user) {
+            const unauthorizedError = new Error("Unauthorized");
+            unauthorizedError.statusCode = 401;
+            throw unauthorizedError;
+        }
+
+        // Récupérer l'utilisateur à supprimer
+        const { result: userToDelete, error: getUserError } = await userDataMapper.getUser(req.params.id);
+        if (getUserError) {
+            throw getUserError; 
+        }
+
+        // Vérifier si l'utilisateur est autorisé à supprimer le compte
+        if (user.result.id !== userToDelete.id) {
+            const unauthorizedError = new Error("Unauthorized");
+            unauthorizedError.statusCode = 401;
+            throw unauthorizedError;
+        }
             // Appeler la méthode delete
             const { result, error } = await userDataMapper.deleteUser(req.params.id);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
