@@ -70,14 +70,27 @@ const userController = {
             const token = req.get("Authorization");
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
+
+            // Vérifier si l'utilisateur est autorisé à modifier le compte
+        if (!user) {
+            const unauthorizedError = new Error("Unauthorized");
+            unauthorizedError.statusCode = 401;
+            throw unauthorizedError;
+        }
+
             // Récupérer l'utilisateur concerné
-            let { result, error} = await userDataMapper.getUser(user.result.id);
+            const { result: userToUpdate, error: getUserError} = await userDataMapper.getUser(user.result.id);
             // Utilisateur trouvé ?
-            if(error){
-                next(error);
+            if(getUserError){
+                next(getUserError);
+            // On vérifie que que l'id de l'utilisateur connecté est le même que celui de l'utilisateur à modifier
+            } else if (user.result.id !== userToUpdate.id) {
+                const unauthorizedError = new Error("Unauthorized");
+                unauthorizedError.statusCode = 401;
+                throw unauthorizedError;
             } else {
-                //  Màj des valeurs dans l'objet
-                const updatedUser = { ...result, ...req.body };            
+                // Màj des valeurs dans l'objet
+                const updatedUser = { ...userToUpdate, ...req.body };            
                 //  Màj en BDD
                 const { result: updatedResult, error: updateError } = await userDataMapper.updateUser(updatedUser);
                 // Vérification d'erreur
@@ -104,14 +117,12 @@ const userController = {
             unauthorizedError.statusCode = 401;
             throw unauthorizedError;
         }
-
         // Récupérer l'utilisateur à supprimer
         const { result: userToDelete, error: getUserError } = await userDataMapper.getUser(req.params.id);
         if (getUserError) {
             throw getUserError; 
         }
-
-        // Vérifier si l'utilisateur est autorisé à supprimer le compte
+        // On vérifie que l'id de l'utilisateur connecté est le même que celui de l'utilisateur à supprimer
         if (user.result.id !== userToDelete.id) {
             const unauthorizedError = new Error("Unauthorized");
             unauthorizedError.statusCode = 401;
