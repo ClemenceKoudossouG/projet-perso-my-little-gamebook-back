@@ -70,14 +70,12 @@ const userController = {
             const token = req.get("Authorization");
             // Vérification du token de l'utilisateur
             const user = JWT.decode(token);
-
             // Vérifier si l'utilisateur est autorisé à modifier le compte
         if (!user) {
             const unauthorizedError = new Error("Unauthorized");
             unauthorizedError.statusCode = 401;
             throw unauthorizedError;
         }
-
             // Récupérer l'utilisateur concerné
             const { result: userToUpdate, error: getUserError} = await userDataMapper.getUser(user.result.id);
             // Utilisateur trouvé ?

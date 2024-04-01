@@ -247,3 +247,19 @@
 31-03-2024 16:05:30:530 error: Cannot access 'error' before initialization
 31-03-2024 16:06:01:61 error: Identifiants incorrects.
 31-03-2024 16:35:18:3518 error: Identifiants incorrects.
+31-03-2024 16:47:17:4717 error: Identifiants incorrects.
+31-03-2024 16:47:38:4738 error: user is not defined
+31-03-2024 16:47:52:4752 error: user is not defined
+31-03-2024 16:53:00:530 error: getUserIdFromToken is not defined
+31-03-2024 16:57:57:5757 error: Cannot read properties of undefined (reading 'id')
+31-03-2024 16:59:16:5916 error: Cannot read properties of undefined (reading 'id')
+31-03-2024 17:01:16:116 error: Cannot read properties of undefined (reading 'id')
+31-03-2024 19:20:03:203 error: Identifiants incorrects.
+31-03-2024 19:24:10:2410 error: Identifiants incorrects.
+31-03-2024 19:24:35:2435 error: Hop hop hop, qu'est ce que tu fais là ?
+01-04-2024 14:20:40:2040 error: Hop hop hop, qu'est ce que tu fais là ?
+01-04-2024 14:28:22:2822 error: Hop hop hop, qu'est ce que tu fais là ?
+01-04-2024 14:33:53:3353 error: Hop hop hop, qu'est ce que tu fais là ?
+01-04-2024 15:10:26:1026 error: Hop hop hop, qu'est ce que tu fais là ?
+01-04-2024 15:11:13:1113 error: Hop hop hop, qu'est ce que tu fais là ?
+01-04-2024 15:16:25:1625 error: Hop hop hop, qu'est ce que tu fais là ?
