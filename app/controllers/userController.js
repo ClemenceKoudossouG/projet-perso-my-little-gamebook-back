@@ -72,9 +72,7 @@ const userController = {
             const user = JWT.decode(token);
             // Vérifier si l'utilisateur est autorisé à modifier le compte
         if (!user) {
-            const unauthorizedError = new Error("Unauthorized");
-            unauthorizedError.statusCode = 401;
-            throw unauthorizedError;
+            throw new Error("Unauthorized", 401);
         }
             // Récupérer l'utilisateur concerné
             const { result: userToUpdate, error: getUserError} = await userDataMapper.getUser(user.result.id);
@@ -83,9 +81,7 @@ const userController = {
                 next(getUserError);
             // On vérifie que que l'id de l'utilisateur connecté est le même que celui de l'utilisateur à modifier
             } else if (user.result.id !== userToUpdate.id) {
-                const unauthorizedError = new Error("Unauthorized");
-                unauthorizedError.statusCode = 401;
-                throw unauthorizedError;
+                throw new Error("Unauthorized", 401);
             } else {
                 // Màj des valeurs dans l'objet
                 const updatedUser = { ...userToUpdate, ...req.body };            
@@ -111,9 +107,7 @@ const userController = {
         const user = JWT.decode(token);
         // Vérifier si l'utilisateur est autorisé à supprimer le compte
         if (!user) {
-            const unauthorizedError = new Error("Unauthorized");
-            unauthorizedError.statusCode = 401;
-            throw unauthorizedError;
+            throw new Error("Unauthorized", 401);
         }
         // Récupérer l'utilisateur à supprimer
         const { result: userToDelete, error: getUserError } = await userDataMapper.getUser(req.params.id);
@@ -122,9 +116,7 @@ const userController = {
         }
         // On vérifie que l'id de l'utilisateur connecté est le même que celui de l'utilisateur à supprimer
         if (user.result.id !== userToDelete.id) {
-            const unauthorizedError = new Error("Unauthorized");
-            unauthorizedError.statusCode = 401;
-            throw unauthorizedError;
+            throw new Error("Unauthorized", 401);
         }
             // Appeler la méthode delete
             const { result, error } = await userDataMapper.deleteUser(req.params.id);

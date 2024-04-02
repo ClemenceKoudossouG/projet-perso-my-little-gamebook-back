@@ -1,12 +1,11 @@
 const request = require('supertest');
 
-
 // GET /actions - liste des actions
 describe('GET /actions', function () {
     it('should return an array of actions', async function () {
         const response = await request('http://localhost:3000')
             .get('/actions')
-
+            
         // Condition 1 - le retour doit être un tableau
         expect(response.body).toEqual(expect.any(Array));
 
