@@ -1,6 +1,5 @@
 // On va utiliser bcrypt pour le hachage de mot de passe, ainsi que pour le comparer
 import bcrypt from 'bcrypt';
-
 // On va utiliser la fonction decode définie dans le fichier jwt.js
 import JWT from "../services/jwt.js";
 
@@ -12,7 +11,6 @@ export function isMember(req, res, next) {
     
     // Récupération du token
     const token = req.get("Authorization");
-
     const { result, error } = JWT.decode(token);
 
     if (result) {

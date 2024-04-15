@@ -352,13 +352,11 @@ $$ LANGUAGE sql SECURITY DEFINER;
 -- Pour créer un utilisateur :
 CREATE OR REPLACE FUNCTION add_user(u json) RETURNS "user" AS $$
 	INSERT INTO "user"
-	(email,password,lastname,firstname,alias,avatar)
+	(email,password,alias,avatar)
 	VALUES
 	(
 		u->>'email',
 		u->>'password',
-		u->>'lastname',
-		u->>'firstname',
         u->>'alias',
         u->>'avatar'
 	)
@@ -373,8 +371,6 @@ BEGIN
 	SELECT json_build_object(
 		'id',id,
 		'email',email,
-		'lastname',lastname,
-		'firstname',firstname,
 		'alias',alias,
         'avatar',avatar,
 		'password',password
@@ -396,18 +392,14 @@ CREATE OR REPLACE FUNCTION get_user_by_id(int) RETURNS SETOF json AS $$
 SELECT json_build_object(
     'id',"user".id,
     'email',"user".email,
-    'lastname',"user".lastname,
-    'firstname',"user".firstname,
     'alias',"user".alias,
     'avatar',"user".avatar
-    ) FROM "user" WHERE id=$1;
+    ) FROM "user" WHERE "id"=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour modifier un utilisateur :
 CREATE OR REPLACE FUNCTION update_user(u json) RETURNS "user" AS $$
 	UPDATE "user" SET
-		"lastname"=u->>'lastname',
-		"firstname"=u->>'firstname',
 		"alias"=u->>'alias',
 		"avatar"=u->>'avatar'
 	WHERE "id"=(u->>'id')::int

@@ -17,8 +17,6 @@ CREATE TABLE "user" (
   "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "email"      domain_mail NOT NULL UNIQUE,
   "password"   TEXT NOT NULL,
-  "lastname"   TEXT NOT NULL,
-  "firstname"  TEXT NOT NULL,
   "alias"      TEXT NOT NULL,
   "avatar"     TEXT,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
