@@ -25,6 +25,12 @@ const userController = {
     async signup(req, res, next) {
         try {
             const user = req.body;
+            // On vérifie si le pseudo est déjà pris
+            const existingUser = await userDataMapper.getUser(user.alias);
+            if (existingUser) {
+            const error = new APIError('Oups ! Ce pseudo est déjà utilisé. Choisis-en un autre !', 400);
+            return next(error);
+            }
             // Vérification du format de mdp
             if(!schema.validate(user.password)) {
                 const error = new APIError('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.', 400);
