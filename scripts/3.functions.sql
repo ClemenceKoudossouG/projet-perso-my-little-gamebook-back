@@ -352,10 +352,9 @@ $$ LANGUAGE sql SECURITY DEFINER;
 -- Pour créer un utilisateur :
 CREATE OR REPLACE FUNCTION add_user(u json) RETURNS "user" AS $$
 	INSERT INTO "user"
-	(email,password,alias,avatar)
+	(password,alias,avatar)
 	VALUES
 	(
-		u->>'email',
 		u->>'password',
         u->>'alias',
         u->>'avatar'
@@ -370,13 +369,12 @@ DECLARE
 BEGIN
 	SELECT json_build_object(
 		'id',id,
-		'email',email,
 		'alias',alias,
         'avatar',avatar,
 		'password',password
 	) INTO user_found
 	FROM "user"
-	WHERE email = $1->>'email';
+	WHERE alias = $1->>'alias';
 	
 	IF user_found IS NOT NULL
 	THEN
@@ -391,7 +389,6 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE OR REPLACE FUNCTION get_user_by_id(int) RETURNS SETOF json AS $$
 SELECT json_build_object(
     'id',"user".id,
-    'email',"user".email,
     'alias',"user".alias,
     'avatar',"user".avatar
     ) FROM "user" WHERE "id"=$1;

@@ -283,3 +283,10 @@
 09-04-2024 17:47:24:4724 error: Identifiants incorrects.
 09-04-2024 17:49:41:4941 error: Identifiants incorrects.
 15-04-2024 10:40:42:4042 error: Identifiants incorrects.
+15-04-2024 11:09:47:947 error: Cannot read properties of undefined (reading 'get_user_by_id')
+15-04-2024 11:09:49:949 error: Cannot read properties of undefined (reading 'get_user_by_id')
+15-04-2024 11:09:56:956 error: Cannot read properties of undefined (reading 'get_user_by_id')
+15-04-2024 11:10:02:102 error: Cannot read properties of undefined (reading 'get_user_by_id')
+15-04-2024 11:10:09:109 error: Cannot read properties of undefined (reading 'get_user_by_id')
+15-04-2024 11:10:32:1032 error: Identifiants incorrects.
+15-04-2024 11:10:41:1041 error: Identifiants incorrects.
