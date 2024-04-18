@@ -2,6 +2,7 @@
 
 // Import des fonctions du pgHelper pour refactoriser les fonctions
 import { executeRequestWithSingleResult } from "../helper/pgHelper.js";
+import { executeRequest } from "../helper/pgHelper.js";
 import pool from "../services/pgPool.js";
 
 /**

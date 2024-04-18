@@ -26,22 +26,23 @@ const userController = {
         try {
             const user = req.body;
             // On vérifie si le pseudo est déjà pris
-            const existingUser = await userDataMapper.getUser(user.alias);
-            if (existingUser) {
-            const error = new APIError('Oups ! Ce pseudo est déjà utilisé. Choisis-en un autre !', 400);
+            const existingUser = await userDataMapper.getUser();
+            if (existingUser.result) {
+            const error = new APIError('Pseudo déjà utilisé', 400);
             return next(error);
             }
             // Vérification du format de mdp
             if(!schema.validate(user.password)) {
                 const error = new APIError('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.', 400);
                 return next(error);
-            } 
+            } else {
             // Chiffrement du mot de passe
             user.password = await encodePassword(user.password);
             // Récupérer les infos de l'utilisateur qui s'inscrit en appelant la méthode createUser.
             const { result, error } = await userDataMapper.createUser(user);
             // Appel de la fonction de controllerHelper pour gérer la réponse. 
             manageResponse(res, result, error, next);
+            }
         } catch (error) {
             next(error);
         }
