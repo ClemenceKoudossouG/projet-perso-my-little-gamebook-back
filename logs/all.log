@@ -537,3 +537,23 @@
 18-04-2024 12:07:49:749 error: duplicate key value violates unique constraint "user_alias_key"
 18-04-2024 12:18:23:1823 error: duplicate key value violates unique constraint "user_alias_key"
 18-04-2024 12:19:22:1922 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+18-04-2024 12:26:32:2632 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+18-04-2024 12:26:45:2645 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 12:27:05:275 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 12:43:12:4312 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 12:44:16:4416 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 12:53:07:537 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 12:53:17:5317 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 12:53:18:5318 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 12:53:29:5329 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 12:53:36:5336 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 12:53:51:5351 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 12:54:26:5426 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 14:50:39:5039 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 14:51:29:5129 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 14:51:30:5130 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 15:01:21:121 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 15:09:49:949 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 15:35:57:3557 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 15:37:12:3712 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 15:37:40:3740 error: duplicate key value violates unique constraint "user_alias_key"

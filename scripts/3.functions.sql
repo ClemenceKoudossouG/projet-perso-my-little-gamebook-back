@@ -394,6 +394,15 @@ SELECT json_build_object(
     ) FROM "user" WHERE "id"=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
+-- Pour récupérer un utilisateur en particulier via son alias :
+CREATE OR REPLACE FUNCTION get_user_by_alias(TEXT) RETURNS SETOF json AS $$
+SELECT json_build_object(
+    'id',"user".id,
+    'alias',"user".alias,
+    'avatar',"user".avatar
+    ) FROM "user" WHERE "alias"=$1;
+$$ LANGUAGE sql SECURITY DEFINER;
+
 -- Pour modifier un utilisateur :
 CREATE OR REPLACE FUNCTION update_user(u json) RETURNS "user" AS $$
 	UPDATE "user" SET

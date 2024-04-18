@@ -76,6 +76,31 @@ const userDataMapper = {
         return {result,error};
     },
 
+    // Pour récupérer un utilisateur par son alias :
+    async getUserByAlias(alias){
+        // On utilise la fonction sql get_user_by_alias
+        const sqlQuery = "SELECT * FROM get_user_by_alias($1);";
+        // à laquelle on transfère l'alias de l'utilisateur donné par le front
+        const values = [alias];
+
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows[0];
+        // On ne récupère que le premier objet get_user_by_alias du résultat :
+        result = results.get_user_by_alias;
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
+    },
+
     // Pour modifier les informations d'un utilisateur en particulier :
     async updateUser(user){
         // On utilise la fonction sql update_user

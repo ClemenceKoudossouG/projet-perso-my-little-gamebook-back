@@ -26,10 +26,9 @@ const userController = {
         try {
             const user = req.body;
             // On vérifie si le pseudo est déjà pris
-            const existingUser = await userDataMapper.getUser();
-            if (existingUser.result) {
-            const error = new APIError('Pseudo déjà utilisé', 400);
-            return next(error);
+            const existingUser = await userDataMapper.getUserByAlias(user.alias);
+            if (existingUser) {
+            return res.status(409).json({ error: "Ce pseudo est déjà pris, tu dois en choisir un autre !" });
             }
             // Vérification du format de mdp
             if(!schema.validate(user.password)) {
