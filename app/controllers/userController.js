@@ -27,7 +27,7 @@ const userController = {
             const user = req.body;
             // On vérifie si le pseudo est déjà pris
             const existingUser = await userDataMapper.getUserByAlias(user.alias);
-            if (existingUser) {
+            if (existingUser.result) {
             return res.status(409).json({ error: "Ce pseudo est déjà pris, tu dois en choisir un autre !" });
             }
             // Vérification du format de mdp

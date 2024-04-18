@@ -533,3 +533,5 @@
 18-04-2024 15:35:57:3557 error: duplicate key value violates unique constraint "user_alias_key"
 18-04-2024 15:37:12:3712 error: duplicate key value violates unique constraint "user_alias_key"
 18-04-2024 15:37:40:3740 error: duplicate key value violates unique constraint "user_alias_key"
+18-04-2024 16:07:40:740 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
+18-04-2024 16:09:55:955 error: Hop hop hop, qu'est ce que tu fais là ?
