@@ -559,3 +559,19 @@
 18-04-2024 15:37:40:3740 error: duplicate key value violates unique constraint "user_alias_key"
 18-04-2024 16:07:40:740 error: Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.
 18-04-2024 16:09:55:955 error: Hop hop hop, qu'est ce que tu fais là ?
+18-04-2024 17:05:24:524 error: Identifiants incorrects.
+18-04-2024 17:05:38:538 error: Identifiants incorrects.
+18-04-2024 17:05:40:540 error: Identifiants incorrects.
+18-04-2024 17:05:59:559 error: Identifiants incorrects.
+19-04-2024 13:38:23:3823 error: duplicate key value violates unique constraint "user_alias_key"
+19-04-2024 13:38:46:3846 error: duplicate key value violates unique constraint "user_alias_key"
+19-04-2024 13:40:03:403 error: duplicate key value violates unique constraint "user_alias_key"
+19-04-2024 15:01:58:158 error: Hop hop hop, qu'est ce que tu fais là ?
+19-04-2024 15:01:59:159 error: Hop hop hop, qu'est ce que tu fais là ?
+19-04-2024 15:02:08:28 error: Hop hop hop, qu'est ce que tu fais là ?
+19-04-2024 15:02:19:219 error: Hop hop hop, qu'est ce que tu fais là ?
+19-04-2024 15:49:28:4928 error: duplicate key value violates unique constraint "user_alias_key"
+19-04-2024 15:49:46:4946 error: duplicate key value violates unique constraint "user_alias_key"
+22-04-2024 10:50:23:5023 error: Hop hop hop, qu'est ce que tu fais là ?
+22-04-2024 14:06:31:631 error: Hop hop hop, qu'est ce que tu fais là ?
+22-04-2024 14:06:33:633 error: Hop hop hop, qu'est ce que tu fais là ?

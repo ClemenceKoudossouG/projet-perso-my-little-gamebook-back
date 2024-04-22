@@ -85,10 +85,14 @@ const userController = {
             // Utilisateur trouvé ?
             if(getUserError){
                 next(getUserError);
-            // On vérifie que que l'id de l'utilisateur connecté est le même que celui de l'utilisateur à modifier
+            // On vérifie que que l'id de l'utilisateur connecté est le même que celui de l'utilisateur à modifier.
             } else if (user.result.id !== userToUpdate.id) {
                 throw new Error("Unauthorized", 401);
             } else {
+                 // Couche de contrôle en plus du côté client : on vérifie qe l'alias n'est pas une chaîne de caractères vide
+            if (!req.body.alias || !req.body.alias.trim()) {
+                throw new Error("Alias is required", 400); // Return 400 Bad Request
+            }
                 // Màj des valeurs dans l'objet
                 const updatedUser = { ...userToUpdate, ...req.body };            
                 //  Màj en BDD
