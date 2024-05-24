@@ -6,6 +6,9 @@ import JWT from "../services/jwt.js";
 // On utilise l'affichage des APIError
 import APIError from './errorHandler/APIError.js';
 
+// Module node.js crypto pour générer des tokens pour le reset de mot de passe
+import crypto from 'crypto';
+
 // Pour vérifier à chaque fois si l'utilisateur est un membre connecté enregistré, on vérifie son token :
 export function isMember(req, res, next) {
     
@@ -37,4 +40,9 @@ export async function encodePassword(password){
 // Pour vérifier le mot de passe :
 export async function passwordMatch(password, passwordHash){
     return await bcrypt.compare(password, passwordHash);
+}
+
+// Pour générer un token de réinitialisation de mot de passe :
+export function generateResetToken(){
+    return crypto.randomBytes(32).toString('hex');
 }

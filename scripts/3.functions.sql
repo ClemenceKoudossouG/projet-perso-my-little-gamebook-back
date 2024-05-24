@@ -352,9 +352,10 @@ $$ LANGUAGE sql SECURITY DEFINER;
 -- Pour créer un utilisateur :
 CREATE OR REPLACE FUNCTION add_user(u json) RETURNS "user" AS $$
 	INSERT INTO "user"
-	(password,alias,avatar)
+	(email,password,alias,avatar)
 	VALUES
 	(
+        u->>'email',
 		u->>'password',
         u->>'alias',
         u->>'avatar'
@@ -369,6 +370,7 @@ DECLARE
 BEGIN
 	SELECT json_build_object(
 		'id',id,
+        'email',email,
 		'alias',alias,
         'avatar',avatar,
 		'password',password
@@ -389,9 +391,20 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE OR REPLACE FUNCTION get_user_by_id(int) RETURNS SETOF json AS $$
 SELECT json_build_object(
     'id',"user".id,
+    'email',"user".email,
     'alias',"user".alias,
     'avatar',"user".avatar
     ) FROM "user" WHERE "id"=$1;
+$$ LANGUAGE sql SECURITY DEFINER;
+
+-- Pour récupérer un utilisateur en particulier via son email :
+CREATE OR REPLACE FUNCTION get_user_by_email(TEXT) RETURNS SETOF json AS $$
+SELECT json_build_object(
+    'id',"user".id,
+    'email',"user".email,
+    'alias',"user".alias,
+    'avatar',"user".avatar
+    ) FROM "user" WHERE "email"=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Pour récupérer un utilisateur en particulier via son alias :
@@ -406,6 +419,7 @@ $$ LANGUAGE sql SECURITY DEFINER;
 -- Pour modifier un utilisateur :
 CREATE OR REPLACE FUNCTION update_user(u json) RETURNS "user" AS $$
 	UPDATE "user" SET
+        "email"=u->>'email',
 		"alias"=u->>'alias',
 		"avatar"=u->>'avatar'
 	WHERE "id"=(u->>'id')::int

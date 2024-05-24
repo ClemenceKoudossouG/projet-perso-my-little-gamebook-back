@@ -11,6 +11,7 @@ import placeRouter from "./place.js";
 import storyRouter from "./story.js";
 import userRouter from "./user.js";
 import worldRouter from "./world.js";
+//import resetPasswordRouter from "./resetPassword.js";
 
 // On importe Router pour l'utiliser pour chaque router
 
@@ -29,6 +30,7 @@ router.use("/places",placeRouter);
 router.use("/stories",storyRouter);
 router.use("/user",userRouter);
 router.use("/worlds",worldRouter);
+//router.use("/resetPassword",resetPasswordRouter);
 
 // On utiliser le service de gestion d'erreurs
 router.use(errorHandler);

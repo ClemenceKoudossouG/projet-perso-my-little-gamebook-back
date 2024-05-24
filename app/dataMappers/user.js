@@ -76,6 +76,31 @@ const userDataMapper = {
         return {result,error};
     },
 
+    // Pour récupérer un utilisateur par son email :
+    async getUserByEmail(email){
+        // On utilise la fonction sql get_user_by_email
+        const sqlQuery = "SELECT * FROM get_user_by_email($1);";
+        // à laquelle on transfère l'email de l'utilisateur donné par le front
+        const values = [email];
+
+        let result;
+        let results
+        let error;
+        try {
+        // Avec la méthode async/await
+        const response = await pool.query(sqlQuery,values);
+        // On récupère les informations données par la bdd
+        results = response.rows[0];
+        // On ne récupère que le premier objet get_user_by_email du résultat :
+        result = results.get_user_by_email;
+        }
+        catch (err) {
+            error = err;
+        }
+        // On retourne soit le résultat, soit l'erreur
+        return {result,error};
+    },
+
     // Pour récupérer un utilisateur par son alias :
     async getUserByAlias(alias){
         // On utilise la fonction sql get_user_by_alias

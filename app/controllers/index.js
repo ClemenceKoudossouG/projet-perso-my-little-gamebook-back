@@ -9,6 +9,7 @@ import { placeController } from "./placeController.js";
 import { storyController } from "./storyController.js";
 import { userController } from "./userController.js";
 import { worldController } from "./worldController.js";
+//import { resetPasswordController } from "./resetPasswordController.js";
 
 // Export de tous les controllers
 export {
@@ -20,5 +21,6 @@ export {
     placeController,
     storyController,
     userController,
-    worldController
+    worldController,
+    //resetPasswordController
 }
