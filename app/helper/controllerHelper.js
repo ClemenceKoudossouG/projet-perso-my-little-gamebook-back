@@ -16,3 +16,14 @@ export function manageResponse(res,result,error,next){
         res.json(result);
     }
 }
+
+export function manageEmailResponse(res, result, error, next) {
+    if (error) {
+        next(error);
+    } else {
+        res.json({
+            success: true,
+            data: result
+        });
+    }
+}
