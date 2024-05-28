@@ -432,4 +432,41 @@ CREATE OR REPLACE FUNCTION delete_user(int) RETURNS void AS $$
 	WHERE "id"=$1;
 $$ LANGUAGE sql SECURITY DEFINER;
 
+-- Pour sauvegarder le token de réinitialisation de mot de passe :
+CREATE OR REPLACE FUNCTION save_token(p_user_id INTEGER, p_token TEXT)
+RETURNS TABLE(id INTEGER, user_id INTEGER, token TEXT, expires_at TIMESTAMPTZ, created_at TIMESTAMPTZ) AS $$
+BEGIN
+    RETURN QUERY
+    INSERT INTO password_reset_requests (user_id, token, expires_at)
+    VALUES (p_user_id, p_token, NOW() + INTERVAL '1 hour')
+    RETURNING password_reset_requests.id, password_reset_requests.user_id, password_reset_requests.token, password_reset_requests.expires_at, password_reset_requests.created_at;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Pour vérifier le token de réinitialisation de mot de passe :
+CREATE OR REPLACE FUNCTION get_token(p_token TEXT)
+RETURNS TABLE(id INTEGER, user_id INTEGER, token TEXT, expires_at TIMESTAMPTZ, created_at TIMESTAMPTZ) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT prr.id, prr.user_id, prr.token, prr.expires_at, prr.created_at
+    FROM password_reset_requests prr
+    WHERE prr.token = p_token
+    AND prr.expires_at > NOW();
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Pour mettre à jour le mot de passe de l'utilisateur :
+CREATE OR REPLACE FUNCTION update_password(p_user_id INTEGER, p_password TEXT)
+RETURNS TABLE(id INTEGER, email domain_mail, alias TEXT, avatar TEXT) AS $$
+BEGIN
+    RETURN QUERY
+    UPDATE "user"
+    SET password = p_password
+    WHERE "user".id = p_user_id
+    RETURNING "user".id, "user".email, "user".alias, "user".avatar;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+
+
 COMMIT;

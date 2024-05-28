@@ -30,6 +30,9 @@ CREATE TABLE "password_reset_requests" (
   "expires_at" TIMESTAMPTZ NOT NULL
 );
 
+CREATE INDEX idx_password_reset_token ON password_reset_requests (token);
+CREATE INDEX idx_password_reset_expires_at ON password_reset_requests (expires_at);
+
 CREATE TABLE "story" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name"        TEXT NOT NULL,

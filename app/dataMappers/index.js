@@ -10,6 +10,7 @@ import { npcDataMapper } from "./npc.js";
 import { itemDataMapper } from "./item.js";
 import { actionDataMapper } from "./action.js";
 import { userDataMapper } from "./user.js";
+import { resetPasswordDataMapper  } from "./resetPassword.js";
 
 // et on les exporte pour qu'ils soient utilisables
 export {
@@ -21,5 +22,6 @@ export {
     npcDataMapper,
     itemDataMapper,
     actionDataMapper,
-    userDataMapper
+    userDataMapper,
+    resetPasswordDataMapper 
 }

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { resetPasswordController } from '../controllers/resetPasswordController.js';
+import { resetPasswordController } from '../controllers/index.js';
 
 const router = Router();
 
@@ -13,6 +13,17 @@ const router = Router();
  * @return {ApiError} 404 - Error: User not found - application/json
  */
 
-router.post('/', resetPasswordController.resetPassword);
+router.post('/', resetPasswordController.passwordResetRequest);
 
-// export default router;
+/**
+ * POST /reset-password
+ * @summary Reset password
+ * @tags ResetPassword
+ * @param {string} request.body.required - token, password
+ * @return 200 - Success response - application/json
+ * @return {ApiError} 400 - Error: Bad Request - application/json
+ * @return {ApiError} 404 - Error: Token invalid - application/json
+ */
+router.post('/reset-password', resetPasswordController.passwordReset);
+
+export default router;
