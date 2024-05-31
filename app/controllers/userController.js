@@ -30,6 +30,11 @@ const userController = {
             if (existingUser.result) {
             return res.status(409).json({ error: "Ce pseudo est déjà pris, tu dois en choisir un autre !" });
             }
+            // On vérifie si l'email est déjà utilisé
+            const existingEmailUser = await userDataMapper.getUserByEmail(user.email);
+            if (existingEmailUser.result) {
+            return res.status(409).json({ error: "Cet email est déjà utilisé, veuillez en choisir un autre ou vous connecter." });
+            }
             // Vérification du format de mdp
             if(!schema.validate(user.password)) {
                 const error = new APIError('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule et minuscule, 1 chiffre et 1 caractère spécial.', 400);
