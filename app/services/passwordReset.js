@@ -11,7 +11,7 @@ export async function sendPasswordResetEmail(email, resetToken) {
             },
         });
 
-    const resetUrl = `http://localhost:5173/reset-password?token=${resetToken}`; // À adapter
+    const resetUrl = `http://localhost:5173/request-password-reset/reset-password?token=${resetToken}`; 
 
     const mailOptions = {
         from: 'clemence.garde@icloud.com',

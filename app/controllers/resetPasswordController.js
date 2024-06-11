@@ -33,31 +33,43 @@ const resetPasswordController = {
     },
     async passwordReset(req, res, next) {
         try {
-            const { token, password } = req.body;
-            const { result, error } = await resetPasswordDataMapper.getToken(token);
-
+            const { resetToken, password } = req.body;
+            console.log('Received token:', resetToken);
+            console.log('Received password:', password);
+            
+            const { result, error } = await resetPasswordDataMapper.getToken(resetToken);
+            if (error) {
+                console.error('Error fetching token:', error);
+                next(new APIError("Token invalide ou expiré.", 404));
+                return;
+            }
+    
             if (result) {
                 const userId = result.user_id;
                 if (!userId) {
+                    console.error('User ID is undefined.');
                     next(new APIError("User ID is undefined.", 404));
                     return;
                 }
+    
                 const hashedPassword = await encodePassword(password);
                 console.log('Hashed Password:', hashedPassword); // Log hashed password
+    
                 const { result: updateResult, error: updateError } = await resetPasswordDataMapper.updatePassword(userId, hashedPassword);
-                
                 if (updateError) {
+                    console.error('Failed to update password:', updateError);
                     next(new APIError("Failed to update password.", 500));
                     return;
                 }
-                
+    
                 console.log("Update Result:", updateResult); // Log update result
-                
                 res.status(200).json({ success: true, message: 'Mise à jour du mot de passe réussie.' });
             } else {
+                console.error('Invalid or expired token.');
                 next(new APIError("Token invalide ou expiré.", 404));
             }
         } catch (error) {
+            console.error('Unexpected error:', error);
             next(error);
         }
     }
