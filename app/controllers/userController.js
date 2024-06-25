@@ -94,10 +94,16 @@ const userController = {
             } else if (user.result.id !== userToUpdate.id) {
                 throw new Error("Unauthorized", 401);
             } else {
+                const existingAliasUser = await userDataMapper.getUserByAlias(req.body.alias);
                  // Couche de contrôle en plus du côté client : on vérifie qe l'alias n'est pas une chaîne de caractères vide
             if (!req.body.alias || !req.body.alias.trim()) {
                 throw new Error("Alias is required", 400); // Return 400 Bad Request
-            }
+            } else if
+                // On vérifie si l'alias est déjà utilisé
+                (existingAliasUser.result && existingAliasUser.result.id !== user.result.id) {
+                    const error = new APIError("Alias already taken.", 409);
+                    throw error;
+                }
                 // Màj des valeurs dans l'objet
                 const updatedUser = { ...userToUpdate, ...req.body };            
                 //  Màj en BDD
@@ -105,9 +111,10 @@ const userController = {
                 // Vérification d'erreur
                 if (updateError) {
                     next(updateError);
-                } else {
-                    res.json(updatedResult);
-                }
+                } 
+                    
+                res.json(updatedResult);
+                
             }
         } catch (error) {
             next(error);
