@@ -12,6 +12,7 @@ import storyRouter from "./story.js";
 import userRouter from "./user.js";
 import worldRouter from "./world.js";
 import resetPasswordRouter from "./resetPassword.js";
+import contactEmailRouter from "./contactEmail.js";
 
 // On importe Router pour l'utiliser pour chaque router
 
@@ -31,6 +32,7 @@ router.use("/stories",storyRouter);
 router.use("/user",userRouter);
 router.use("/worlds",worldRouter);
 router.use("/request-password-reset",resetPasswordRouter);
+router.use("/contactEmail",contactEmailRouter);
 
 // On utiliser le service de gestion d'erreurs
 router.use(errorHandler);

@@ -30,6 +30,14 @@ CREATE TABLE "password_reset_requests" (
   "expires_at" TIMESTAMPTZ NOT NULL
 );
 
+CREATE TABLE "contact_messages" (
+  "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "email"      domain_mail NOT NULL,
+  "name"       TEXT NOT NULL,
+  "message"    TEXT NOT NULL,
+  "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 CREATE INDEX idx_password_reset_token ON password_reset_requests (token);
 CREATE INDEX idx_password_reset_expires_at ON password_reset_requests (expires_at);
 

@@ -467,6 +467,17 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
+-- Pour sauvegarder un message de contact :
+CREATE OR REPLACE FUNCTION save_email(p_email domain_mail, p_name TEXT, p_message TEXT)
+RETURNS TABLE(id INTEGER, email domain_mail, name TEXT, message TEXT, created_at TIMESTAMPTZ) AS $$
+BEGIN
+    RETURN QUERY
+    INSERT INTO contact_messages (email, name, message)
+    VALUES (p_email, p_name, p_message)
+    RETURNING contact_messages.id, contact_messages.email, contact_messages.name, contact_messages.message, contact_messages.created_at;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
 
 
 COMMIT;
