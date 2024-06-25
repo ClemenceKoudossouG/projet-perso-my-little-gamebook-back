@@ -10,7 +10,7 @@ import { storyController } from "./storyController.js";
 import { userController } from "./userController.js";
 import { worldController } from "./worldController.js";
 import { resetPasswordController } from "./resetPasswordController.js";
-
+import { contactEmailController } from "./contactEmailController.js";
 // Export de tous les controllers
 export {
     actionController,
@@ -22,5 +22,6 @@ export {
     storyController,
     userController,
     worldController,
-    resetPasswordController
+    resetPasswordController,
+    contactEmailController
 }

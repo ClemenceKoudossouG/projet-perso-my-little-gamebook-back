@@ -11,6 +11,7 @@ import { itemDataMapper } from "./item.js";
 import { actionDataMapper } from "./action.js";
 import { userDataMapper } from "./user.js";
 import { resetPasswordDataMapper  } from "./resetPassword.js";
+import { contactEmailDataMapper } from "./contactEmail.js";
 
 // et on les exporte pour qu'ils soient utilisables
 export {
@@ -23,5 +24,6 @@ export {
     itemDataMapper,
     actionDataMapper,
     userDataMapper,
-    resetPasswordDataMapper 
+    resetPasswordDataMapper,
+    contactEmailDataMapper
 }

@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import nodemailer from 'nodemailer';
 
 export async function sendPasswordResetEmail(email, resetToken) {
@@ -6,8 +9,8 @@ export async function sendPasswordResetEmail(email, resetToken) {
             port: 587,
             secure: false,
             auth: {
-                user: 'REDACTED',
-                pass: 'REDACTED',
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
             },
         });
 
@@ -17,8 +20,8 @@ export async function sendPasswordResetEmail(email, resetToken) {
         from: 'REDACTED',
         to: email,
         subject: 'Réinitialisation du mot de passe',
-        text: `Vous avez effectué une demande de réinitialisation du mot de passe. Veuillez cliquer sur ce lien : ${resetUrl}`,
-        html: `<p>Vous avez effectué une demande de réinitialisation du mot de passe. Veuillez cliquer sur ce lien :</p><p><a href="${resetUrl}">${resetUrl}</a></p>`
+        text: `Salut, cher aventurier ou chère aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien : ${resetUrl}`,
+        html: `<p>Salut, cher aventurier ou chère aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien :</p><p><a href="${resetUrl}">${resetUrl}</a></p>`
     };
 
     try {
