@@ -20,8 +20,8 @@ export async function sendPasswordResetEmail(email, resetToken) {
         from: 'REDACTED',
         to: email,
         subject: 'Réinitialisation du mot de passe',
-        text: `Salut, cher aventurier ou chère aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien : ${resetUrl}`,
-        html: `<p>Salut, cher aventurier ou chère aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien :</p><p><a href="${resetUrl}">${resetUrl}</a></p>`
+        text: `Salut à toi, jeune aventurier ou jeune aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien : ${resetUrl}`,
+        html: `<p>Salut à toi, jeune aventurier ou jeune aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien :</p><p><a href="${resetUrl}">${resetUrl}</a></p>`
     };
 
     try {
