@@ -11,10 +11,10 @@ const contactEmailController = {
                 next(new APIError("Renseigne bien ton nom, ton email et ton message.", 400));
                 return;
             }
-            await contactEmailDataMapper.saveEmail(email, name, message);
+            await contactEmailDataMapper.saveEmail(name, email, message);
             console.log('Email saved in database');
             await sendContactEmail(name, email, message);
-            manageEmailResponse(res, { email, name, message }, null, next);
+            manageEmailResponse(res, { name, email, message }, null, next);
         } catch (error) {
             next(error);
         }
