@@ -27,7 +27,7 @@ export async function sendContactEmail(email, name, message) {
         to: process.env.EMAIL_FROM, // Send the email to yourself
         subject: 'Contact Form Submission',
         text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p>${message}</p>`
+        html: `<p><strong>Email:</strong> ${name}</p><p><strong>Name:</strong> ${email}</p><p>${message}</p>`
     };
 
     try {
