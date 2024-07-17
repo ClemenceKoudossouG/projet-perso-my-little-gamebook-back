@@ -17,7 +17,7 @@ export async function sendPasswordResetEmail(email, resetToken) {
     const resetUrl = `http://localhost:5173/request-password-reset/reset-password?token=${resetToken}`; 
 
     const mailOptions = {
-        from: 'REDACTED',
+        from: process.env.EMAIL_FROM,
         to: email,
         subject: 'Réinitialisation du mot de passe',
         text: `Salut à toi, jeune aventurier ou jeune aventurière ! Tu as effectué une demande de réinitialisation du mot de passe. Clique sur ce lien : ${resetUrl}`,
