@@ -11,9 +11,9 @@ const contactEmailController = {
                 next(new APIError("Renseigne bien ton nom, ton email et ton message.", 400));
                 return;
             }
-            await contactEmailDataMapper.saveEmail(name, email, message);
+            await contactEmailDataMapper.saveEmail(email, name, message);
             console.log('Email saved in database');
-            await sendContactEmail(name, email, message);
+            await sendContactEmail(email, name, message);
             manageEmailResponse(res, { name, email, message }, null, next);
         } catch (error) {
             next(error);
