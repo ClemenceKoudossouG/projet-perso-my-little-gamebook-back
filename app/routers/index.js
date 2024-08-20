@@ -4,6 +4,7 @@ import { Router } from "express";
 // On importe tous les routers existants dans chaque fichier qui porte son nom
 import actionRouter from "./action.js";
 import compartmentRouter from "./compartment.js";
+import accountFreeStoriesRouter from "./accountFreeStories.js";
 import genreRouter from "./genre.js";
 import itemRouter from "./item.js";
 import npcRouter from "./npc.js";
@@ -24,6 +25,7 @@ import errorHandler  from "../services/errorHandler/errorHandler.js";
 // On renvoie vers tous les routers
 router.use("/actions",actionRouter);
 router.use("/compartments",compartmentRouter);
+router.use("/accountFreeStories",accountFreeStoriesRouter);
 router.use("/genres",genreRouter);
 router.use("/items",itemRouter);
 router.use("/npcs",npcRouter);
