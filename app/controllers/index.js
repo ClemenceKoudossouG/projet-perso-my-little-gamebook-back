@@ -2,6 +2,7 @@
 // Import de tous les controllers
 import { actionController } from "./actionController.js";
 import { compartmentController } from "./compartmentController.js";
+import { accountFreeCompartmentController } from "./accountFreeCompartmentController.js";
 import { genreController } from "./genreController.js";
 import { itemController } from "./itemController.js";
 import { npcController } from "./npcController.js";
@@ -15,6 +16,7 @@ import { contactEmailController } from "./contactEmailController.js";
 export {
     actionController,
     compartmentController,
+    accountFreeCompartmentController,
     genreController,
     itemController,
     npcController,
