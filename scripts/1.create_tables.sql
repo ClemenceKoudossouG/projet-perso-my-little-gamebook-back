@@ -1,62 +1,86 @@
 BEGIN;
 
-DROP TABLE IF EXISTS "user", "story", "genre", "world", "place", "npc", "item", "action", "compartment", "user_has_story", "user_has_item", "action_has_item", "story_has_genre", "compartment_has_action", "place_has_world", "npc_has_world", "npc_has_action";
+DROP TABLE IF EXISTS "user", "password_reset_requests", "story", "genre", "world", "place", "npc", "item", "action", "compartment", "user_has_story", "user_has_item", "action_has_item", "story_has_genre", "compartment_has_action", "place_has_world", "npc_has_world", "npc_has_action" CASCADE;
 
-CREATE DOMAIN domain_password AS TEXT
-CHECK(
-   VALUE ~ '^[a-zA-Z0-9!?*_%]{6,20}$' 
-);
+-- Le mdp est maintenant chiffré.
+-- CREATE DOMAIN domain_password AS TEXT
+-- CHECK(
+--    VALUE ~ '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!?*_%])[a-zA-Z0-9!?*_%]{8,20}$'
+-- );
 
 CREATE DOMAIN domain_mail AS TEXT
 CHECK(
-   VALUE ~ '^([-!#-''*+/-9=?A-Z^-~]+(\.[-!#-''*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)*|\[((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|IPv6:((((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){6}|::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){5}|[0-9A-Fa-f]{0,4}::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){4}|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):)?(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){3}|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,2}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){2}|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,3}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,4}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::)((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3})|(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3})|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,5}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3})|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,6}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::)|(?!IPv6:)[0-9A-Za-z-]*[0-9A-Za-z]:[!-Z^-~]+)])$' 
+  VALUE ~ '^([-!#-''*+/-9=?A-Z^-~]+(\.[-!#-''*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)*|\[((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|IPv6:((((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){6}|::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){5}|[0-9A-Fa-f]{0,4}::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){4}|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):)?(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){3}|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,2}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){2}|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,3}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,4}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::)((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3})|(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3})|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,5}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3})|(((0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}):){0,6}(0|[1-9A-Fa-f][0-9A-Fa-f]{0,3}))?::)|(?!IPv6:)[0-9A-Za-z-]*[0-9A-Za-z]:[!-Z^-~]+)])$' 
 );
 
 CREATE TABLE "user" (
   "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "email"      domain_mail NOT NULL UNIQUE,
-  "password"   domain_password NOT NULL,
-  "lastname"   TEXT NOT NULL,
-  "firstname"  TEXT NOT NULL,
-  "alias"      TEXT NOT NULL,
+  "password"   TEXT NOT NULL,
+  "alias"      TEXT NOT NULL UNIQUE,
   "avatar"     TEXT,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE "password_reset_requests" (
+  "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "user_id"    INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
+  "token"      TEXT NOT NULL,
+  "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  "expires_at" TIMESTAMPTZ NOT NULL
+);
+
+CREATE TABLE "contact_messages" (
+  "id"         INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "email"      domain_mail NOT NULL,
+  "name"       TEXT NOT NULL,
+  "message"    TEXT NOT NULL,
+  "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX idx_password_reset_token ON password_reset_requests (token);
+CREATE INDEX idx_password_reset_expires_at ON password_reset_requests (expires_at);
 
 CREATE TABLE "story" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name"        TEXT NOT NULL,
   "level"       INTEGER NOT NULL DEFAULT 1,
+  "description" TEXT,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "genre" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "world" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "place" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "npc" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE "item" (
   "id"          INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "label"       TEXT NOT NULL,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
@@ -65,6 +89,7 @@ CREATE TABLE "action" (
   "label"       TEXT NOT NULL,
   "class"       TEXT NOT NULL,
   "consequence" TEXT,
+  "img"         TEXT NOT NULL,
   "created_at"  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
@@ -110,6 +135,8 @@ CREATE TABLE "story_has_genre"(
 CREATE TABLE "compartment_has_action"(
   "compartment_id" INTEGER NOT NULL REFERENCES "compartment"("id") ON DELETE CASCADE,
   "action_id" INTEGER NOT NULL REFERENCES "action"("id") ON DELETE CASCADE,
+  "child" INTEGER,
+  "item" INTEGER,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY ("compartment_id", "action_id")
 );
