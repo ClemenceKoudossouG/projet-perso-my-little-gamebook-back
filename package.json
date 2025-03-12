@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js",
+    "start": "node index.js",
     "test": "jest tests/api.test.js"
   },
   "keywords": [
