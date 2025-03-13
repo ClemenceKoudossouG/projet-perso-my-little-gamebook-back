@@ -2,7 +2,7 @@
 
 My Little Gamebook aims to allow young users (ages 3 and up) to play interactive stories similar to Choose Your Own Adventure books, where the storyline unfolds based on the user's choices.
 
-## Fonctionnalités principales
+## Main features
 
 - User space with profile management
 - With a profile: play interactive stories available in an immersive interface
