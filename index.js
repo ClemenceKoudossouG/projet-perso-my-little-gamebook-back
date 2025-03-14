@@ -6,7 +6,7 @@ import express from "express";
 
 const app = express();
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT || 3000;
 
 import router from "./app/routers/index.js";
 
@@ -26,8 +26,8 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(router);
 
-app.listen(PORT, ()=>{
-    console.log(`Back is listening at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Back is listening at http://0.0.0.0:${PORT}`);
 });
 
 
