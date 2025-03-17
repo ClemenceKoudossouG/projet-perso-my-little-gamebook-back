@@ -34,8 +34,8 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(router);
 
-app.listen(PORT, ()=>{
-    console.log(`Back is listening on http://localhost${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Back is listening on port ${PORT}`);
 });
 
 
