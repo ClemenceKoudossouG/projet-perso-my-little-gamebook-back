@@ -17,11 +17,7 @@ expressJSDocSwagger(app)
 //(options)
 
 // Pour accéder aux ressources d'un autre serveur (requêter notre API via le serveur Front) :
-app.use(cors({
-    origin: process.env.FRONTEND_URL || '*', // Allow frontend URL from env
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true // Allow cookies & auth headers
-}));
+app.use(cors);
 
 
 // Pour autoriser l'envoi de JSON si nécessaire :
