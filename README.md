@@ -21,7 +21,17 @@ When you're ready, build your container and start your application by running:
 
 Or, to start an existing container from the command line, just run `docker compose up`.
 
-Your application will be available at http://localhost:3000.
+Your application will be available at http://localhost:3000 (assuming the `PORT` variable 
+in the `.env` file is set to `3000`).
+
+### Running Tests
+
+To run the tests, use the following command:
+`npm test`
+
+### Security
+
+Ensure that the `.env` file is not committed to version control. Use the `.env.example` file as a template for setting up environment variables.
 
 ### Navigating the database
 
@@ -34,7 +44,9 @@ If you want to access the database from your host machine, run the following com
 
 Inside the container, run `psql -U your_username -d your_database`
 
-For the roduction database, use the following CLI command: `psql -h clever-cloud-host -p 50013 -U clever-cloud-user -d clever-cloud-database`. Dev team: get in touch with me for the credentials.
+For the production database, use the following CLI command:
+`psql -h clever-cloud-host -p 50013 -U clever-cloud-user -d clever-cloud-database`.
+Note: Production credentials are stored securely. Contact the admin for access.
 
 ### References
 * [Docker's Node.js guide](https://docs.docker.com/language/nodejs/)
