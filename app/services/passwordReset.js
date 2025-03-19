@@ -11,7 +11,9 @@ export async function sendPasswordResetEmail(email, resetToken) {
                 pass: process.env.SMTP_PASS,
             },
         });
-    const resetUrl = `http://localhost:5173/request-password-reset/reset-password?token=${resetToken}`; 
+    
+    const baseUrl = process.env.NODE_ENV === 'production' ? 'https://my-little-gamebook.netlify.app' : 'http://localhost:5173';
+    const resetUrl = `${baseUrl}/request-password-reset/reset-password?token=${resetToken}`; 
 
     const mailOptions = {
         from: process.env.EMAIL_FROM,
