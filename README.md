@@ -34,18 +34,7 @@ If you want to access the database from your host machine, run the following com
 
 Inside the container, run `psql -U your_username -d your_database`
 
-### Deploying your application to the cloud
-
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
-
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
-
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
+For the roduction database, use the following CLI command: `psql -h clever-cloud-host -p 50013 -U clever-cloud-user -d clever-cloud-database`. Dev team: get in touch with me for the credentials.
 
 ### References
 * [Docker's Node.js guide](https://docs.docker.com/language/nodejs/)
