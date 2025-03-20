@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for projet-perso-my-little-gamebook-back on 2025-03-19T14:55:11Z
+# fly.toml app configuration file generated for projet-perso-my-little-gamebook-back on 2025-03-20T16:32:17Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'projet-perso-my-little-gamebook-back'
-primary_region = 'ams'
+primary_region = 'cdg'
 
 [build]
 
