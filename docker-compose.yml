@@ -20,6 +20,7 @@ services:
       - PGUSER=${PGUSER}
       - PGPASSWORD=${PGPASSWORD}
       - PGDATABASE=${PGDATABASE}
+      - DATABASE_URL=${DATABASE_URL}
       - JWT_SECRET=${JWT_SECRET}
       - SESSION_SECRET=${SESSION_SECRET}
       - BCRYPT_SALT=${BCRYPT_SALT}
@@ -59,7 +60,7 @@ services:
     expose:
       - 5432
     healthcheck:
-      test: [ "CMD", "pg_isready", "-d", "gamebook", "-U", "${PGUSER}" ]
+      test: [ "CMD", "pg_isready", "-d", "${PGDATABASE}", "-U", "${PGUSER}" ]
       interval: 10s
       timeout: 5s
       retries: 5
